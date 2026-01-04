@@ -1,0 +1,264 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adalen - Centre d'Activités Extra-Scolaires pour Enfants{% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">Le Centre Adalen</h1>
+                    <h2 class="hero-subtitle">Grandir, créer et s'épanouir autrement</h2>
+                    <p class="lead mb-4">Un espace dédié à l'épanouissement des enfants à travers des activités extra-scolaires variées, ludiques et éducatives.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="{{ path('app_activities') }}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-star me-2"></i>Découvrir nos activités
+                        </a>
+                        <a href="{{ path('app_contact') }}" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-envelope me-2"></i>Nous contacter
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center mt-4 mt-lg-0">
+                    <img src="{{ asset('assets/img/IMG_20251216_125254.jpg') }}" alt="Enfants Adalen" class="img-fluid rounded-custom shadow-custom" style="max-height: 500px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="py-5" style="padding: 6rem 0;">
+        <div class="container">
+            <h2 class="section-title">Activités Extra-Scolaires</h2>
+            <p class="section-subtitle">Des activités variées pour l'épanouissement de votre enfant</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card">
+                        <img src="{{ asset('assets/img/image5.jpg') }}" alt="Jardinage" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🌱</div>
+                            <h3 class="activity-title">Jardinage</h3>
+                            <p class="activity-description">Nourrir la créativité, l'autonomie et le lien à la nature à travers des expériences concrètes et joyeuses.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card">
+                        <img src="{{ asset('assets/img/image3.jpg') }}" alt="Arts Plastiques" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🎨</div>
+                            <h3 class="activity-title">Arts Plastiques</h3>
+                            <p class="activity-description">Stimuler l'imagination et l'expression artistique des enfants.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card">
+                        <img src="{{ asset('assets/img/image4.jpg') }}" alt="English Bites" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🍴</div>
+                            <h3 class="activity-title">English Bites</h3>
+                            <p class="activity-description">Apprendre l'anglais de façon ludique et interactive.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card">
+                        <img src="{{ asset('assets/img/image2.jpg') }}" alt="Archéologie" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🏺</div>
+                            <h3 class="activity-title">Archéologie</h3>
+                            <p class="activity-description">Éveiller la curiosité et la découverte du passé.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card">
+                        <img src="{{ asset('assets/img/IMG_20251216_130007.jpg') }}" alt="Géologie" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🪨</div>
+                            <h3 class="activity-title">Géologie</h3>
+                            <p class="activity-description">Explorer la terre et ses merveilles naturelles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card">
+                        <img src="{{ asset('assets/img/IMG_20251216_142928.jpg') }}" alt="Sorties Culturelles" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🏛</div>
+                            <h3 class="activity-title">Sorties Culturelles</h3>
+                            <p class="activity-description">Découvrir le monde à travers des expériences enrichissantes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="{{ path('app_activities') }}" class="btn btn-primary btn-lg">
+                    Voir toutes les activités <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="bg-light-green">
+        <div class="container">
+            <div class="row align-items-center g-5 mb-5">
+                <div class="col-lg-6">
+                    <img src="{{ asset('assets/img/IMG_20251216_151936.jpg') }}" alt="Bénéfices activités" class="img-fluid">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start">Comment ces activités profiteront-elles à votre enfant ?</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="text-center p-4">
+                        <div class="quality-icon mb-3">✨</div>
+                        <h4 class="quality-title">Développement de la créativité</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="text-center p-4">
+                        <div class="quality-icon mb-3">🌟</div>
+                        <h4 class="quality-title">Autonomie et confiance en soi</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="text-center p-4">
+                        <div class="quality-icon mb-3">👁️</div>
+                        <h4 class="quality-title">Éveil sensoriel et moteur</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="text-center p-4">
+                        <div class="quality-icon mb-3">🎮</div>
+                        <h4 class="quality-title">Apprentissage par le jeu</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="text-center p-4">
+                        <div class="quality-icon mb-3">💚</div>
+                        <h4 class="quality-title">Bien-être émotionnel</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="text-center p-4">
+                        <div class="quality-icon mb-3">👥</div>
+                        <h4 class="quality-title">Esprit d'équipe et socialisation</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="stat-card">
+                        <div class="stat-icon">👨‍🎓</div>
+                        <div class="stat-number" data-value="50" data-suffix="K+">0</div>
+                        <div class="stat-label">Élèves Inscrits</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="stat-card">
+                        <div class="stat-icon">👩‍🏫</div>
+                        <div class="stat-number" data-value="150" data-suffix="+">0</div>
+                        <div class="stat-label">Animateurs Experts</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-number" data-value="20" data-suffix="+">0</div>
+                        <div class="stat-label">Récompenses</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="stat-card">
+                        <div class="stat-icon">🚐</div>
+                        <div class="stat-number" data-value="100" data-suffix="+">0</div>
+                        <div class="stat-label">Véhicules</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-number" data-value="30" data-suffix="+">0</div>
+                        <div class="stat-label">Années d'Expérience</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-number" data-value="98" data-suffix="%">0</div>
+                        <div class="stat-label">Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section class="quality-section">
+        <div class="container">
+            <h2 class="section-title">Qualité & Environnement</h2>
+            <p class="section-subtitle">Un environnement d'apprentissage exceptionnel pour vos enfants</p>
+            <div class="row align-items-center g-5 mb-5">
+                <div class="col-lg-6 order-lg-2">
+                    <img src="{{ asset('assets/img/IMG_20251216_151941.jpg') }}" alt="Qualité & Environnement" class="img-fluid">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <p class="lead">Nous offrons un environnement sécurisé, stimulant et bienveillant où chaque enfant peut s'épanouir et développer son potentiel unique.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="quality-item">
+                        <div class="quality-icon">😊</div>
+                        <h4 class="quality-title">Happy Environment</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="quality-item">
+                        <div class="quality-icon">🎯</div>
+                        <h4 class="quality-title">Play to Learn</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="quality-item">
+                        <div class="quality-icon">👨‍🏫</div>
+                        <h4 class="quality-title">Quality Educators</h4>
+                        <div class="quality-percentage">86%</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="quality-item">
+                        <div class="quality-icon">🔒</div>
+                        <h4 class="quality-title">Safety & Security</h4>
+                        <div class="quality-percentage">90%</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="quality-item">
+                        <div class="quality-icon">💬</div>
+                        <h4 class="quality-title">Better Self Expression</h4>
+                        <div class="quality-percentage">78%</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="quality-item">
+                        <div class="quality-icon">🎨</div>
+                        <h4 class="quality-title">Enhanced Creativity</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

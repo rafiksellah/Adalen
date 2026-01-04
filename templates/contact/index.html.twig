@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact - Adalen{% endblock %}
+
+{% block body %}
+    <!-- Page Header -->
+    <section class="hero-section py-4" style="padding: 60px 0;">
+        <div class="container">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bold mb-3">Contactez-nous</h1>
+                <p class="lead">Nous sommes là pour répondre à toutes vos questions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-5" style="padding: 5rem 0;">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4" style="border-radius: 24px; transition: all 0.3s ease;">
+                        <div class="mb-3">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--adalen-primary), var(--adalen-primary-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                <i class="fas fa-phone fa-2x text-white"></i>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--adalen-dark);">Téléphone</h5>
+                        <p class="text-muted mb-0">
+                            <a href="tel:+213563000517" style="color: var(--adalen-gray); text-decoration: none;">+213 563 000 517</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4" style="border-radius: 24px; transition: all 0.3s ease;">
+                        <div class="mb-3">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--adalen-green), var(--adalen-green-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                <i class="fas fa-map-marker-alt fa-2x text-white"></i>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--adalen-dark);">Adresse</h5>
+                        <p class="text-muted mb-0">Hydra – Alger</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4" style="border-radius: 24px; transition: all 0.3s ease;">
+                        <div class="mb-3">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--adalen-primary), var(--adalen-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                <i class="fas fa-envelope fa-2x text-white"></i>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--adalen-dark);">Email</h5>
+                        <p class="text-muted mb-0">
+                            <a href="mailto:montessoriadalen@gmail.com" style="color: var(--adalen-gray); text-decoration: none;">montessoriadalen@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form and Map -->
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card shadow-custom" style="border-radius: 24px;">
+                        <div class="card-body p-4">
+                            <h2 class="card-title mb-4" style="font-size: 2rem; font-weight: 700; color: var(--adalen-dark);">Envoyez-nous un message</h2>
+                            
+                            {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': true}}) }}
+                            
+                            <div class="mb-3">
+                                {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+                                <div class="col-md-6">
+                                    {{ form_row(form.phone, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                {{ form_row(form.subject, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            
+                            <div class="mb-3">
+                                {{ form_row(form.message, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            
+                            {{ form_row(form.honeypot) }}
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Envoyer le message
+                                </button>
+                            </div>
+                            
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card shadow-custom" style="border-radius: 24px; overflow: hidden;">
+                        <div class="card-body p-0">
+                            <div class="ratio ratio-16x9" style="position: relative; overflow: hidden;">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.5!2d3.00606!3d36.714054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzYsNDIsNTAuNiJOIDPCsDAwJzIxLjgiRQ!5e0!3m2!1sfr!2sdz!4v1234567890123!5m2!1sfr!2sdz"
+                                    style="border:0; width: 100%; height: 100%; position: absolute; top: 0; left: 0;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Adalen - Hydra, Alger">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

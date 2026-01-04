@@ -1,0 +1,144 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Animateurs - Adalen{% endblock %}
+
+{% block body %}
+    <!-- Page Header -->
+    <section class="hero-section py-4" style="padding: 60px 0;">
+        <div class="container">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bold mb-3">Nos Animateurs</h1>
+                <p class="lead">Rencontrez notre équipe d'animateurs passionnés et expérimentés</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animators Grid -->
+    <section class="py-5">
+        <div class="container">
+            {% if animatorsByCategory|length > 0 %}
+                {% for category, animators in animatorsByCategory %}
+                    {% if category != 'Autres' %}
+                        <div class="mb-5">
+                            <h2 class="text-center mb-4 fw-bold">{{ category }}</h2>
+                            <div class="row g-4">
+                                {% for animator in animators %}
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="card h-100 text-center">
+                                            {% if animator.image %}
+                                                <img src="{{ asset('assets/img/' ~ animator.image) }}" class="card-img-top" alt="{{ animator.name }}" style="height: 300px; object-fit: cover;">
+                                            {% else %}
+                                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 300px;">
+                                                    <i class="fas fa-user-circle" style="font-size: 5rem; color: var(--adalen-primary);"></i>
+                                                </div>
+                                            {% endif %}
+                                            <div class="card-body">
+                                                <h4 class="card-title fw-bold">{{ animator.name }}</h4>
+                                                {% if animator.title %}
+                                                    <p class="text-muted mb-3">{{ animator.title }}</p>
+                                                {% endif %}
+                                                {% if animator.description %}
+                                                    <p class="card-text">{{ animator.description|slice(0, 100) }}{% if animator.description|length > 100 %}...{% endif %}</p>
+                                                {% endif %}
+                                            </div>
+                                            <div class="card-footer bg-transparent border-0">
+                                                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#animatorModal{{ animator.id }}">
+                                                    <i class="fas fa-info-circle me-2"></i>Learn More
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="animatorModal{{ animator.id }}" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">{{ animator.name }}</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        {% if animator.image %}
+                                                            <img src="{{ asset('assets/img/' ~ animator.image) }}" class="img-fluid rounded mb-3" alt="{{ animator.name }}">
+                                                        {% endif %}
+                                                        {% if animator.title %}
+                                                            <p class="text-muted mb-3">{{ animator.title }}</p>
+                                                        {% endif %}
+                                                        {% if animator.description %}
+                                                            <p>{{ animator.description }}</p>
+                                                        {% else %}
+                                                            <p>Donec a metus ut justo sodales eu hicula. Sed dapibus justo sit amet justo maximus.</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="row g-4">
+                            {% for animator in animators %}
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card h-100 text-center">
+                                        {% if animator.image %}
+                                            <img src="{{ asset('assets/img/' ~ animator.image) }}" class="card-img-top" alt="{{ animator.name }}" style="height: 300px; object-fit: cover;">
+                                        {% else %}
+                                            <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 300px;">
+                                                <i class="fas fa-user-circle" style="font-size: 5rem; color: var(--adalen-primary);"></i>
+                                            </div>
+                                        {% endif %}
+                                        <div class="card-body">
+                                            <h4 class="card-title fw-bold">{{ animator.name }}</h4>
+                                            {% if animator.title %}
+                                                <p class="text-muted mb-3">{{ animator.title }}</p>
+                                            {% endif %}
+                                            {% if animator.description %}
+                                                <p class="card-text">{{ animator.description|slice(0, 100) }}{% if animator.description|length > 100 %}...{% endif %}</p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#animatorModal{{ animator.id }}">
+                                                <i class="fas fa-info-circle me-2"></i>Learn More
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="animatorModal{{ animator.id }}" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">{{ animator.name }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {% if animator.image %}
+                                                        <img src="{{ asset('assets/img/' ~ animator.image) }}" class="img-fluid rounded mb-3" alt="{{ animator.name }}">
+                                                    {% endif %}
+                                                    {% if animator.title %}
+                                                        <p class="text-muted mb-3">{{ animator.title }}</p>
+                                                    {% endif %}
+                                                    {% if animator.description %}
+                                                        <p>{{ animator.description }}</p>
+                                                    {% else %}
+                                                        <p>Donec a metus ut justo sodales eu hicula. Sed dapibus justo sit amet justo maximus.</p>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <div class="text-center py-5">
+                    <p class="lead text-muted">Aucun animateur disponible pour le moment.</p>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+
