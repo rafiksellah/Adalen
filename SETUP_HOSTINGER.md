@@ -145,3 +145,4 @@ php bin/console cache:warmup --env=prod
 - **cPanel** : https://adalen-dz.com:2083 (ou l'URL fournie par Hostinger)
 - **FTP** : ftp.adalen-dz.com (ou l'URL fournie par Hostinger)
 
+

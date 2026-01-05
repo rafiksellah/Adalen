@@ -56,3 +56,4 @@ echo "   2. Vérifiez les permissions des dossiers var/ et public/"
 echo "   3. Testez votre site web"
 echo "   4. Vérifiez les logs dans var/log/prod.log"
 
+

@@ -31,3 +31,4 @@ Utilisez un générateur de clé sécurisé en ligne.
    ```
 3. Renommez `.env.hostinger` en `.env` sur le serveur
 
+

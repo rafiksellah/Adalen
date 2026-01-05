@@ -244,3 +244,4 @@ php bin/console cache:warmup --env=prod
 - [Documentation Symfony Deployment](https://symfony.com/doc/current/deployment.html)
 - [Hostinger Documentation](https://www.hostinger.com/tutorials)
 
+

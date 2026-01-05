@@ -137,3 +137,4 @@ Les entités créées :
 - Protection anti-spam (honeypot) sur le formulaire de contact
 - Validation des formulaires avec Symfony Validator
 
+
