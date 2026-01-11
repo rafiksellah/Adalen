@@ -1,69 +1,75 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos Activités - Adalen{% endblock %}
+{% block title %}Activités - Adalen{% endblock %}
 
 {% block body %}
-    <!-- Page Header -->
-    <section class="hero-section py-4" style="padding: 60px 0;">
+    <section class="py-5" style="padding: 6rem 0;">
         <div class="container">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bold mb-3">Nos Activités</h1>
-                <p class="lead">Découvrez toutes nos activités extra-scolaires pour enfants</p>
+            <h2 class="section-title fade-in">Activités Extra-Scolaires</h2>
+            <p class="section-subtitle fade-in">Des activités variées pour l'épanouissement de votre enfant</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card scale-in">
+                        <img src="{{ asset('assets/img/image5.jpg') }}" alt="Jardinage" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🌱</div>
+                            <h3 class="activity-title">Jardinage</h3>
+                            <p class="activity-description">Nourrir la créativité, l'autonomie et le lien à la nature à travers des expériences concrètes et joyeuses.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card scale-in">
+                        <img src="{{ asset('assets/img/image3.jpg') }}" alt="Arts Plastiques" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🎨</div>
+                            <h3 class="activity-title">Arts Plastiques</h3>
+                            <p class="activity-description">Stimuler l'imagination et l'expression artistique des enfants.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card scale-in">
+                        <img src="{{ asset('assets/img/IMG_20251216_142928.jpg') }}" alt="English Bites" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🍴</div>
+                            <h3 class="activity-title">English Bites</h3>
+                            <p class="activity-description">Apprendre l'anglais de façon ludique et interactive.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card scale-in">
+                        <img src="{{ asset('assets/img/image2.jpg') }}" alt="Archéologie" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🏺</div>
+                            <h3 class="activity-title">Archéologie</h3>
+                            <p class="activity-description">Éveiller la curiosité et la découverte du passé.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card scale-in">
+                        <img src="{{ asset('assets/img/IMG_20251216_130007.jpg') }}" alt="Géologie" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🪨</div>
+                            <h3 class="activity-title">Géologie</h3>
+                            <p class="activity-description">Explorer la terre et ses merveilles naturelles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="activity-card scale-in">
+                        <img src="{{ asset('assets/img/IMG_20251118_135319.jpg') }}" alt="Sorties Culturelles" class="activity-image">
+                        <div class="activity-card-content">
+                            <div class="activity-icon">🏛</div>
+                            <h3 class="activity-title">Sorties Culturelles</h3>
+                            <p class="activity-description">Découvrir le monde à travers des expériences enrichissantes.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Activities Grid -->
-    <section class="py-5">
-        <div class="container">
-            {% if activities|length > 0 %}
-                <div class="row g-4">
-                    {% for activity in activities %}
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100">
-                                {% if activity.image %}
-                                    <img src="{{ asset('assets/img/' ~ activity.image) }}" class="card-img-top" alt="{{ activity.name }}">
-                                {% else %}
-                                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                                        <span style="font-size: 4rem;">{{ activity.icon|default('🎯') }}</span>
-                                    </div>
-                                {% endif %}
-                                <div class="card-body">
-                                    <h3 class="card-title fw-bold">{{ activity.name }}</h3>
-                                    {% if activity.description %}
-                                        <p class="card-text text-muted">{{ activity.description|slice(0, 120) }}{% if activity.description|length > 120 %}...{% endif %}</p>
-                                    {% endif %}
-                                    <div class="mb-3">
-                                        {% if activity.ageRange %}
-                                            <p class="mb-1"><i class="fas fa-birthday-cake me-2 text-primary"></i><strong>Âge :</strong> {{ activity.ageRange }}</p>
-                                        {% endif %}
-                                        {% if activity.numberOfClasses %}
-                                            <p class="mb-1"><i class="fas fa-calendar me-2 text-primary"></i><strong>Classes :</strong> {{ activity.numberOfClasses }}</p>
-                                        {% endif %}
-                                        {% if activity.duration %}
-                                            <p class="mb-1"><i class="fas fa-clock me-2 text-primary"></i><strong>Durée :</strong> {{ activity.duration }}</p>
-                                        {% endif %}
-                                        {% if activity.price %}
-                                            <p class="mb-1"><i class="fas fa-dollar-sign me-2 text-primary"></i><strong>Prix :</strong> {{ activity.price }} DA</p>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-transparent border-0">
-                                    <a href="{{ path('app_activity_register', {id: activity.id}) }}" class="btn btn-primary w-100">
-                                        <i class="fas fa-book me-2"></i>Book for Fun Classes
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            {% else %}
-                <div class="text-center py-5">
-                    <p class="lead text-muted">Aucune activité disponible pour le moment.</p>
-                </div>
-            {% endif %}
-        </div>
-    </section>
 {% endblock %}
-
 

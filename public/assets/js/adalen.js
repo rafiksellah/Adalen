@@ -1,23 +1,44 @@
-// Adalen - Custom JavaScript
+// Adalen Custom JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    let lastScroll = 0;
+    // Animation des statistiques
+    const statNumbers = document.querySelectorAll('.stat-number');
     
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        
-        lastScroll = currentScroll;
+    const animateValue = (element, start, end, duration, suffix = '') => {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const value = Math.floor(progress * (end - start) + start);
+            element.textContent = value + suffix;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    };
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                entry.target.classList.add('animated');
+                const value = parseInt(entry.target.getAttribute('data-value'));
+                const suffix = entry.target.getAttribute('data-suffix') || '';
+                animateValue(entry.target, 0, value, 2000, suffix);
+            }
+        });
+    }, observerOptions);
+    
+    statNumbers.forEach(stat => {
+        observer.observe(stat);
     });
     
-    // Smooth scroll
+    // Smooth scroll pour les liens d'ancrage
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -30,59 +51,59 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Animate numbers on scroll
-    const animateValue = (element, start, end, duration) => {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const value = Math.floor(progress * (end - start) + start);
-            element.textContent = value + (element.dataset.suffix || '');
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
-    };
-
-    // Intersection Observer for animations
-    const observerOptions = {
+    
+    // Animation au scroll pour les éléments avec classes d'animation
+    const animatedElements = document.querySelectorAll('.fade-in, .slide-up, .fade-in-left, .fade-in-right, .scale-in');
+    
+    const scrollObserverOptions = {
         threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Délai progressif pour un effet en cascade
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
+                scrollObserver.unobserve(entry.target);
+            }
+        });
+    }, scrollObserverOptions);
+    
+    animatedElements.forEach(element => {
+        scrollObserver.observe(element);
+    });
+    
+    // Animation spécifique pour les images
+    const images = document.querySelectorAll('.coop-lamb-image, .coop-vote-image, .coop-animal-image-wrapper img, .coop-garden-image-wrapper img, .coop-seeds-image-wrapper img, .coop-child-image-wrapper img, .activity-image');
+    
+    const imageObserverOptions = {
+        threshold: 0.2,
         rootMargin: '0px 0px -50px 0px'
     };
-
-    const observer = new IntersectionObserver((entries) => {
+    
+    const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
+                entry.target.style.opacity = '0';
+                entry.target.style.transform = 'scale(0.95)';
+                entry.target.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 
-                // Animate statistics
-                if (entry.target.classList.contains('stat-number')) {
-                    const finalValue = parseInt(entry.target.dataset.value);
-                    animateValue(entry.target, 0, finalValue, 2000);
-                }
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'scale(1)';
+                }, 100);
                 
-                observer.unobserve(entry.target);
+                imageObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
-
-    // Observe elements
-    document.querySelectorAll('.stat-number, .activity-card, .quality-item').forEach(el => {
-        observer.observe(el);
-    });
-
-    // Form validation enhancement
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            if (!form.checkValidity()) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-            form.classList.add('was-validated');
-        });
+    }, imageObserverOptions);
+    
+    images.forEach(image => {
+        imageObserver.observe(image);
     });
 });
+
 

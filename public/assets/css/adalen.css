@@ -8,48 +8,32 @@
     --adalen-primary-dark: #D46A0A;
     --adalen-primary-light: #FFA366;
     
-    /* Couleurs naturelles */
-    --adalen-green: #7CB342;
-    --adalen-green-light: #AED581;
-    --adalen-green-dark: #558B2F;
+    --adalen-secondary: #6C757D;
+    --adalen-success: #28A745;
+    --adalen-info: #17A2B8;
+    --adalen-warning: #FFC107;
+    --adalen-danger: #DC3545;
     
-    /* Couleurs pastel */
-    --adalen-pastel-blue: #81D4FA;
-    --adalen-pastel-pink: #F8BBD0;
-    --adalen-pastel-yellow: #FFF59D;
-    --adalen-pastel-green: #C5E1A5;
-    
-    /* Tons naturels */
-    --adalen-beige: #FFF5EB;
-    --adalen-cream: #FFF8F0;
-    --adalen-brown: #8D6E63;
-    
-    /* Neutres */
-    --adalen-dark: #1a1a1a;
-    --adalen-gray: #666666;
-    --adalen-light-gray: #f8f9fa;
     --adalen-white: #FFFFFF;
+    --adalen-light: #F8F9FA;
+    --adalen-dark: #212529;
     
     /* Typographie */
-    --font-primary: 'Poppins', sans-serif;
-    --font-secondary: 'Nunito', sans-serif;
+    --adalen-font-primary: 'Poppins', sans-serif;
+    --adalen-font-secondary: 'Nunito', sans-serif;
     
     /* Espacements */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 4rem;
-    --spacing-xl: 6rem;
+    --adalen-spacing-xs: 0.5rem;
+    --adalen-spacing-sm: 1rem;
+    --adalen-spacing-md: 2rem;
+    --adalen-spacing-lg: 3rem;
+    --adalen-spacing-xl: 4rem;
     
-    /* Ombres */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+    /* Ombres - Toutes supprimées pour un design sobre */
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
 }
-
-/* ============================================
-   Reset & Base
-   ============================================ */
 
 * {
     margin: 0;
@@ -57,699 +41,572 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: var(--font-secondary);
+    font-family: var(--adalen-font-secondary);
     color: var(--adalen-dark);
-    line-height: 1.7;
-    background-color: var(--adalen-white);
-    font-size: 16px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-primary);
-    font-weight: 700;
-    color: var(--adalen-dark);
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    line-height: 1.6;
+    padding-top: 80px;
 }
 
 /* ============================================
-   Navigation Moderne
+   NAVBAR
    ============================================ */
 
 .navbar {
-    padding: 1.25rem 0;
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px);
     box-shadow: none;
-    transition: all 0.3s ease;
-}
-
-.navbar.scrolled {
-    padding: 0.75rem 0;
-    box-shadow: none;
+    padding: 1rem 0;
 }
 
 .navbar-brand {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
     text-decoration: none;
-    transition: transform 0.3s ease;
 }
 
-.navbar-brand:hover {
-    transform: scale(1.05);
-}
-
-.navbar-logo {
-    height: 55px;
-    width: auto;
-    object-fit: contain;
-    filter: none;
+.navbar-brand img {
+    max-height: 70px;
 }
 
 .brand-text {
-    font-family: var(--font-primary);
-    font-size: 1.75rem;
+    font-family: var(--adalen-font-primary);
     font-weight: 700;
+    font-size: 1.8rem;
     color: var(--adalen-primary);
-    margin: 0;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.05em;
 }
 
-.navbar-nav {
-    gap: 0.5rem;
-}
-
-.navbar-nav .nav-link {
-    font-family: var(--font-primary);
+.nav-link {
     font-weight: 500;
-    font-size: 0.95rem;
     color: var(--adalen-dark) !important;
-    padding: 0.625rem 1.25rem !important;
-    border-radius: 50px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
 }
 
-.navbar-nav .nav-link::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: 80%;
-    height: 2px;
-    background: var(--adalen-primary);
-    transition: transform 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover::before,
-.navbar-nav .nav-link.active::before {
-    transform: translateX(-50%) scaleX(1);
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
+.nav-link:hover {
     color: var(--adalen-primary) !important;
-    background: rgba(245, 130, 32, 0.08);
 }
 
-.navbar-nav .nav-link-external {
-    background: var(--adalen-primary);
-    color: var(--adalen-white) !important;
-    margin-left: 0.5rem;
+.nav-link-external {
+    color: var(--adalen-primary) !important;
 }
 
-.navbar-nav .nav-link-external:hover {
-    background: var(--adalen-primary-dark);
-    color: var(--adalen-white) !important;
-    transform: translateY(-2px);
-}
-
-.navbar-nav .nav-link-external::before {
-    display: none;
+.nav-link-external:hover {
+    color: var(--adalen-primary-dark) !important;
 }
 
 /* ============================================
-   Buttons Moderne
+   HERO SECTION
    ============================================ */
 
-.btn {
-    font-family: var(--font-primary);
-    font-weight: 600;
-    padding: 0.875rem 2rem;
-    border-radius: 50px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none;
+.hero.section {
     position: relative;
+    min-height: 65vh;
     overflow: hidden;
-    text-transform: none;
-    letter-spacing: 0.01em;
 }
 
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.btn:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.btn-primary {
-    background: var(--adalen-primary);
-    color: var(--adalen-white);
-    box-shadow: none;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: none;
-    background: var(--adalen-primary-dark);
-}
-
-.btn-secondary {
-    background: var(--adalen-green);
-    color: var(--adalen-white);
-    box-shadow: none;
-}
-
-.btn-secondary:hover {
-    transform: translateY(-2px);
-    box-shadow: none;
-    background: var(--adalen-green-dark);
-}
-
-.btn-lg {
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-}
-
-/* ============================================
-   Hero Section Moderne
-   ============================================ */
-
-.hero-section {
-    background: var(--adalen-primary);
-    padding: var(--spacing-xl) 0;
-    color: var(--adalen-white);
-    position: relative;
-    overflow: hidden;
-    min-height: 35vh;
-    display: flex;
-    align-items: center;
-}
-
-.hero-section::before {
-    content: '';
+.hero-bg {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: transparent;
-    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
 }
 
-.hero-section::after {
-    content: '';
+.hero-overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    right: 0;
-    height: 100px;
-    background: var(--adalen-white);
-}
-
-.hero-content {
-    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
     z-index: 2;
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    text-shadow: none;
-    animation: fadeInUp 0.8s ease-out;
+    font-family: var(--adalen-font-primary);
+    font-weight: 700;
+    color: var(--adalen-primary);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
 
 .hero-subtitle {
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    opacity: 0.95;
-    animation: fadeInUp 0.8s ease-out 0.2s both;
+    font-family: var(--adalen-font-secondary);
+    font-weight: 400;
+    color: var(--adalen-white);
 }
 
 .hero-section .lead {
-    font-size: 1.25rem;
-    margin-bottom: 2.5rem;
-    opacity: 0.9;
-    line-height: 1.8;
-    animation: fadeInUp 0.8s ease-out 0.4s both;
-}
-
-.hero-section img {
-    border-radius: 30px;
-    box-shadow: none;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    animation: fadeInUp 0.8s ease-out 0.6s both;
-    max-height: 600px;
-    object-fit: cover;
-}
-
-/* ============================================
-   Activity Cards Moderne
-   ============================================ */
-
-.activity-card {
-    background: var(--adalen-white);
-    border-radius: 24px;
-    padding: 0;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    overflow: hidden;
-    position: relative;
-    box-shadow: none;
-}
-
-.activity-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--adalen-primary);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-}
-
-.activity-card:hover::before {
-    transform: scaleX(1);
-}
-
-.activity-card:hover {
-    transform: translateY(-8px);
-    box-shadow: none;
-    border-color: var(--adalen-primary);
-}
-
-.activity-image {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.activity-card:hover .activity-image {
-    transform: scale(1.1);
-}
-
-.activity-card-content {
-    padding: 2rem;
-}
-
-.activity-icon {
-    font-size: 3.5rem;
-    margin: 1rem 0;
-    filter: none;
-    transition: transform 0.3s ease;
-}
-
-.activity-card:hover .activity-icon {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.activity-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--adalen-dark);
-}
-
-.activity-description {
-    color: var(--adalen-gray);
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-/* ============================================
-   Statistics Section Moderne
-   ============================================ */
-
-.stats-section {
-    background: var(--adalen-beige);
-    padding: var(--spacing-lg) 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.stats-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-    background: transparent;
-    border-radius: 50%;
-}
-
-.stat-card {
-    text-align: center;
-    padding: 2rem 1rem;
-    position: relative;
-    z-index: 1;
-}
-
-.stat-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    filter: none;
-}
-
-.stat-number {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    color: var(--adalen-primary);
-    margin-bottom: 0.5rem;
-    line-height: 1;
-}
-
-.stat-label {
-    color: var(--adalen-gray);
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-/* ============================================
-   Quality Section Moderne
-   ============================================ */
-
-.quality-section {
-    padding: var(--spacing-lg) 0;
-    background: var(--adalen-white);
-}
-
-.quality-item {
-    text-align: center;
-    padding: 2rem 1rem;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    background: var(--adalen-light-gray);
-    margin-bottom: 1.5rem;
-}
-
-.quality-item:hover {
-    background: rgba(245, 130, 32, 0.05);
-    transform: translateY(-5px);
-    box-shadow: none;
-}
-
-.quality-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    filter: none;
-}
-
-.quality-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--adalen-dark);
-}
-
-.quality-percentage {
-    font-size: 2.25rem;
-    font-weight: 800;
-    color: var(--adalen-primary);
-}
-
-/* ============================================
-   Benefits Section Moderne
-   ============================================ */
-
-.bg-light-green {
-    background: var(--adalen-beige);
-    padding: var(--spacing-lg) 0;
-}
-
-.bg-light-green img {
-    border-radius: 24px;
-    box-shadow: none;
-    border: 3px solid rgba(255, 255, 255, 0.5);
-}
-
-/* ============================================
-   Footer Moderne
-   ============================================ */
-
-.footer {
-    background: var(--adalen-dark);
     color: var(--adalen-white);
-    padding: var(--spacing-lg) 0 var(--spacing-md);
-    position: relative;
-    overflow: hidden;
-}
-
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--adalen-primary);
-}
-
-.footer-logo {
-    height: 50px;
-    width: auto;
-    filter: brightness(0) invert(1);
-}
-
-.footer-brand {
-    font-family: var(--font-primary);
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--adalen-white);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-}
-
-.footer h5 {
-    font-family: var(--font-primary);
-    font-weight: 700;
-    color: var(--adalen-white);
-    margin-bottom: 1.5rem;
-    font-size: 1.25rem;
-}
-
-.footer p {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.8;
-    margin-bottom: 0.75rem;
-}
-
-.footer ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer ul li {
-    margin-bottom: 0.75rem;
-}
-
-.footer a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.footer a:hover {
-    color: var(--adalen-primary);
-    transform: translateX(5px);
-}
-
-.footer a i {
-    width: 20px;
-    text-align: center;
-}
-
-.footer hr {
-    border-color: rgba(255, 255, 255, 0.1);
-    margin: 2rem 0 1.5rem;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
 }
 
 /* ============================================
-   Forms Moderne
+   SECTIONS
    ============================================ */
 
-.form-control {
-    border-radius: 12px;
-    border: 2px solid var(--adalen-light-gray);
-    padding: 0.875rem 1.25rem;
-    font-family: var(--font-secondary);
-    transition: all 0.3s ease;
-    font-size: 1rem;
-}
-
-.form-control:focus {
-    border-color: var(--adalen-primary);
-    box-shadow: none;
-    outline: none;
-}
-
-/* ============================================
-   Cards Moderne
-   ============================================ */
-
-.card {
-    border: none;
-    border-radius: 24px;
-    box-shadow: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: none;
-}
-
-.card-img-top {
-    border-radius: 24px 24px 0 0;
-    height: 240px;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.card:hover .card-img-top {
-    transform: scale(1.05);
-}
-
-/* ============================================
-   Animations
-   ============================================ */
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-up {
-    animation: fadeInUp 0.8s ease-out;
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-.float-animation {
-    animation: float 6s ease-in-out infinite;
-}
-
-/* ============================================
-   Utilities
-   ============================================ */
-
-.text-primary {
-    color: var(--adalen-primary) !important;
-}
-
-.bg-primary {
-    background-color: var(--adalen-primary) !important;
-}
-
-.rounded-custom {
-    border-radius: 24px;
-}
-
-.shadow-custom {
-    box-shadow: none;
+.section {
+    padding: 4rem 0;
 }
 
 .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
+    font-family: var(--adalen-font-primary);
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--adalen-dark);
     text-align: center;
     margin-bottom: 1rem;
-    color: var(--adalen-primary);
 }
 
 .section-subtitle {
-    font-size: 1.25rem;
-    color: var(--adalen-gray);
+    font-family: var(--adalen-font-secondary);
+    font-size: 1.1rem;
+    color: var(--adalen-secondary);
     text-align: center;
     margin-bottom: 3rem;
 }
 
 /* ============================================
-   Responsive
+   ACTIVITY CARDS
    ============================================ */
 
-@media (max-width: 992px) {
-    .hero-section {
-        min-height: auto;
-        padding: var(--spacing-lg) 0;
-    }
-    
-    .hero-section img {
-        margin-top: 2rem;
-        max-height: 400px;
-    }
-    
-    .navbar-logo {
-        height: 45px;
-    }
-    
-    .brand-text {
-        font-size: 1.5rem;
-    }
+.activity-card {
+    background: var(--adalen-white);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid #e9ecef;
 }
 
+.activity-card:hover {
+    transform: translateY(-5px);
+}
+
+.activity-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.activity-card-content {
+    padding: 1.5rem;
+}
+
+.activity-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.activity-title {
+    font-family: var(--adalen-font-primary);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--adalen-dark);
+    margin-bottom: 1rem;
+}
+
+.activity-description {
+    font-family: var(--adalen-font-secondary);
+    color: var(--adalen-secondary);
+    line-height: 1.6;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn-primary {
+    background-color: var(--adalen-primary);
+    border-color: var(--adalen-primary);
+    color: var(--adalen-white);
+    font-weight: 500;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--adalen-primary-dark);
+    border-color: var(--adalen-primary-dark);
+    color: var(--adalen-white);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--adalen-primary);
+    border-color: var(--adalen-primary);
+    color: var(--adalen-white);
+    font-weight: 500;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--adalen-primary-dark);
+    border-color: var(--adalen-primary-dark);
+    color: var(--adalen-white);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   STATISTICS SECTION
+   ============================================ */
+
+.stats-section {
+    background-color: var(--adalen-light);
+    padding: 4rem 0;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.stat-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.stat-number {
+    font-family: var(--adalen-font-primary);
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--adalen-primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-family: var(--adalen-font-secondary);
+    color: var(--adalen-secondary);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   QUALITY SECTION
+   ============================================ */
+
+.quality-section {
+    padding: 4rem 0;
+}
+
+.quality-item {
+    text-align: center;
+    padding: 2rem;
+    background: var(--adalen-white);
+    border-radius: 15px;
+    border: 1px solid #e9ecef;
+    transition: transform 0.3s ease;
+}
+
+.quality-item:hover {
+    transform: translateY(-5px);
+}
+
+.quality-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.quality-title {
+    font-family: var(--adalen-font-primary);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--adalen-dark);
+    margin-bottom: 1rem;
+}
+
+.quality-percentage {
+    font-family: var(--adalen-font-primary);
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--adalen-primary);
+    margin-top: 1rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background-color: var(--adalen-dark);
+    color: var(--adalen-white);
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+}
+
+.footer h5 {
+    font-family: var(--adalen-font-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer a {
+    color: var(--adalen-white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--adalen-primary);
+}
+
+.footer hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0 1rem;
+}
+
+/* ============================================
+   ANIMATIONS - Styles globaux
+   ============================================ */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ============================================
+   LA PETITE COOP - Styles spécifiques
+   ============================================ */
+
+.coop-section {
+    min-height: 600px;
+    padding: 4rem 0;
+    margin: 0;
+    position: relative;
+}
+
+.coop-lamb-image-wrapper {
+    position: relative;
+    z-index: 10;
+}
+
+.coop-main-title {
+    font-family: var(--adalen-font-primary);
+    color: var(--adalen-white);
+    line-height: 1.2;
+}
+
+.coop-slogan {
+    font-family: var(--adalen-font-secondary);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.coop-section-title {
+    font-family: var(--adalen-font-primary);
+    font-weight: 700;
+    color: var(--adalen-dark);
+}
+
+.coop-text-content {
+    font-family: var(--adalen-font-secondary);
+    line-height: 1.8;
+    color: var(--adalen-dark);
+}
+
+.coop-vote-image {
+    max-width: 100%;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.coop-vote-image:hover {
+    transform: scale(1.05);
+}
+
+.coop-animal-image-wrapper img {
+    transition: transform 0.3s ease;
+}
+
+.coop-animal-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.coop-info-box {
+    transition: transform 0.3s ease;
+}
+
+.coop-info-box:hover {
+    transform: translateY(-5px);
+}
+
+.coop-number-point {
+    transition: transform 0.3s ease;
+}
+
+.coop-number-point:hover {
+    transform: scale(1.05);
+}
+
+.coop-step {
+    transition: transform 0.3s ease;
+}
+
+.coop-step:hover {
+    transform: scale(1.05);
+}
+
+.coop-membership-card {
+    transition: transform 0.3s ease;
+}
+
+.coop-membership-card:hover {
+    transform: translateY(-10px);
+}
+
+.coop-contact-item {
+    transition: transform 0.3s ease;
+}
+
+.coop-contact-item:hover {
+    transform: translateY(-5px);
+}
+
+.coop-qr-code-wrapper {
+    position: relative;
+}
+
+.coop-cta {
+    font-family: var(--adalen-font-primary);
+    letter-spacing: 0.1em;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
 @media (max-width: 768px) {
-    :root {
-        --spacing-lg: 3rem;
-        --spacing-xl: 4rem;
+    .section-title {
+        font-size: 2rem;
     }
     
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.75rem;
-    }
-    
-    .activity-card-content {
-        padding: 1.5rem;
+    .hero.section {
+        min-height: 50vh;
     }
     
     .stat-number {
-        font-size: 2.25rem;
+        font-size: 2rem;
+    }
+    
+    /* Navbar responsive */
+    .navbar-brand {
+        gap: 0.5rem;
+    }
+    
+    .navbar-brand img {
+        max-height: 50px;
+    }
+    
+    .brand-text {
+        font-size: 1.3rem;
+    }
+    
+    .navbar {
+        padding: 0.5rem 0;
     }
 }
+
+@media (max-width: 576px) {
+    .navbar-brand img {
+        max-height: 45px;
+    }
+    
+    .brand-text {
+        font-size: 1.1rem;
+        letter-spacing: 0.02em;
+    }
+    
+    .navbar-brand {
+        gap: 0.4rem;
+    }
+    
+    /* COOP Page responsive */
+    .coop-main-title span:first-child {
+        font-size: 1.8rem !important;
+    }
+    
+    .coop-main-title span:last-child {
+        font-size: 3rem !important;
+    }
+    
+    .coop-section-title {
+        font-size: 2rem !important;
+    }
+    
+    .coop-lamb-image {
+        max-width: 250px;
+    }
+    
+    .coop-step {
+        width: 200px !important;
+        height: 200px !important;
+        padding: 1.5rem !important;
+    }
+    
+    .coop-cta {
+        font-size: 1rem !important;
+    }
+}
+
+
