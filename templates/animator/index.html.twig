@@ -1,40 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Animateurs - Adalen{% endblock %}
+{% block title %}{{ 'animator.title'|trans }}{% endblock %}
 
 {% block body %}
     <section class="py-5" style="padding: 6rem 0;">
         <div class="container">
-            <h2 class="section-title fade-in">Nos Animateurs</h2>
-            <p class="section-subtitle fade-in">Une équipe passionnée et qualifiée pour accompagner vos enfants</p>
+            <h2 class="section-title fade-in">{{ 'animator.page_title'|trans }}</h2>
+            <p class="section-subtitle fade-in">{{ 'animator.subtitle'|trans }}</p>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
                         <div class="activity-card-content text-center">
-                            <div class="activity-icon mb-3">👨‍🏫</div>
-                            <h3 class="activity-title">Équipe Pédagogique</h3>
-                            <p class="activity-description">Nos animateurs sont formés et expérimentés pour offrir le meilleur accompagnement à vos enfants.</p>
-                            <button class="btn btn-secondary mt-3">En savoir plus</button>
+                            <div class="activity-icon mb-3"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <h3 class="activity-title">{{ 'animator.pedagogical.title'|trans }}</h3>
+                            <p class="activity-description">{{ 'animator.pedagogical.description'|trans }}</p>
+                            <button class="btn btn-secondary mt-3">{{ 'animator.learn_more'|trans }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
                         <div class="activity-card-content text-center">
-                            <div class="activity-icon mb-3">🎨</div>
-                            <h3 class="activity-title">Animateurs Spécialisés</h3>
-                            <p class="activity-description">Chaque activité est encadrée par des professionnels spécialisés dans leur domaine.</p>
-                            <button class="btn btn-secondary mt-3">En savoir plus</button>
+                            <div class="activity-icon mb-3"><i class="fas fa-users-cog"></i></div>
+                            <h3 class="activity-title">{{ 'animator.specialized.title'|trans }}</h3>
+                            <p class="activity-description">{{ 'animator.specialized.description'|trans }}</p>
+                            <button class="btn btn-secondary mt-3">{{ 'animator.learn_more'|trans }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
                         <div class="activity-card-content text-center">
-                            <div class="activity-icon mb-3">❤️</div>
-                            <h3 class="activity-title">Bienveillance</h3>
-                            <p class="activity-description">Notre équipe prône une approche bienveillante et respectueuse de chaque enfant.</p>
-                            <button class="btn btn-secondary mt-3">En savoir plus</button>
+                            <div class="activity-icon mb-3"><i class="fas fa-heart"></i></div>
+                            <h3 class="activity-title">{{ 'animator.caring.title'|trans }}</h3>
+                            <p class="activity-description">{{ 'animator.caring.description'|trans }}</p>
+                            <button class="btn btn-secondary mt-3">{{ 'animator.learn_more'|trans }}</button>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Adalen - Centre d'Activités Extra-Scolaires pour Enfants{% endblock %}
+{% block title %}{{ 'home.title'|trans }}{% endblock %}
 
 {% block body %}
     <!-- Hero Section -->
@@ -16,13 +16,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-10 mx-auto text-center text-white">
                     <h1 class="display-4 fw-bold mb-3 fade-in" style="color: var(--adalen-primary); text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
-                        Le Centre Adalen
+                        {{ 'home.hero.title'|trans }}
                     </h1>
                     <p class="lead mb-2 fs-5 fade-in" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
-                        Grandir, créer et s'épanouir autrement
+                        {{ 'home.hero.subtitle'|trans }}
                     </p>
                     <p class="mb-0 fs-6 fade-in" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
-                        Un espace dédié à l'épanouissement des enfants à travers des activités extra-scolaires variées, ludiques et éducatives.
+                        {{ 'home.hero.description'|trans }}
                     </p>
                 </div>
             </div>
@@ -32,16 +32,16 @@
     <!-- Activities Section -->
     <section class="py-5" style="padding: 6rem 0;">
         <div class="container">
-            <h2 class="section-title fade-in">Activités Extra-Scolaires</h2>
-            <p class="section-subtitle fade-in">Des activités variées pour l'épanouissement de votre enfant</p>
+            <h2 class="section-title fade-in">{{ 'home.activities.title'|trans }}</h2>
+            <p class="section-subtitle fade-in">{{ 'home.activities.subtitle'|trans }}</p>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
                         <img src="{{ asset('assets/img/image5.jpg') }}" alt="Jardinage" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon">🌱</div>
-                            <h3 class="activity-title">Jardinage</h3>
-                            <p class="activity-description">Nourrir la créativité, l'autonomie et le lien à la nature à travers des expériences concrètes et joyeuses.</p>
+                            <div class="activity-icon"><i class="fas fa-seedling"></i></div>
+                            <h3 class="activity-title">{{ 'activity.gardening.title'|trans }}</h3>
+                            <p class="activity-description">{{ 'activity.gardening.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
@@ -49,9 +49,9 @@
                     <div class="activity-card scale-in">
                         <img src="{{ asset('assets/img/image3.jpg') }}" alt="Arts Plastiques" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon">🎨</div>
-                            <h3 class="activity-title">Arts Plastiques</h3>
-                            <p class="activity-description">Stimuler l'imagination et l'expression artistique des enfants.</p>
+                            <div class="activity-icon"><i class="fas fa-palette"></i></div>
+                            <h3 class="activity-title">{{ 'activity.arts.title'|trans }}</h3>
+                            <p class="activity-description">{{ 'activity.arts.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
@@ -59,46 +59,46 @@
                     <div class="activity-card scale-in">
                         <img src="{{ asset('assets/img/IMG_20251216_142928.jpg') }}" alt="English Bites" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon">📚</div>
-                            <h3 class="activity-title">English Bites</h3>
-                            <p class="activity-description">Apprendre l'anglais de façon ludique et interactive.</p>
+                            <div class="activity-icon"><i class="fas fa-book-open"></i></div>
+                            <h3 class="activity-title">{{ 'activity.english.title'|trans }}</h3>
+                            <p class="activity-description">{{ 'activity.english.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
-                        <img src="{{ asset('assets/img/image2.jpg') }}" alt="Archéologie" class="activity-image">
+                        <img src="{{ asset('assets/img/image2.jpg') }}" alt="{{ 'activity.archaeology.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon">🏺</div>
-                            <h3 class="activity-title">Archéologie</h3>
-                            <p class="activity-description">Éveiller la curiosité et la découverte du passé.</p>
+                            <div class="activity-icon"><i class="fas fa-monument"></i></div>
+                            <h3 class="activity-title">{{ 'activity.archaeology.title'|trans }}</h3>
+                            <p class="activity-description">{{ 'activity.archaeology.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
-                        <img src="{{ asset('assets/img/IMG_20251216_130007.jpg') }}" alt="Géologie" class="activity-image">
+                        <img src="{{ asset('assets/img/IMG_20251216_130007.jpg') }}" alt="{{ 'activity.geology.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon">🪨</div>
-                            <h3 class="activity-title">Géologie</h3>
-                            <p class="activity-description">Explorer la terre et ses merveilles naturelles.</p>
+                            <div class="activity-icon"><i class="fas fa-mountain"></i></div>
+                            <h3 class="activity-title">{{ 'activity.geology.title'|trans }}</h3>
+                            <p class="activity-description">{{ 'activity.geology.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
-                        <img src="{{ asset('assets/img/IMG_20251118_135319.jpg') }}" alt="Sorties Culturelles" class="activity-image">
+                        <img src="{{ asset('assets/img/IMG_20251118_135319.jpg') }}" alt="{{ 'activity.cultural.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon">🏛</div>
-                            <h3 class="activity-title">Sorties Culturelles</h3>
-                            <p class="activity-description">Découvrir le monde à travers des expériences enrichissantes.</p>
+                            <div class="activity-icon"><i class="fas fa-landmark"></i></div>
+                            <h3 class="activity-title">{{ 'activity.cultural.title'|trans }}</h3>
+                            <p class="activity-description">{{ 'activity.cultural.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-5 fade-in">
-                <a href="{{ path('app_activities') }}" class="btn btn-primary btn-lg">
-                    Voir toutes les activités <i class="fas fa-arrow-right ms-2"></i>
+                <a href="{{ path('app_activities', {_locale: app.request.locale}) }}" class="btn btn-primary btn-lg">
+                    {{ 'home.activities.see_all'|trans }} <i class="fas fa-arrow-right ms-2"></i>
                 </a>
             </div>
         </div>
@@ -107,39 +107,39 @@
     <!-- Quality Section -->
     <section class="quality-section">
         <div class="container">
-            <h2 class="section-title fade-in">Qualité & Environnement</h2>
-            <p class="section-subtitle fade-in">Un environnement d'apprentissage exceptionnel pour vos enfants</p>
+            <h2 class="section-title fade-in">{{ 'home.quality.title'|trans }}</h2>
+            <p class="section-subtitle fade-in">{{ 'home.quality.subtitle'|trans }}</p>
             <div class="row align-items-center g-5 mb-5">
                 <div class="col-lg-6 order-lg-2 fade-in-right">
                     <img src="{{ asset('assets/img/IMG_20251216_151941.jpg') }}" alt="Qualité & Environnement" class="img-fluid">
                 </div>
                 <div class="col-lg-6 order-lg-1 fade-in-left">
-                    <p class="lead">Nous offrons un environnement sécurisé, stimulant et bienveillant où chaque enfant peut s'épanouir et développer son potentiel unique.</p>
+                    <p class="lead">{{ 'home.quality.description'|trans }}</p>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
                     <div class="quality-item scale-in">
-                        <div class="quality-icon">😊</div>
-                        <h4 class="quality-title">Happy Environment</h4>
+                        <div class="quality-icon"><i class="fas fa-smile"></i></div>
+                        <h4 class="quality-title">{{ 'home.quality.items.happy'|trans }}</h4>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="quality-item scale-in">
-                        <div class="quality-icon">🎯</div>
-                        <h4 class="quality-title">Play to Learn</h4>
+                        <div class="quality-icon"><i class="fas fa-puzzle-piece"></i></div>
+                        <h4 class="quality-title">{{ 'home.quality.items.play'|trans }}</h4>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="quality-item scale-in">
-                        <div class="quality-icon">🔒</div>
-                        <h4 class="quality-title">Safety & Security</h4>
+                        <div class="quality-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h4 class="quality-title">{{ 'home.quality.items.safety'|trans }}</h4>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="quality-item scale-in">
-                        <div class="quality-icon">🎨</div>
-                        <h4 class="quality-title">Enhanced Creativity</h4>
+                        <div class="quality-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h4 class="quality-title">{{ 'home.quality.items.creativity'|trans }}</h4>
                     </div>
                 </div>
             </div>

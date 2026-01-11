@@ -1,0 +1,145 @@
+# English translations (default)
+app:
+  name: Adalen
+  tagline: Children's Extra-Curricular Activity Center
+  home: Home
+  activities: Activities
+  animators: Animators
+  coop: La Petite COOP
+  contact: Contact
+  montessori: Montessori
+
+home:
+  title: Adalen - Children's Extra-Curricular Activity Center
+  hero:
+    title: Adalen Center
+    subtitle: Grow, create and flourish differently
+    description: A space dedicated to children's development through varied, fun and educational extra-curricular activities.
+  activities:
+    title: Extra-Curricular Activities
+    subtitle: Varied activities for your child's development
+    see_all: See all activities
+  quality:
+    title: Quality & Environment
+    subtitle: An exceptional learning environment for your children
+    description: We offer a safe, stimulating and caring environment where each child can flourish and develop their unique potential.
+    items:
+      happy: Happy Environment
+      play: Play to Learn
+      safety: Safety & Security
+      creativity: Enhanced Creativity
+
+activity:
+  title: Activities - Adalen
+  page_title: Extra-Curricular Activities
+  subtitle: Varied activities for your child's development
+  gardening:
+    title: Gardening
+    description: Nurturing creativity, autonomy and connection to nature through concrete and joyful experiences.
+  arts:
+    title: Plastic Arts
+    description: Stimulating children's imagination and artistic expression.
+  english:
+    title: English Bites
+    description: Learn English in a fun and interactive way.
+  archaeology:
+    title: Archaeology
+    description: Awakening curiosity and discovery of the past.
+  geology:
+    title: Geology
+    description: Exploring the earth and its natural wonders.
+  cultural:
+    title: Cultural Outings
+    description: Discover the world through enriching experiences.
+
+animator:
+  title: Animators - Adalen
+  page_title: Our Animators
+  subtitle: A passionate and qualified team to accompany your children
+  pedagogical:
+    title: Pedagogical Team
+    description: Our animators are trained and experienced to provide the best support to your children.
+  specialized:
+    title: Specialized Animators
+    description: Each activity is supervised by professionals specialized in their field.
+  caring:
+    title: Caring
+    description: Our team promotes a caring and respectful approach to each child.
+  learn_more: Learn more
+
+contact:
+  title: Contact - Adalen
+  page_title: Contact us
+  subtitle: We are here to answer all your questions
+  send_message: Send us a message
+  your_name: Your name
+  your_email: Your email
+  subject: Subject
+  your_message: Your message
+  send: Send
+  address: Algiers, Algeria
+  phone: +213 563 000 507
+  email: contact@adalen-dz.com
+
+coop:
+  title: La Petite COOP - Adalen
+  hero:
+    title_small: La petite
+    title_big: COOP
+    slogan: DECIDE, ACT AND COOPERATE FROM CHILDHOOD
+  section1:
+    title: A cooperative managed by children
+    text1: The cooperative is based on sharing responsibilities and everyone's participation.
+    text2: Children take part in decisions, express themselves, listen to others, negotiate and vote together.
+    text3: Each has a role adapted to their age (organization, sales, communication, management...), which highlights teamwork and commitment.
+    text4: Children also participate in sales and money management. As a group, they decide how to use and invest it responsibly, respecting different opinions and making collective decisions.
+  section2:
+    title: Livestock
+    description: The responsibility of an animal is based on long-term commitment and regular care. This experience allows children to develop their sense of responsibility and respect for living things, while discovering the daily life of animals through practice and observation.
+    point1: Take care of the animal
+    point2: Respect living beings
+    point3: Commit for the long term
+  section3:
+    title: Vegetable garden
+    subtitle: and nursery
+    box1_title: Immersion in food self-sufficiency
+    box1_subtitle: Respect for the environment
+    box2_title: Value of plants, trees and flowers
+    box2_subtitle: Importance of biodiversity
+  section4:
+    title: Seed bank & natural fertilizer
+    step1: Collect and preserve seeds
+    step2: Observe plant growth
+    step3: Produce natural fertilizer (compost)
+    text1: The seed bank invites children to explore the cycle of nature. They harvest, preserve and then sow the seeds, which leads them to protect plant resources and preserve an authentic natural heritage.
+    text2: The production of natural fertilizer allows children to discover how to feed the earth in a healthy way. Children put into practice ecological solutions to improve the soil and stimulate plant growth.
+  section5:
+    title: The cooperative souk
+    description: "Children organize a monthly souk to sell their products. They manage the entire process from start to finish: production, sales and investment. This allows them to learn about organizing complex events as well as time and money management."
+    prices: Prices
+  section6:
+    title: Membership formulas
+    subtitle: Choose the formula that suits you
+    months3: 3 months
+    months6: 6 months
+    year1: 1 year
+    choose: Choose
+    info1: Cooperative for children aged 3 to 12.
+    info2: All formulas offer unlimited access on Tuesday afternoons and Saturdays.
+  section7:
+    title: Join the small
+    title_coop: COOP
+    contact_us: Contact us
+    address: Rue de zaccar, Hydra
+    phone: +213 563 00 05 17
+    email: montessoriadalen@gmail.com
+    instagram: "@montessoriadalen"
+    cta: START 2026 BY REGISTERING FOR THE COOP MADE BY AND FOR CHILDREN!
+
+footer:
+  title: Adalen
+  description: Children's extra-curricular activity center
+  quick_links: Quick links
+  contact_title: Contact
+  rights: All rights reserved.
+

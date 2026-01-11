@@ -1,0 +1,145 @@
+# Traductions françaises
+app:
+  name: Adalen
+  tagline: Centre d'Activités Extra-Scolaires pour Enfants
+  home: Accueil
+  activities: Activités
+  animators: Animateurs
+  coop: La Petite COOP
+  contact: Contact
+  montessori: Montessori
+
+home:
+  title: Adalen - Centre d'Activités Extra-Scolaires pour Enfants
+  hero:
+    title: Le Centre Adalen
+    subtitle: Grandir, créer et s'épanouir autrement
+    description: Un espace dédié à l'épanouissement des enfants à travers des activités extra-scolaires variées, ludiques et éducatives.
+  activities:
+    title: Activités Extra-Scolaires
+    subtitle: Des activités variées pour l'épanouissement de votre enfant
+    see_all: Voir toutes les activités
+  quality:
+    title: Qualité & Environnement
+    subtitle: Un environnement d'apprentissage exceptionnel pour vos enfants
+    description: Nous offrons un environnement sécurisé, stimulant et bienveillant où chaque enfant peut s'épanouir et développer son potentiel unique.
+    items:
+      happy: Environnement Heureux
+      play: Apprendre en Jouant
+      safety: Sécurité & Protection
+      creativity: Créativité Renforcée
+
+activity:
+  title: Activités - Adalen
+  page_title: Activités Extra-Scolaires
+  subtitle: Des activités variées pour l'épanouissement de votre enfant
+  gardening:
+    title: Jardinage
+    description: Nourrir la créativité, l'autonomie et le lien à la nature à travers des expériences concrètes et joyeuses.
+  arts:
+    title: Arts Plastiques
+    description: Stimuler l'imagination et l'expression artistique des enfants.
+  english:
+    title: English Bites
+    description: Apprendre l'anglais de façon ludique et interactive.
+  archaeology:
+    title: Archéologie
+    description: Éveiller la curiosité et la découverte du passé.
+  geology:
+    title: Géologie
+    description: Explorer la terre et ses merveilles naturelles.
+  cultural:
+    title: Sorties Culturelles
+    description: Découvrir le monde à travers des expériences enrichissantes.
+
+animator:
+  title: Animateurs - Adalen
+  page_title: Nos Animateurs
+  subtitle: Une équipe passionnée et qualifiée pour accompagner vos enfants
+  pedagogical:
+    title: Équipe Pédagogique
+    description: Nos animateurs sont formés et expérimentés pour offrir le meilleur accompagnement à vos enfants.
+  specialized:
+    title: Animateurs Spécialisés
+    description: Chaque activité est encadrée par des professionnels spécialisés dans leur domaine.
+  caring:
+    title: Bienveillance
+    description: Notre équipe prône une approche bienveillante et respectueuse de chaque enfant.
+  learn_more: En savoir plus
+
+contact:
+  title: Contact - Adalen
+  page_title: Contactez-nous
+  subtitle: Nous sommes là pour répondre à toutes vos questions
+  send_message: Envoyez-nous un message
+  your_name: Votre nom
+  your_email: Votre email
+  subject: Sujet
+  your_message: Votre message
+  send: Envoyer
+  address: Alger, Algérie
+  phone: +213 563 000 507
+  email: contact@adalen-dz.com
+
+coop:
+  title: La Petite COOP - Adalen
+  hero:
+    title_small: La petite
+    title_big: COOP
+    slogan: DÉCIDER, AGIR ET COOPÉRER DÈS L'ENFANCE
+  section1:
+    title: Une coopérative gérée par les enfants
+    text1: La coopérative repose sur le partage des responsabilités et la participation de tous.
+    text2: Les enfants prennent part aux décisions, s'expriment, écoutent les autres, négocient et votent ensemble.
+    text3: Chacun a un rôle adapté à son âge (organisation, ventes, communication, gestion...), ce qui met en valeur le travail d'équipe et l'engagement.
+    text4: Les enfants participent également à la vente et à la gestion de l'argent. En groupe, ils décident comment l'utiliser et l'investir de façon responsable, en respectant les avis différents et en prenant des décisions collectives.
+  section2:
+    title: Élevage
+    description: La responsabilité d'un animal repose sur un engagement sur le long terme et des soins réguliers. Cette expérience permet aux enfants de développer leur sens des responsabilités et le respect du vivant, tout en découvrant la vie quotidienne des animaux par la pratique et l'observation.
+    point1: Prendre soin de l'animal
+    point2: Respecter les êtres vivants
+    point3: S'engager dans la durée
+  section3:
+    title: Potager
+    subtitle: et pépinière
+    box1_title: Imprégnation à l'auto-suffisance alimentaire
+    box1_subtitle: Respect de l'environnement
+    box2_title: Valeur des plantes, des arbres et des fleurs
+    box2_subtitle: Importance de la biodiversité
+  section4:
+    title: Banque de semences & engrais naturel
+    step1: Collecter et conserver les semences
+    step2: Observer la croissance des plantes
+    step3: Produire de l'engrais naturel (compost)
+    text1: La banque de semences invite les enfants à explorer le cycle de la nature. Ils récoltent, conservent puis sèment les graines, ce qui les conduit à protéger les ressources végétales et de préserver un patrimoine naturel authentique.
+    text2: La production d'engrais naturel permet aux enfants de découvrir comment nourrir la terre de manière saine. Les enfants mettent en pratique des solutions écologiques pour améliorer le sol et stimuler la croissance des plantes.
+  section5:
+    title: Le souk de la coopérative
+    description: "Les enfants organisent un souk mensuel afin de vendre leurs produits. Ils gèrent de bout en bout tout le processus : production, vente et investissement. Ce qui leur permet de s'initier à l'organisation d'événements complexes ainsi qu'à la gestion du temps, et de l'argent."
+    prices: Prix
+  section6:
+    title: Formules d'adhésion
+    subtitle: Choisissez la formule qui vous correspond
+    months3: 3 mois
+    months6: 6 mois
+    year1: 1 année
+    choose: Choisir
+    info1: Coopérative pour enfants de 3 à 12 ans.
+    info2: Toutes les formules offrent un accès illimité les mardis après-midi et les samedis.
+  section7:
+    title: Rejoindre la petite
+    title_coop: COOP
+    contact_us: Contactez-nous
+    address: Rue de zaccar, Hydra
+    phone: +213 563 00 05 17
+    email: montessoriadalen@gmail.com
+    instagram: "@montessoriadalen"
+    cta: COMMENCEZ 2026 EN VOUS INSCRIVANT À LA COOP FAITE PAR ET POUR LES ENFANTS !
+
+footer:
+  title: Adalen
+  description: Centre d'activités extra-scolaires pour enfants
+  quick_links: Liens rapides
+  contact_title: Contact
+  rights: Tous droits réservés.
+

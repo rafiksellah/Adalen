@@ -1,31 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact - Adalen{% endblock %}
+{% block title %}{{ 'contact.title'|trans }}{% endblock %}
 
 {% block body %}
     <section class="py-5" style="padding: 6rem 0;">
         <div class="container">
-            <h2 class="section-title fade-in">Contactez-nous</h2>
-            <p class="section-subtitle fade-in">Nous sommes là pour répondre à toutes vos questions</p>
+            <h2 class="section-title fade-in">{{ 'contact.page_title'|trans }}</h2>
+            <p class="section-subtitle fade-in">{{ 'contact.subtitle'|trans }}</p>
             
             <div class="row">
                 <div class="col-lg-6 mb-4 fade-in-left">
                     <div class="activity-card p-4 slide-up">
-                        <h3 class="mb-4">Envoyez-nous un message</h3>
+                        <h3 class="mb-4">{{ 'contact.send_message'|trans }}</h3>
                         <form>
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Votre nom" required>
+                                <input type="text" class="form-control" placeholder="{{ 'contact.your_name'|trans }}" required>
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Votre email" required>
+                                <input type="email" class="form-control" placeholder="{{ 'contact.your_email'|trans }}" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Sujet" required>
+                                <input type="text" class="form-control" placeholder="{{ 'contact.subject'|trans }}" required>
                             </div>
                             <div class="mb-3">
-                                <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
+                                <textarea class="form-control" rows="5" placeholder="{{ 'contact.your_message'|trans }}" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                            <button type="submit" class="btn btn-primary">{{ 'contact.send'|trans }}</button>
                         </form>
                     </div>
                 </div>

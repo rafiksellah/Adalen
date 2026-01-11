@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ app.request.locale }}" dir="{% if app.request.locale == 'ar' %}rtl{% else %}ltr{% endif %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Adalen - Centre d'Activités Extra-Scolaires pour Enfants{% endblock %}</title>
+    <title>{% block title %}{{ 'home.title'|trans }}{% endblock %}</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,25 +33,47 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_home') }}">Accueil</a>
+                        <a class="nav-link" href="{{ path('app_home', {_locale: app.request.locale}) }}">{{ 'app.home'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_activities') }}">Activités</a>
+                        <a class="nav-link" href="{{ path('app_activities', {_locale: app.request.locale}) }}">{{ 'app.activities'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_animators') }}">Animateurs</a>
+                        <a class="nav-link" href="{{ path('app_animators', {_locale: app.request.locale}) }}">{{ 'app.animators'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_coop') }}">La Petite COOP</a>
+                        <a class="nav-link" href="{{ path('app_coop', {_locale: app.request.locale}) }}">{{ 'app.coop'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_contact') }}">Contact</a>
+                        <a class="nav-link" href="{{ path('app_contact', {_locale: app.request.locale}) }}">{{ 'app.contact'|trans }}</a>
                     </li>
-                    <a href="https://montessori-algeria.com/" target="_blank" class="nav-link nav-link-external" title="Aller au site Montessori">
-                            <i class="fas fa-home me-2"></i>Montessori
-                    </a>
+                    <li class="nav-item">
+                        <a href="https://montessori-algeria.com/" target="_blank" class="nav-link nav-link-external" title="{{ 'app.montessori'|trans }}">
+                            <i class="fas fa-home me-2"></i>{{ 'app.montessori'|trans }}
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown ms-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i>
+                            {% if app.request.locale == 'en' %}EN
+                            {% elseif app.request.locale == 'fr' %}FR
+                            {% elseif app.request.locale == 'ar' %}AR
+                            {% endif %}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            {% if app.request.locale != 'en' %}
+                            <li><a class="dropdown-item" href="{{ path('app_change_locale', {locale: 'en'}) }}">English</a></li>
+                            {% endif %}
+                            {% if app.request.locale != 'fr' %}
+                            <li><a class="dropdown-item" href="{{ path('app_change_locale', {locale: 'fr'}) }}">Français</a></li>
+                            {% endif %}
+                            {% if app.request.locale != 'ar' %}
+                            <li><a class="dropdown-item" href="{{ path('app_change_locale', {locale: 'ar'}) }}">العربية</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -64,29 +86,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5>Adalen</h5>
-                    <p>Centre d'activités extra-scolaires pour enfants</p>
+                    <h5>{{ 'footer.title'|trans }}</h5>
+                    <p>{{ 'footer.description'|trans }}</p>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h5>Liens rapides</h5>
+                    <h5>{{ 'footer.quick_links'|trans }}</h5>
                     <ul class="list-unstyled">
-                        <li><a href="{{ path('app_home') }}">Accueil</a></li>
-                        <li><a href="{{ path('app_activities') }}">Activités</a></li>
-                        <li><a href="{{ path('app_animators') }}">Animateurs</a></li>
-                        <li><a href="{{ path('app_coop') }}">La Petite COOP</a></li>
-                        <li><a href="{{ path('app_contact') }}">Contact</a></li>
+                        <li><a href="{{ path('app_home', {_locale: app.request.locale}) }}">{{ 'app.home'|trans }}</a></li>
+                        <li><a href="{{ path('app_activities', {_locale: app.request.locale}) }}">{{ 'app.activities'|trans }}</a></li>
+                        <li><a href="{{ path('app_animators', {_locale: app.request.locale}) }}">{{ 'app.animators'|trans }}</a></li>
+                        <li><a href="{{ path('app_coop', {_locale: app.request.locale}) }}">{{ 'app.coop'|trans }}</a></li>
+                        <li><a href="{{ path('app_contact', {_locale: app.request.locale}) }}">{{ 'app.contact'|trans }}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h5>Contact</h5>
-                    <p><i class="fas fa-map-marker-alt"></i> Alger, Algérie</p>
-                    <p><i class="fas fa-phone"></i> +213 563 000 507</p>
-                    <p><i class="fas fa-envelope"></i> contact@adalen-dz.com</p>
+                    <h5>{{ 'footer.contact_title'|trans }}</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ 'contact.address'|trans }}</p>
+                    <p><i class="fas fa-phone"></i> {{ 'contact.phone'|trans }}</p>
+                    <p><i class="fas fa-envelope"></i> {{ 'contact.email'|trans }}</p>
                 </div>
             </div>
             <hr>
             <div class="text-center">
-                <p>&copy; {{ 'now'|date('Y') }} Adalen. Tous droits réservés.</p>
+                <p>&copy; {{ 'now'|date('Y') }} {{ 'footer.title'|trans }}. {{ 'footer.rights'|trans }}</p>
             </div>
         </div>
     </footer>

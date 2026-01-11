@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}La Petite COOP - Adalen{% endblock %}
+{% block title %}{{ 'coop.title'|trans }}{% endblock %}
 
 {% block body %}
     <!-- Hero Section - La petite COOP -->
@@ -16,11 +16,11 @@
                     </div>
                     <div class="col-lg-6 text-white fade-in-right">
                         <h1 class="coop-main-title mb-3 fade-in">
-                            <span style="font-size: 2rem; display: block;">La petite</span>
-                            <span style="font-size: 4rem; font-weight: 900; display: block; color: #8B6F5B;">COOP</span>
+                            <span style="font-size: 2rem; display: block;">{{ 'coop.hero.title_small'|trans }}</span>
+                            <span style="font-size: 4rem; font-weight: 900; display: block; color: #8B6F5B;">{{ 'coop.hero.title_big'|trans }}</span>
                         </h1>
                         <p class="coop-slogan fade-in" style="font-size: 1rem; letter-spacing: 0.1em; color: #D4B899; margin-top: 1rem; font-weight: 500;">
-                            DÉCIDER, AGIR ET COOPÉRER DÈS L'ENFANCE
+                            {{ 'coop.hero.slogan'|trans }}
                         </p>
                     </div>
                 </div>
@@ -34,20 +34,20 @@
             <div class="row align-items-center">
                     <div class="col-lg-7 mb-4 mb-lg-0 fade-in-left">
                     <h2 class="coop-section-title mb-4 fade-in" style="color: #D4B899; font-size: 2.5rem; font-weight: 700;">
-                        Une coopérative gérée par les enfants
+                        {{ 'coop.section1.title'|trans }}
                     </h2>
                     <div class="coop-text-content fade-in" style="color: #D4B899; font-size: 1.1rem; line-height: 1.8;">
                         <p class="mb-3">
-                            La coopérative repose sur le <strong>partage des responsabilités</strong> et la participation de tous.
+                            {{ 'coop.section1.text1'|trans|raw }}
                         </p>
                         <p class="mb-3">
-                            Les enfants prennent part aux <strong>décisions</strong>, s'expriment, <strong>écoutent</strong> les autres, <strong>négocient</strong> et <strong>votent</strong> ensemble.
+                            {{ 'coop.section1.text2'|trans|raw }}
                         </p>
                         <p class="mb-3">
-                            Chacun a un <strong>rôle adapté à son âge</strong> (organisation, ventes, communication, gestion...), ce qui met en valeur le <strong>travail d'équipe</strong> et l'<strong>engagement</strong>.
+                            {{ 'coop.section1.text3'|trans|raw }}
                         </p>
                         <p>
-                            Les enfants participent également à la <strong>vente</strong> et à la <strong>gestion de l'argent</strong>. En groupe, ils décident comment l'utiliser et l'<strong>investir de façon responsable</strong>, en respectant les avis différents et en prenant des <strong>décisions collectives</strong>.
+                            {{ 'coop.section1.text4'|trans|raw }}
                         </p>
                     </div>
                 </div>
@@ -66,20 +66,20 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0 fade-in-left">
                     <h2 class="coop-section-title mb-4 fade-in" style="color: #3D2B1F; font-size: 3rem; font-weight: 700;">
-                        Élevage
+                        {{ 'coop.section2.title'|trans }}
                     </h2>
                     <p class="coop-text-content mb-4 fade-in" style="color: #3D2B1F; font-size: 1.1rem; line-height: 1.8;">
-                        La responsabilité d'un animal repose sur un <strong>engagement sur le long terme</strong> et des soins réguliers. Cette expérience permet aux enfants de développer leur sens des <strong>responsabilités</strong> et le <strong>respect du vivant</strong>, tout en découvrant la vie quotidienne des animaux par la <strong>pratique</strong> et l'<strong>observation</strong>.
+                        {{ 'coop.section2.description'|trans|raw }}
                     </p>
                     <div class="coop-numbered-points d-flex flex-column gap-3">
                         <div class="coop-number-point slide-up" style="background-color: #3D2B1F; color: #D4B899; width: fit-content; padding: 1rem 2rem; border-radius: 50px; font-weight: 600;">
-                            <span style="font-size: 1.5rem;">01</span> Prendre soin de l'animal
+                            <span style="font-size: 1.5rem;">01</span> {{ 'coop.section2.point1'|trans }}
                         </div>
                         <div class="coop-number-point slide-up" style="background-color: #3D2B1F; color: #D4B899; width: fit-content; padding: 1rem 2rem; border-radius: 50px; font-weight: 600;">
-                            <span style="font-size: 1.5rem;">02</span> Respecter les êtres vivants
+                            <span style="font-size: 1.5rem;">02</span> {{ 'coop.section2.point2'|trans }}
                         </div>
                         <div class="coop-number-point slide-up" style="background-color: #3D2B1F; color: #D4B899; width: fit-content; padding: 1rem 2rem; border-radius: 50px; font-weight: 600;">
-                            <span style="font-size: 1.5rem;">03</span> S'engager dans la durée
+                            <span style="font-size: 1.5rem;">03</span> {{ 'coop.section2.point3'|trans }}
                         </div>
                     </div>
                 </div>
@@ -103,26 +103,26 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 mb-4 mb-lg-0 fade-in-left">
                     <h2 class="coop-section-title mb-2 fade-in" style="color: #D4B899; font-size: 3rem; font-weight: 700;">
-                        Potager
+                        {{ 'coop.section3.title'|trans }}
                     </h2>
                     <p class="coop-section-subtitle mb-4 fade-in" style="color: #D4B899; font-size: 2rem; font-weight: 700;">
-                        et pépinière
+                        {{ 'coop.section3.subtitle'|trans }}
                     </p>
                     <div class="coop-info-box mb-4 slide-up" style="background-color: #D4B899; padding: 2rem; border-radius: 20px;">
                         <div class="d-flex align-items-start gap-3">
-                            <div style="font-size: 2.5rem; color: #3D2B1F;">🍎</div>
+                            <div style="font-size: 2.5rem; color: #3D2B1F;"><i class="fas fa-apple-alt"></i></div>
                             <div style="color: #3D2B1F; font-size: 1.1rem; line-height: 1.8;">
-                                <strong>Imprégnation à l'auto-suffisance alimentaire</strong><br>
-                                Respect de l'environnement
+                                <strong>{{ 'coop.section3.box1_title'|trans }}</strong><br>
+                                {{ 'coop.section3.box1_subtitle'|trans }}
                             </div>
                         </div>
                     </div>
                     <div class="coop-info-box slide-up" style="background-color: #D4B899; padding: 2rem; border-radius: 20px;">
                         <div class="d-flex align-items-start gap-3">
-                            <div style="font-size: 2.5rem; color: #3D2B1F;">🌱</div>
+                            <div style="font-size: 2.5rem; color: #3D2B1F;"><i class="fas fa-seedling"></i></div>
                             <div style="color: #3D2B1F; font-size: 1.1rem; line-height: 1.8;">
-                                <strong>Valeur des plantes, des arbres et des fleurs</strong><br>
-                                Importance de la biodiversité
+                                <strong>{{ 'coop.section3.box2_title'|trans }}</strong><br>
+                                {{ 'coop.section3.box2_subtitle'|trans }}
                             </div>
                         </div>
                     </div>
@@ -142,20 +142,20 @@
             <div class="row align-items-center">
                 <div class="col-lg-4 mb-4 mb-lg-0 fade-in-left">
                     <h2 class="coop-section-title mb-4 fade-in" style="color: #3D2B1F; font-size: 2rem; font-weight: 700;">
-                        Banque de semences & engrais naturel
+                        {{ 'coop.section4.title'|trans }}
                     </h2>
                     <div class="coop-numbered-steps d-flex flex-column gap-3">
                         <div class="coop-step scale-in" style="background-color: #D4B899; color: #3D2B1F; padding: 1.5rem; border-radius: 50%; width: 180px; height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
                             <span style="font-size: 2.5rem; font-weight: 700;">01</span>
-                            <p style="font-weight: 600; margin-top: 0.5rem; font-size: 0.9rem;">Collecter et conserver les semences</p>
+                            <p style="font-weight: 600; margin-top: 0.5rem; font-size: 0.9rem;">{{ 'coop.section4.step1'|trans }}</p>
                         </div>
                         <div class="coop-step scale-in" style="background-color: #D4B899; color: #3D2B1F; padding: 1.5rem; border-radius: 50%; width: 180px; height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
                             <span style="font-size: 2.5rem; font-weight: 700;">02</span>
-                            <p style="font-weight: 600; margin-top: 0.5rem; font-size: 0.9rem;">Observer la croissance des plantes</p>
+                            <p style="font-weight: 600; margin-top: 0.5rem; font-size: 0.9rem;">{{ 'coop.section4.step2'|trans }}</p>
                         </div>
                         <div class="coop-step scale-in" style="background-color: #D4B899; color: #3D2B1F; padding: 1.5rem; border-radius: 50%; width: 180px; height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
                             <span style="font-size: 2.5rem; font-weight: 700;">03</span>
-                            <p style="font-weight: 600; margin-top: 0.5rem; font-size: 0.9rem;">Produire de l'engrais naturel (compost)</p>
+                            <p style="font-weight: 600; margin-top: 0.5rem; font-size: 0.9rem;">{{ 'coop.section4.step3'|trans }}</p>
                         </div>
                     </div>
                 </div>
@@ -169,13 +169,13 @@
                         <div class="mb-4">
                             <div style="width: 15px; height: 15px; background-color: #F58220; border-radius: 50%; display: inline-block; margin-right: 1rem; vertical-align: middle;"></div>
                             <p style="display: inline-block; width: calc(100% - 40px); vertical-align: middle;">
-                                La banque de semences invite les enfants à explorer le cycle de la nature. Ils <strong>récoltent</strong>, <strong>conservent</strong> puis <strong>sèment</strong> les graines, ce qui les conduit à <strong>protéger</strong> les ressources végétales et de <strong>préserver</strong> un patrimoine naturel authentique.
+                                {{ 'coop.section4.text1'|trans|raw }}
                             </p>
                         </div>
                         <div>
                             <div style="width: 15px; height: 15px; background-color: #F58220; border-radius: 50%; display: inline-block; margin-right: 1rem; vertical-align: middle;"></div>
                             <p style="display: inline-block; width: calc(100% - 40px); vertical-align: middle;">
-                                La production d'engrais naturel permet aux enfants de découvrir comment <strong>nourrir</strong> la terre de manière saine. Les enfants mettent en pratique des solutions <strong>écologiques</strong> pour améliorer le sol et <strong>stimuler</strong> la croissance des plantes.
+                                {{ 'coop.section4.text2'|trans|raw }}
                             </p>
                         </div>
                     </div>
@@ -191,12 +191,10 @@
                 <div class="col-lg-6 mb-4 mb-lg-0 fade-in-left">
                     <div class="coop-text-box slide-up" style="background-color: rgba(255, 255, 255, 0.9); padding: 3rem; border-radius: 30px;">
                         <h2 class="coop-section-title mb-4 fade-in" style="color: #3D2B1F; font-size: 2.5rem; font-weight: 700;">
-                            Le souk de la coopérative
+                            {{ 'coop.section5.title'|trans }}
                         </h2>
                         <p class="coop-text-content fade-in" style="color: #3D2B1F; font-size: 1.1rem; line-height: 1.8;">
-                            Les <strong>enfants</strong> organisent un <strong>souk</strong> mensuel afin de vendre leurs <strong>produits</strong>.<br><br>
-                            Ils <strong>gèrent</strong> de bout en bout tout le processus : <strong>production, vente et investissement</strong>.<br><br>
-                            Ce qui leur permet de s'initier à l'<strong>organisation d'événements complexes</strong> ainsi qu'à la <strong>gestion du temps, et de l'argent</strong>.
+                            {{ 'coop.section5.description'|trans|raw }}
                         </p>
                     </div>
                 </div>
@@ -204,7 +202,7 @@
                     <div class="row">
                         <div class="col-12 mb-4 text-center">
                             <div class="coop-price-board scale-in" style="background-color: #3D2B1F; color: #D4B899; padding: 2rem; border-radius: 15px; display: inline-block; max-width: 250px;">
-                                <h5 style="margin-bottom: 1rem; font-weight: 700;">Prix</h5>
+                                <h5 style="margin-bottom: 1rem; font-weight: 700;">{{ 'coop.section5.prices'|trans }}</h5>
                                 <div style="font-size: 1.1rem; line-height: 2;">
                                     <div>Tomate 50 dzd</div>
                                     <div>Poivron 40 dzd</div>
@@ -227,10 +225,10 @@
     <section class="coop-section py-5" style="background-color: #F5F0E6; min-height: 600px; display: flex; align-items: center;">
         <div class="container">
             <h2 class="coop-section-title text-center mb-3 fade-in" style="color: #3D2B1F; font-size: 3rem; font-weight: 700;">
-                Formules d'adhésion
+                {{ 'coop.section6.title'|trans }}
             </h2>
             <p class="text-center mb-5 fade-in" style="color: #3D2B1F; font-size: 1.2rem;">
-                Choisissez la formule qui vous correspond
+                {{ 'coop.section6.subtitle'|trans }}
             </p>
             <div class="row g-4 mb-5">
                 <div class="col-md-4">
@@ -238,9 +236,9 @@
                         <div class="coop-discount-badge mb-3" style="background-color: #3D2B1F; color: #D4B899; padding: 0.5rem 1.5rem; border-radius: 50px; display: inline-block; font-weight: 700; font-size: 1.2rem;">
                             -0%
                         </div>
-                        <h3 class="mb-4" style="color: #3D2B1F; font-size: 2rem; font-weight: 700;">3 mois</h3>
-                        <div style="font-size: 3rem; color: #3D2B1F; margin-bottom: 1.5rem;">🌱</div>
-                        <button class="btn" style="background-color: #3D2B1F; color: #D4B899; padding: 0.75rem 2rem; border-radius: 25px; font-weight: 600; border: none;">Choisir</button>
+                        <h3 class="mb-4" style="color: #3D2B1F; font-size: 2rem; font-weight: 700;">{{ 'coop.section6.months3'|trans }}</h3>
+                        <div style="font-size: 3rem; color: #3D2B1F; margin-bottom: 1.5rem;"><i class="fas fa-seedling"></i></div>
+                        <button class="btn" style="background-color: #3D2B1F; color: #D4B899; padding: 0.75rem 2rem; border-radius: 25px; font-weight: 600; border: none;">{{ 'coop.section6.choose'|trans }}</button>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -248,9 +246,9 @@
                         <div class="coop-discount-badge mb-3" style="background-color: #3D2B1F; color: #D4B899; padding: 0.5rem 1.5rem; border-radius: 50px; display: inline-block; font-weight: 700; font-size: 1.2rem;">
                             -5%
                         </div>
-                        <h3 class="mb-4" style="color: #3D2B1F; font-size: 2rem; font-weight: 700;">6 mois</h3>
-                        <div style="font-size: 3rem; color: #3D2B1F; margin-bottom: 1.5rem;">🌱</div>
-                        <button class="btn" style="background-color: #3D2B1F; color: #D4B899; padding: 0.75rem 2rem; border-radius: 25px; font-weight: 600; border: none;">Choisir</button>
+                        <h3 class="mb-4" style="color: #3D2B1F; font-size: 2rem; font-weight: 700;">{{ 'coop.section6.months6'|trans }}</h3>
+                        <div style="font-size: 3rem; color: #3D2B1F; margin-bottom: 1.5rem;"><i class="fas fa-seedling"></i></div>
+                        <button class="btn" style="background-color: #3D2B1F; color: #D4B899; padding: 0.75rem 2rem; border-radius: 25px; font-weight: 600; border: none;">{{ 'coop.section6.choose'|trans }}</button>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -258,9 +256,9 @@
                         <div class="coop-discount-badge mb-3" style="background-color: #3D2B1F; color: #D4B899; padding: 0.5rem 1.5rem; border-radius: 50px; display: inline-block; font-weight: 700; font-size: 1.2rem;">
                             -10%
                         </div>
-                        <h3 class="mb-4" style="color: #3D2B1F; font-size: 2rem; font-weight: 700;">1 année</h3>
-                        <div style="font-size: 3rem; color: #3D2B1F; margin-bottom: 1.5rem;">🌱</div>
-                        <button class="btn" style="background-color: #3D2B1F; color: #D4B899; padding: 0.75rem 2rem; border-radius: 25px; font-weight: 600; border: none;">Choisir</button>
+                        <h3 class="mb-4" style="color: #3D2B1F; font-size: 2rem; font-weight: 700;">{{ 'coop.section6.year1'|trans }}</h3>
+                        <div style="font-size: 3rem; color: #3D2B1F; margin-bottom: 1.5rem;"><i class="fas fa-seedling"></i></div>
+                        <button class="btn" style="background-color: #3D2B1F; color: #D4B899; padding: 0.75rem 2rem; border-radius: 25px; font-weight: 600; border: none;">{{ 'coop.section6.choose'|trans }}</button>
                     </div>
                 </div>
             </div>
@@ -268,12 +266,12 @@
                 <div class="col-lg-6">
                     <div class="coop-info-list" style="color: #3D2B1F; font-size: 1.1rem; line-height: 2;">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <div style="font-size: 2rem;">👥</div>
-                            <div>Coopérative pour enfants de 3 à 12 ans.</div>
+                            <div style="font-size: 2rem;"><i class="fas fa-users"></i></div>
+                            <div>{{ 'coop.section6.info1'|trans }}</div>
                         </div>
                         <div class="d-flex align-items-center gap-3">
-                            <div style="font-size: 2rem;">📅</div>
-                            <div>Toutes les formules offrent un accès illimité les mardis après-midi et les samedis.</div>
+                            <div style="font-size: 2rem;"><i class="fas fa-calendar-alt"></i></div>
+                            <div>{{ 'coop.section6.info2'|trans }}</div>
                         </div>
                     </div>
                 </div>
@@ -285,36 +283,36 @@
     <section class="coop-section py-5" style="background-color: #3D2B1F; min-height: 600px; display: flex; align-items: center;">
         <div class="container">
             <h2 class="coop-section-title text-center mb-2 fade-in" style="color: #D4B899; font-size: 3rem; font-weight: 700;">
-                Rejoindre la petite <span style="color: #F5F0E6;">COOP</span>
+                {{ 'coop.section7.title'|trans }} <span style="color: #F5F0E6;">{{ 'coop.section7.title_coop'|trans }}</span>
             </h2>
             <p class="text-center mb-5 fade-in" style="color: #D4B899; font-size: 1.5rem; font-weight: 600; text-decoration: underline;">
-                Contactez-nous
+                {{ 'coop.section7.contact_us'|trans }}
             </p>
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-8">
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="coop-contact-item d-flex align-items-center gap-3 slide-up" style="background-color: #3D2B1F; color: white; padding: 1.5rem; border-radius: 15px; border: 2px solid #D4B899;">
-                                <div style="font-size: 2rem;">📍</div>
-                                <div>Rue de zaccar, Hydra</div>
+                                <div style="font-size: 2rem;"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>{{ 'coop.section7.address'|trans }}</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="coop-contact-item d-flex align-items-center gap-3 slide-up" style="background-color: #3D2B1F; color: white; padding: 1.5rem; border-radius: 15px; border: 2px solid #D4B899;">
-                                <div style="font-size: 2rem;">📞</div>
-                                <div>+213 563 00 05 17</div>
+                                <div style="font-size: 2rem;"><i class="fas fa-phone"></i></div>
+                                <div>{{ 'coop.section7.phone'|trans }}</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="coop-contact-item d-flex align-items-center gap-3 slide-up" style="background-color: #3D2B1F; color: white; padding: 1.5rem; border-radius: 15px; border: 2px solid #D4B899;">
-                                <div style="font-size: 2rem;">✉️</div>
-                                <div>montessoriadalen@gmail.com</div>
+                                <div style="font-size: 2rem;"><i class="fas fa-envelope"></i></div>
+                                <div>{{ 'coop.section7.email'|trans }}</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="coop-contact-item d-flex align-items-center gap-3 slide-up" style="background-color: #3D2B1F; color: white; padding: 1.5rem; border-radius: 15px; border: 2px solid #D4B899;">
-                                <div style="font-size: 2rem;">📱</div>
-                                <div>@montessoriadalen</div>
+                                <div style="font-size: 2rem;"><i class="fas fa-mobile-alt"></i></div>
+                                <div>{{ 'coop.section7.instagram'|trans }}</div>
                             </div>
                         </div>
                     </div>
@@ -327,7 +325,7 @@
                             <div class="coop-qr-code-wrapper scale-in">
                                 <div style="background-color: white; padding: 2rem; border-radius: 15px; display: inline-block;">
                                     <div style="width: 200px; height: 200px; background-color: #D4B899; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                                        <div style="font-size: 4rem;">📷</div>
+                                        <div style="font-size: 4rem;"><i class="fab fa-instagram"></i></div>
                                     </div>
                                     <p class="mt-3 mb-0" style="color: #3D2B1F; font-weight: 600;">MONTESSORIADALEN</p>
                                 </div>
@@ -337,7 +335,7 @@
                             <div class="coop-qr-code-wrapper scale-in">
                                 <div style="background-color: white; padding: 2rem; border-radius: 15px; display: inline-block;">
                                     <div style="width: 200px; height: 200px; background-color: #D4B899; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                                        <div style="font-size: 4rem;">🎵</div>
+                                        <div style="font-size: 4rem;"><i class="fab fa-tiktok"></i></div>
                                     </div>
                                     <p class="mt-3 mb-0" style="color: #3D2B1F; font-weight: 600;">TikTok</p>
                                 </div>
@@ -348,7 +346,7 @@
             </div>
             <div class="text-center">
                 <p class="coop-cta fade-in" style="color: #D4B899; font-size: 1.3rem; font-weight: 700; letter-spacing: 0.1em;">
-                    COMMENCEZ 2026 EN VOUS INSCRIVANT À LA COOP FAITE PAR ET POUR LES ENFANTS !
+                    {{ 'coop.section7.cta'|trans }}
                 </p>
             </div>
         </div>

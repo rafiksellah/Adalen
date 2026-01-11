@@ -95,6 +95,47 @@ body {
     color: var(--adalen-primary-dark) !important;
 }
 
+/* Language Selector */
+.navbar .dropdown-toggle {
+    color: var(--adalen-dark) !important;
+    font-weight: 500;
+}
+
+.navbar .dropdown-toggle:hover {
+    color: var(--adalen-primary) !important;
+}
+
+.navbar .dropdown-menu {
+    border: none;
+    box-shadow: none;
+}
+
+.navbar .dropdown-item {
+    color: var(--adalen-dark);
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: var(--adalen-light);
+    color: var(--adalen-primary);
+}
+
+/* RTL Support for Arabic */
+html[dir="rtl"] {
+    direction: rtl;
+}
+
+html[dir="rtl"] .navbar-nav {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+html[dir="rtl"] .navbar-brand {
+    margin-right: 0;
+    margin-left: auto;
+}
+
 /* ============================================
    HERO SECTION
    ============================================ */
@@ -197,6 +238,15 @@ body {
 .activity-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: var(--adalen-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.activity-icon i {
+    font-size: 3rem;
+    color: var(--adalen-primary);
 }
 
 .activity-title {
@@ -308,6 +358,15 @@ body {
 .quality-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: var(--adalen-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quality-icon i {
+    font-size: 3rem;
+    color: var(--adalen-primary);
 }
 
 .quality-title {

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class AnimatorController extends AbstractController
 {
-    #[Route('/animators', name: 'app_animators')]
+    #[Route('/{_locale}/animators', name: 'app_animators', requirements: ['_locale' => 'en|fr|ar'], defaults: ['_locale' => 'en'])]
     public function index(): Response
     {
         return $this->render('animator/index.html.twig');
