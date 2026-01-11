@@ -1,0 +1,18 @@
+# This file redirects all requests to the public directory
+# It's useful when the project is in a subdirectory
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect to public directory if not already there
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ public/$1 [L]
+    
+    # Or redirect everything to public/index.php
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^$ public/index.php [L]
+    RewriteRule ^(.*)$ public/index.php [L]
+</IfModule>
+
