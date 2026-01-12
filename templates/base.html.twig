@@ -11,6 +11,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon-96x96.png') }}" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/img/favicon.svg') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ asset('assets/img/site.webmanifest') }}">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,8 +56,8 @@
                         <a class="nav-link" href="{{ path('app_contact', {_locale: app.request.locale}) }}">{{ 'app.contact'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://montessori-algeria.com/" target="_blank" class="nav-link nav-link-external" title="{{ 'app.montessori'|trans }}">
-                            <i class="fas fa-home me-2"></i>{{ 'app.montessori'|trans }}
+                        <a href="https://montessori-algeria.com/" target="_blank" class="nav-link nav-link-external d-flex align-items-center" title="{{ 'app.montessori'|trans }}">
+                            <img src="{{ asset('assets/img/montessori_principale.png') }}" alt="Montessori Algerie" style="width: 15px; height: 31px; margin-right: 0.5rem;" class="me-2">
                         </a>
                     </li>
                     <li class="nav-item dropdown ms-2">
