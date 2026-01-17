@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ 'job_application.email_templates.hr.subject'|trans({'%position%': application.posteSouhaite|trans}) }}</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background-color: #F58220; color: white; padding: 20px; text-align: center;">
+            <h1 style="margin: 0;">ADALEN - Nouvelle Candidature</h1>
+        </div>
+        
+        <div style="padding: 20px; background-color: #f9f9f9;">
+            <h2 style="color: #F58220;">Nouvelle candidature reçue</h2>
+            
+            <h3>Informations du candidat:</h3>
+            <ul>
+                <li><strong>Nom:</strong> {{ application.nom }} {{ application.prenom }}</li>
+                <li><strong>Email:</strong> {{ application.email }}</li>
+                <li><strong>Téléphone:</strong> {{ application.telephone }}</li>
+                <li><strong>Date de naissance:</strong> {{ application.dateNaissance|date('d/m/Y') }}</li>
+                <li><strong>Lieu de résidence:</strong> {{ application.lieuResidence }}</li>
+                <li><strong>Nationalité:</strong> {{ application.nationalite }}</li>
+                <li><strong>Permis de travail:</strong> {{ application.permisTravail ? 'Oui' : 'Non' }}</li>
+            </ul>
+            
+            <h3>Candidature:</h3>
+            <ul>
+                <li><strong>Poste souhaité:</strong> {{ application.posteSouhaite|trans }}</li>
+                <li><strong>Raison d'intérêt:</strong> {{ application.raisonInteretPoste }}</li>
+                <li><strong>Disponibilité:</strong> {{ application.disponibilite|trans }}</li>
+                <li><strong>Engagement:</strong> {{ application.engagement|trans }}</li>
+            </ul>
+            
+            <h3>Langues:</h3>
+            <ul>
+                {% for langue in application.langues %}
+                <li>{{ langue.nom }}: {{ langue.niveau|trans }}</li>
+                {% endfor %}
+            </ul>
+            
+            <h3>Motivation:</h3>
+            <p>{{ application.motivationAdalen }}</p>
+            
+            <h3>Contribution:</h3>
+            <p>{{ application.contributionAdalen }}</p>
+            
+            {% if application.cvFilename %}
+            <p><strong>CV:</strong> {{ application.cvFilename }}</p>
+            {% endif %}
+            
+            {% if application.motivationFilename %}
+            <p><strong>Lettre de motivation:</strong> {{ application.motivationFilename }}</p>
+            {% endif %}
+            
+            <p style="margin-top: 30px;"><strong>Date de candidature:</strong> {{ application.createdAt|date('d/m/Y H:i') }}</p>
+        </div>
+        
+        <div style="text-align: center; padding: 20px; background-color: #f0f0f0; font-size: 12px; color: #666;">
+            <p>Ce message a été généré automatiquement par le système ADALEN.</p>
+        </div>
+    </div>
+</body>
+</html>

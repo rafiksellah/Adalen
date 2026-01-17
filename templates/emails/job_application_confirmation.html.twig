@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ 'job_application.email_templates.candidate.subject'|trans }}</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background-color: #F58220; color: white; padding: 20px; text-align: center;">
+            <h1 style="margin: 0;">ADALEN</h1>
+        </div>
+        
+        <div style="padding: 20px; background-color: #f9f9f9;">
+            <h2 style="color: #F58220;">{{ 'job_application.email_templates.candidate.greeting'|trans }}</h2>
+            
+            <p>{{ 'job_application.email_templates.candidate.message'|trans({'%name%': application.prenom ~ ' ' ~ application.nom}) }}</p>
+            
+            <p><strong>{{ 'job_application.email_templates.candidate.position'|trans }}:</strong> {{ application.posteSouhaite|trans }}</p>
+            
+            <p>{{ 'job_application.email_templates.candidate.next_steps'|trans }}</p>
+            
+            <p style="margin-top: 30px;">{{ 'job_application.email_templates.candidate.regards'|trans }}</p>
+            <p><strong>{{ 'job_application.email_templates.candidate.team'|trans }}</strong><br>
+            ADALEN</p>
+        </div>
+        
+        <div style="text-align: center; padding: 20px; background-color: #f0f0f0; font-size: 12px; color: #666;">
+            <p>{{ 'job_application.email_templates.footer'|trans }}</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -131,6 +131,74 @@ html[dir="rtl"] .navbar-nav {
     margin-left: 0;
 }
 
+/* ============================================
+   RECRUITMENT PAGE STYLES
+   ============================================ */
+
+.recruitment-hero {
+    background-color: var(--adalen-light);
+}
+
+.recruitment-hero img,
+.recruitment-jobs img {
+    max-height: 500px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.recruitment-jobs {
+    background-color: var(--adalen-white);
+}
+
+.recruitment-jobs .lead {
+    font-size: 1.25rem;
+    color: var(--adalen-dark);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.recruitment-jobs .btn-primary {
+    padding: 0.875rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: transform 0.2s ease;
+}
+
+.recruitment-jobs .btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+    .recruitment-hero .row,
+    .recruitment-jobs .row {
+        flex-direction: column;
+    }
+    
+    .recruitment-jobs .row {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 768px) {
+    .recruitment-hero img,
+    .recruitment-jobs img {
+        max-height: 300px;
+        margin-bottom: 2rem;
+    }
+    
+    .recruitment-hero .ps-lg-5,
+    .recruitment-jobs .pe-lg-5 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    .recruitment-jobs .lead {
+        font-size: 1.1rem;
+    }
+}
+
 html[dir="rtl"] .navbar-brand {
     margin-right: 0;
     margin-left: auto;

@@ -56,6 +56,9 @@
                         <a class="nav-link" href="{{ path('app_contact', {_locale: app.request.locale}) }}">{{ 'app.contact'|trans }}</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_recrutement', {_locale: app.request.locale}) }}">{{ 'app.recruitment'|trans }}</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="https://montessori-algeria.com/" target="_blank" class="nav-link nav-link-external d-flex align-items-center" title="{{ 'app.montessori'|trans }}">
                             <img src="{{ asset('assets/img/montessori_principale.png') }}" alt="Montessori Algerie" style="width: 15px; height: 31px; margin-right: 0.5rem;" class="me-2">
                         </a>
@@ -103,6 +106,7 @@
                         <li><a href="{{ path('app_animators', {_locale: app.request.locale}) }}">{{ 'app.animators'|trans }}</a></li>
                         <li><a href="{{ path('app_coop', {_locale: app.request.locale}) }}">{{ 'app.coop'|trans }}</a></li>
                         <li><a href="{{ path('app_contact', {_locale: app.request.locale}) }}">{{ 'app.contact'|trans }}</a></li>
+                        <li><a href="{{ path('app_recrutement', {_locale: app.request.locale}) }}">{{ 'app.recruitment'|trans }}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4">

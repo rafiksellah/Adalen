@@ -1,0 +1,389 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'recruitment.title'|trans }} - {{ 'app.name'|trans }}{% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <section class="py-5 recruitment-hero" style="padding: 8rem 0 4rem;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in">
+                    <img src="{{ asset('assets/img/IMG_20251202_144310.jpg') }}" alt="{{ 'recruitment.hero.title'|trans }}" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6 fade-in ps-lg-5">
+                    <h1 class="display-4 fw-bold mb-4" style="color: var(--adalen-primary);">{{ 'recruitment.hero.title'|trans }}</h1>
+                    <p class="lead fs-4 mb-4">{{ 'recruitment.hero.subtitle'|trans }}</p>
+                    <p class="fs-5">{{ 'recruitment.hero.description'|trans }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs List Section -->
+    <section class="py-5 recruitment-jobs" style="padding: 6rem 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in pe-lg-5">
+                    <p class="lead mb-4">{{ 'recruitment.cta.description'|trans }}</p>
+                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#jobApplicationModal">
+                        {{ 'recruitment.cta.button'|trans }} <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
+                <div class="col-lg-6 fade-in">
+                    <img src="{{ asset('assets/img/hero.jpg') }}" alt="{{ 'recruitment.cta.title'|trans }}" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div class="modal fade" id="jobApplicationModal" tabindex="-1" aria-labelledby="jobApplicationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--adalen-primary); color: white;">
+                    <h5 class="modal-title" id="jobApplicationModalLabel">
+                        <i class="fas fa-user-plus me-2"></i>{{ 'job_application.title'|trans }}
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <!-- Progress bar -->
+                    <div class="form-progress mb-4" style="height: 4px; background-color: #e9ecef; border-radius: 2px; overflow: hidden;">
+                        <div class="form-progress-bar" id="formProgressBar" style="height: 100%; background-color: var(--adalen-primary); width: 0%; transition: width 0.3s ease;"></div>
+                    </div>
+
+                    {{ form_start(form, {'attr': {'id': 'jobApplicationForm', 'class': 'needs-validation', 'novalidate': true}}) }}
+
+                    <!-- Informations personnelles -->
+                    <div class="form-section mb-4">
+                        <h4 class="mb-3"><i class="fas fa-user me-2" style="color: var(--adalen-primary);"></i>{{ 'job_application.personal_info'|trans }}</h4>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form_row(form.nom) }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form_row(form.prenom) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form_row(form.dateNaissance) }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form_row(form.lieuResidence) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form_row(form.nationalite) }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-check mt-4">
+                                    {{ form_widget(form.permisTravail) }}
+                                    {{ form_label(form.permisTravail) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form_row(form.telephone) }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form_row(form.email) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Candidature -->
+                    <div class="form-section mb-4">
+                        <h4 class="mb-3"><i class="fas fa-briefcase me-2" style="color: var(--adalen-primary);"></i>{{ 'job_application.application'|trans }}</h4>
+                        <div class="mb-3">
+                            {{ form_row(form.posteSouhaite) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.raisonInteretPoste) }}
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form_label(form.cvFilename) }}
+                                {{ form_widget(form.cvFilename) }}
+                                <span id="cv-filename" class="filename-display text-muted small d-block mt-1">{{ 'job_application.no_file_selected'|trans }}</span>
+                                {{ form_errors(form.cvFilename) }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form_label(form.motivationFilename) }}
+                                {{ form_widget(form.motivationFilename) }}
+                                <span id="motivation-filename" class="filename-display text-muted small d-block mt-1">{{ 'job_application.no_file_selected'|trans }}</span>
+                                {{ form_errors(form.motivationFilename) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Langues -->
+                    <div class="form-section mb-4">
+                        <h4 class="mb-3"><i class="fas fa-language me-2" style="color: var(--adalen-primary);"></i>{{ 'job_application.languages'|trans }}</h4>
+                        <div class="languages-section">
+                            {% for langue in form.langues %}
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    {{ form_widget(langue.nom, {'attr': {'class': 'd-none'}}) }}
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0" style="color: var(--adalen-primary);">{{ langue.nom.vars.value }}</h5>
+                                        <div class="col-6">
+                                            {{ form_widget(langue.niveau, {'attr': {'class': 'form-select'}}) }}
+                                            {{ form_errors(langue.niveau) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Motivation et vision -->
+                    <div class="form-section mb-4">
+                        <h4 class="mb-3"><i class="fas fa-heart me-2" style="color: var(--adalen-primary);"></i>{{ 'job_application.motivation'|trans }}</h4>
+                        <div class="mb-3">
+                            {{ form_row(form.motivationAdalen) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.contributionAdalen) }}
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form_row(form.disponibilite) }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form_row(form.engagement) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        {{ form_row(form.submit) }}
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('jobApplicationForm');
+        const progressBar = document.getElementById('formProgressBar');
+        const formSections = document.querySelectorAll('.form-section');
+
+        // Update progress bar
+        function updateProgressBar() {
+            let filledInputs = 0;
+            let totalInputs = 0;
+
+            form.querySelectorAll('input, select, textarea').forEach(input => {
+                if (input.type !== 'hidden' && input.name !== '_token' && input.type !== 'file') {
+                    totalInputs++;
+                    if (input.value && input.value.trim() !== '') {
+                        filledInputs++;
+                    }
+                }
+            });
+
+            const progress = totalInputs > 0 ? (filledInputs / totalInputs) * 100 : 0;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Add event listeners to form inputs
+        form.querySelectorAll('input, select, textarea').forEach(input => {
+            input.addEventListener('input', updateProgressBar);
+            input.addEventListener('change', updateProgressBar);
+        });
+
+        // Initial progress update
+        updateProgressBar();
+
+        // Form submission with AJAX
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (form.checkValidity()) {
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+
+                submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> {{ 'job_application.sending'|trans }}`;
+                submitBtn.disabled = true;
+
+                const formData = new FormData(form);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            const modal = bootstrap.Modal.getInstance(document.getElementById('jobApplicationModal'));
+                            modal.hide();
+
+                            const alertDiv = document.createElement('div');
+                            alertDiv.className = 'alert alert-success alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3';
+                            alertDiv.style.zIndex = '9999';
+                            alertDiv.innerHTML = `
+                                <i class="fas fa-check-circle me-2"></i>
+                                ${data.message}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            `;
+                            document.body.appendChild(alertDiv);
+
+                            form.reset();
+                            form.classList.remove('was-validated');
+                            updateProgressBar();
+
+                            const noFileText = '{{ "job_application.no_file_selected"|trans }}';
+                            document.getElementById('cv-filename').textContent = noFileText;
+                            document.getElementById('motivation-filename').textContent = noFileText;
+
+                            setTimeout(() => {
+                                alertDiv.remove();
+                            }, 5000);
+                        } else {
+                            let errorMessage = data.message || '{{ "job_application.messages.error"|trans }}';
+
+                            if (data.errors && Array.isArray(data.errors)) {
+                                errorMessage += '<ul class="mt-2 mb-0">';
+                                data.errors.forEach(error => {
+                                    errorMessage += `<li>${error}</li>`;
+                                });
+                                errorMessage += '</ul>';
+                            }
+
+                            if (data.fieldErrors) {
+                                Object.keys(data.fieldErrors).forEach(fieldName => {
+                                    const field = form.querySelector(`[name*="${fieldName}"]`);
+                                    if (field) {
+                                        const existingError = field.parentElement.querySelector('.field-error');
+                                        if (existingError) {
+                                            existingError.remove();
+                                        }
+
+                                        const errorDiv = document.createElement('div');
+                                        errorDiv.className = 'field-error text-danger small mt-1';
+                                        errorDiv.innerHTML = data.fieldErrors[fieldName].join(', ');
+                                        field.parentElement.appendChild(errorDiv);
+
+                                        field.classList.add('is-invalid');
+                                    }
+                                });
+                            }
+
+                            const alertDiv = document.createElement('div');
+                            alertDiv.className = 'alert alert-danger alert-dismissible fade show';
+                            alertDiv.innerHTML = `
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                ${errorMessage}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            `;
+                            form.insertBefore(alertDiv, form.firstChild);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        const alertDiv = document.createElement('div');
+                        alertDiv.className = 'alert alert-danger alert-dismissible fade show';
+                        alertDiv.innerHTML = `
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            {{ "Une erreur est survenue. Veuillez réessayer."|trans }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        `;
+                        form.insertBefore(alertDiv, form.firstChild);
+                    })
+                    .finally(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+            } else {
+                form.classList.add('was-validated');
+                const firstInvalidField = form.querySelector(':invalid');
+                if (firstInvalidField) {
+                    firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstInvalidField.focus();
+                }
+            }
+        });
+
+        // File input change handler
+        form.querySelectorAll('input[type="file"]').forEach(fileInput => {
+            fileInput.addEventListener('change', function () {
+                const file = this.files[0];
+                const targetId = this.getAttribute('data-filename-target');
+
+                let display = null;
+                if (targetId) {
+                    display = document.getElementById(targetId);
+                }
+
+                if (!display) {
+                    if (this.name.includes('cvFilename')) {
+                        display = document.getElementById('cv-filename');
+                    } else if (this.name.includes('motivationFilename')) {
+                        display = document.getElementById('motivation-filename');
+                    }
+                }
+
+                if (!display) {
+                    display = document.createElement('span');
+                    display.className = 'filename-display text-muted small d-block mt-1';
+                    this.parentElement.appendChild(display);
+                }
+
+                if (file) {
+                    display.textContent = file.name;
+                    display.classList.remove('text-muted');
+                    display.classList.add('text-success');
+                } else {
+                    display.textContent = '{{ "job_application.no_file_selected"|trans }}';
+                    display.classList.remove('text-success');
+                    display.classList.add('text-muted');
+                }
+            });
+        });
+
+        // Modal events
+        const modal = document.getElementById('jobApplicationModal');
+        modal.addEventListener('hidden.bs.modal', function () {
+            form.reset();
+            form.classList.remove('was-validated');
+            updateProgressBar();
+            form.querySelectorAll('.alert').forEach(alert => alert.remove());
+            const noFileText = '{{ "job_application.no_file_selected"|trans }}';
+            document.getElementById('cv-filename').textContent = noFileText;
+            document.getElementById('motivation-filename').textContent = noFileText;
+        });
+
+        modal.addEventListener('show.bs.modal', function () {
+            form.querySelectorAll('.alert').forEach(alert => alert.remove());
+            form.querySelectorAll('.field-error').forEach(error => error.remove());
+            form.querySelectorAll('.is-invalid').forEach(field => {
+                field.classList.remove('is-invalid');
+            });
+        });
+
+        // Clear errors on input
+        form.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('input', function () {
+                this.classList.remove('is-invalid');
+                const existingError = this.parentElement.querySelector('.field-error');
+                if (existingError) {
+                    existingError.remove();
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

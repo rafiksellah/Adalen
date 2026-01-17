@@ -7,6 +7,7 @@ app:
   animators: Animateurs
   coop: La Petite COOP
   contact: Contact
+  recruitment: Recrutement
   montessori: Montessori Algerie
 
 home:
@@ -142,4 +143,129 @@ footer:
   quick_links: Liens rapides
   contact_title: Contact
   rights: Tous droits réservés.
+
+recruitment:
+  title: Recrutement - Adalen
+  hero:
+    title: Rejoignez Notre Équipe
+    subtitle: Construisez l'avenir de l'éducation des enfants avec Adalen
+    description: Nous recherchons des professionnels passionnés et dévoués pour rejoindre notre équipe et contribuer au développement des enfants à travers des activités innovantes et enrichissantes.
+  jobs:
+    title: Postes Disponibles
+    subtitle: Découvrez les postes disponibles chez Adalen
+  cta:
+    title: Prêt à nous rejoindre ?
+    description: "Intéressé(e) par l'une de nos opportunités ? Partagez votre passion pour l'éducation et le développement des enfants en rejoignant notre équipe."
+    button: Postuler Maintenant
+  apply_button: Postuler
+
+job_application:
+  title: Candidature
+  personal_info: Informations Personnelles
+  application: Candidature
+  motivation: Motivation & Vision
+  nom: Nom
+  prenom: Prénom
+  date_naissance: Date de Naissance
+  lieu_residence: Lieu de Résidence
+  nationalite: Nationalité
+  permis_travail: Permis de Travail
+  telephone: Téléphone
+  email: Email
+  poste_souhaite: Poste Souhaité
+  raison_interet: Pourquoi ce poste vous intéresse-t-il ?
+  cv_filename: CV (PDF)
+  motivation_filename: Lettre de Motivation (PDF - Optionnel)
+  languages: Langues
+  niveau_maitrise: Niveau de Maîtrise
+  motivation_adalen: Qu'est-ce qui vous motive à rejoindre Adalen ?
+  contribution_adalen: Comment voyez-vous votre contribution à Adalen ?
+  disponibilite: Disponibilité
+  engagement: Engagement
+  submit: Soumettre la Candidature
+  sending: Envoi en cours...
+  no_file_selected: Aucun fichier sélectionné
+  placeholders:
+    nom: Entrez votre nom
+    prenom: Entrez votre prénom
+    lieu_residence: Entrez votre lieu de résidence
+    nationalite: Entrez votre nationalité
+    telephone: Entrez votre numéro de téléphone
+    email: Entrez votre adresse email
+    raison_interet: Expliquez pourquoi ce poste vous intéresse
+    motivation_adalen: Expliquez votre motivation à rejoindre Adalen
+    contribution_adalen: Expliquez comment vous pouvez contribuer à Adalen
+  jobs:
+    select_position: Sélectionnez un poste
+    categories:
+      coordination: Coordination
+      sante_animale: Santé Animale
+      environnement: Environnement
+      art_musique: Arts & Musique
+      enseignement: Enseignement
+      sciences: Sciences
+    positions:
+      coordinateur_activites: Coordinateur des activités extrascolaires
+      veterinaire: Vétérinaire
+      agronome: Agronome
+      ecologiste: Écologiste
+      environnementaliste: Environnementaliste
+      paysagiste: Paysagiste
+      musicien: Musicien
+      chanteur: Chanteur
+      artiste_beaux_arts: Artiste en beaux-arts / Plasticien
+      potier: Potier / Artisan en céramique
+      enseignant_anglais: Enseignant d'anglais
+      enseignant_francais: Enseignant de français
+      enseignant_arabe: Enseignant d'arabe
+      animateur_tamazight: Animateur langue Tamazight
+      archeologue: Archéologue
+      anthropologue: Anthropologue
+      geologue: Géologue
+      botaniste: Botaniste
+      biologiste: Biologiste
+  language_names:
+    francais: Français
+    anglais: Anglais
+    arabe: Arabe
+    tamazight: Tamazight
+  language_levels:
+    select: Sélectionnez le niveau
+    debutant: Débutant
+    intermediaire: Intermédiaire
+    avance: Avancé
+    natif: Natif
+  disponibilite_options:
+    select: Sélectionnez la disponibilité
+    immediate: Immédiate
+    preavis_1_mois: Préavis de 1 mois
+    preavis_2_mois: Préavis de 2 mois
+    autre: Autre
+  engagement_options:
+    select: Sélectionnez l'engagement
+    moins_1_an: Moins de 1 an
+    1_2_ans: 1 à 2 ans
+    2_3_ans: 2 à 3 ans
+    5_ans_plus: 5 ans et plus
+  validation:
+    invalid_file: Veuillez télécharger un fichier PDF valide (max 10MB)
+  messages:
+    success: Votre candidature a été soumise avec succès ! Nous vous contacterons bientôt.
+    error: Une erreur s'est produite lors de la soumission de votre candidature. Veuillez réessayer.
+    error_details: "Une erreur s'est produite : %details%"
+    form_errors: Veuillez corriger les erreurs dans le formulaire
+    cv_upload_error: Erreur lors du téléchargement du CV
+    motivation_file_upload_error: Erreur lors du téléchargement de la lettre de motivation
+  email_templates:
+    candidate:
+      subject: Candidature Reçue - Adalen
+      greeting: Bonjour
+      message: Merci %name% pour votre intérêt à rejoindre l'équipe ADALEN.
+      position: Poste Candidaté
+      next_steps: Nous avons bien reçu votre candidature et l'examinerons attentivement. Nous vous contacterons prochainement si votre profil correspond à nos besoins.
+      regards: Cordialement
+      team: L'équipe ADALEN
+    hr:
+      subject: Nouvelle Candidature - %position%
+    footer: Ceci est un message automatique du système ADALEN.
 

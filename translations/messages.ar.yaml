@@ -7,6 +7,7 @@ app:
   animators: المنسقون
   coop: التعاونية الصغيرة
   contact: اتصل بنا
+  recruitment: التوظيف
   montessori: مونتيسوري الجزائر
 
 home:
@@ -143,3 +144,127 @@ footer:
   contact_title: اتصل بنا
   rights: جميع الحقوق محفوظة.
 
+recruitment:
+  title: التوظيف - أدالين
+  hero:
+    title: انضم إلى فريقنا
+    subtitle: بناء مستقبل تعليم الأطفال مع أدالين
+    description: نبحث عن محترفين متحمسين ومتفانين للانضمام إلى فريقنا والمساهمة في تنمية الأطفال من خلال أنشطة مبتكرة وثرية.
+  jobs:
+    title: الوظائف المتاحة
+    subtitle: اكتشف الوظائف المتاحة في أدالين
+  cta:
+    title: مستعد للانضمام إلينا؟
+    description: "مهتم بإحدى فرصنا؟ شارك شغفك بالتعليم وتنمية الأطفال من خلال الانضمام إلى فريقنا."
+    button: تقديم الطلب الآن
+  apply_button: تقديم الطلب
+
+job_application:
+  title: طلب التوظيف
+  personal_info: المعلومات الشخصية
+  application: الطلب
+  motivation: الدافع والرؤية
+  nom: الاسم
+  prenom: اللقب
+  date_naissance: تاريخ الميلاد
+  lieu_residence: مكان الإقامة
+  nationalite: الجنسية
+  permis_travail: تصريح العمل
+  telephone: الهاتف
+  email: البريد الإلكتروني
+  poste_souhaite: المنصب المطلوب
+  raison_interet: لماذا يهمك هذا المنصب؟
+  cv_filename: السيرة الذاتية (PDF)
+  motivation_filename: رسالة التحفيز (PDF - اختياري)
+  languages: اللغات
+  niveau_maitrise: مستوى الإتقان
+  motivation_adalen: ما الذي يحفزك للانضمام إلى أدالين؟
+  contribution_adalen: كيف ترى مساهمتك في أدالين؟
+  disponibilite: التوفر
+  engagement: الالتزام
+  submit: إرسال الطلب
+  sending: جاري الإرسال...
+  no_file_selected: لم يتم اختيار ملف
+  placeholders:
+    nom: أدخل اسمك
+    prenom: أدخل لقبك
+    lieu_residence: أدخل مكان إقامتك
+    nationalite: أدخل جنسيتك
+    telephone: أدخل رقم هاتفك
+    email: أدخل عنوان بريدك الإلكتروني
+    raison_interet: اشرح لماذا يهمك هذا المنصب
+    motivation_adalen: اشرح دافعك للانضمام إلى أدالين
+    contribution_adalen: اشرح كيف يمكنك المساهمة في أدالين
+  jobs:
+    select_position: اختر منصبًا
+    categories:
+      coordination: التنسيق
+      sante_animale: الصحة الحيوانية
+      environnement: البيئة
+      art_musique: الفنون والموسيقى
+      enseignement: التدريس
+      sciences: العلوم
+    positions:
+      coordinateur_activites: منسق الأنشطة اللامنهجية
+      veterinaire: طبيب بيطري
+      agronome: مهندس زراعي
+      ecologiste: عالم بيئة
+      environnementaliste: بيئي
+      paysagiste: مهندس المناظر الطبيعية
+      musicien: موسيقي
+      chanteur: مغني
+      artiste_beaux_arts: فنان تشكيلي
+      potier: خزاف / حرفي في السيراميك
+      enseignant_anglais: مدرس إنجليزية
+      enseignant_francais: مدرس فرنسية
+      enseignant_arabe: مدرس عربية
+      animateur_tamazight: منسق لغة تمازيغت
+      archeologue: عالم آثار
+      anthropologue: عالم أنثروبولوجيا
+      geologue: جيولوجي
+      botaniste: عالم نبات
+      biologiste: عالم أحياء
+  language_names:
+    francais: الفرنسية
+    anglais: الإنجليزية
+    arabe: العربية
+    tamazight: تمازيغت
+  language_levels:
+    select: اختر المستوى
+    debutant: مبتدئ
+    intermediaire: متوسط
+    avance: متقدم
+    natif: أصلي
+  disponibilite_options:
+    select: اختر التوفر
+    immediate: فوري
+    preavis_1_mois: إشعار شهر واحد
+    preavis_2_mois: إشعار شهرين
+    autre: آخر
+  engagement_options:
+    select: اختر الالتزام
+    moins_1_an: أقل من سنة
+    1_2_ans: سنة إلى سنتين
+    2_3_ans: سنتان إلى ثلاث سنوات
+    5_ans_plus: 5 سنوات أو أكثر
+  validation:
+    invalid_file: يرجى تحميل ملف PDF صالح (الحد الأقصى 10 ميجابايت)
+  messages:
+    success: تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.
+    error: حدث خطأ أثناء إرسال طلبك. يرجى المحاولة مرة أخرى.
+    error_details: "حدث خطأ: %details%"
+    form_errors: يرجى تصحيح الأخطاء في النموذج
+    cv_upload_error: خطأ في تحميل ملف السيرة الذاتية
+    motivation_file_upload_error: خطأ في تحميل رسالة التحفيز
+  email_templates:
+    candidate:
+      subject: تم استلام طلبك - أدالين
+      greeting: مرحبا
+      message: "شكرًا %name% لاهتمامك بالانضمام إلى فريق أدالين."
+      position: المنصب المطلوب
+      next_steps: "لقد استلمنا طلبك وسنراجعه بعناية. سنتواصل معك قريبًا إذا كان ملفك الشخصي يطابق احتياجاتنا."
+      regards: مع أطيب التحيات
+      team: فريق أدالين
+    hr:
+      subject: "طلب توظيف جديد - %position%"
+    footer: هذه رسالة تلقائية من نظام أدالين.
