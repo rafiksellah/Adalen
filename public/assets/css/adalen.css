@@ -36,6 +36,10 @@
 }
 
 /* Modal Actualité */
+#actualityModal .modal-dialog {
+    max-width: 600px;
+}
+
 #actualityModal .modal-content {
     border-radius: 12px;
     border: none;
@@ -45,6 +49,7 @@
     background: linear-gradient(135deg, var(--adalen-primary) 0%, var(--adalen-primary-dark) 100%);
     color: white;
     border-radius: 12px 12px 0 0;
+    padding: 1rem 1.25rem;
 }
 
 #actualityModal .modal-header .btn-close {
@@ -54,16 +59,21 @@
 #actualityModal .modal-title {
     color: white !important;
     font-weight: 600;
+    font-size: 1.1rem;
 }
 
 #actualityModal .modal-body {
-    padding: 2rem;
-    max-height: 70vh;
+    padding: 1.25rem;
+    max-height: 60vh;
     overflow-y: auto;
 }
 
 #actualityModal .actuality-media {
-    margin: 1.5rem 0;
+    margin-top: 1rem;
+}
+
+#actualityModal .actuality-media .mb-3 {
+    margin-bottom: 1rem !important;
 }
 
 #actualityModal .carousel {
@@ -77,42 +87,47 @@
 
 #actualityModal .carousel-item img {
     border-radius: 8px;
+    max-height: 350px;
+    object-fit: contain;
 }
 
 #actualityModal .carousel-item video {
     border-radius: 8px;
+    max-height: 350px;
 }
 
 #actualityModal .carousel-control-prev,
 #actualityModal .carousel-control-next {
-    width: 5%;
+    width: 35px;
+    height: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
     opacity: 0.8;
 }
 
 #actualityModal .carousel-control-prev:hover,
 #actualityModal .carousel-control-next:hover {
     opacity: 1;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 #actualityModal .carousel-indicators {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 #actualityModal .carousel-indicators button {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background-color: var(--adalen-primary);
-    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    margin: 0 3px;
 }
 
 #actualityModal .carousel-indicators button.active {
-    background-color: var(--adalen-primary-dark);
-}
-
-#actualityModal .modal-footer {
-    border-top: 1px solid #e5e7eb;
-    padding: 1rem 2rem;
+    background-color: var(--adalen-primary);
 }
 
 * {
