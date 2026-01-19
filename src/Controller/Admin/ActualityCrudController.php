@@ -37,36 +37,25 @@ class ActualityCrudController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Validation : au moins un titre et une description dans une langue
-            if (empty($actuality->getTitleFr()) && empty($actuality->getTitleEn()) && empty($actuality->getTitleAr())) {
-                $this->addFlash('error', 'Vous devez remplir au moins un titre dans une langue.');
-                return $this->render('admin/actuality/new.html.twig', [
-                    'actuality' => $actuality,
-                    'form' => $form,
-                ]);
-            }
-            
-            if (empty($actuality->getDescriptionFr()) && empty($actuality->getDescriptionEn()) && empty($actuality->getDescriptionAr())) {
-                $this->addFlash('error', 'Vous devez remplir au moins une description dans une langue.');
-                return $this->render('admin/actuality/new.html.twig', [
-                    'actuality' => $actuality,
-                    'form' => $form,
-                ]);
-            }
-            
-            // Validation : au moins une image ou une vidéo
+            // Récupérer les fichiers uploadés
             $imagesFiles = $form->get('images')->getData();
             $videoFile = $form->get('video')->getData();
             
-            if (empty($imagesFiles) && empty($videoFile) && empty($actuality->getImages()) && empty($actuality->getVideo())) {
-                $this->addFlash('error', 'Vous devez fournir au moins une image ou une vidéo.');
+            // Validation : au moins un champ doit être rempli (titre, description, image ou vidéo)
+            $hasTitle = !empty($actuality->getTitleFr()) || !empty($actuality->getTitleEn()) || !empty($actuality->getTitleAr());
+            $hasDescription = !empty($actuality->getDescriptionFr()) || !empty($actuality->getDescriptionEn()) || !empty($actuality->getDescriptionAr());
+            $hasImage = !empty($imagesFiles);
+            $hasVideo = !empty($videoFile);
+            
+            if (!$hasTitle && !$hasDescription && !$hasImage && !$hasVideo) {
+                $this->addFlash('error', 'Vous devez remplir au moins un champ : titre, description, image ou vidéo.');
                 return $this->render('admin/actuality/new.html.twig', [
                     'actuality' => $actuality,
                     'form' => $form,
                 ]);
             }
 
-            // Gestion des images
+            // Gestion des images (optionnel)
             if ($imagesFiles) {
                 $imagePaths = [];
                 foreach ($imagesFiles as $imageFile) {
@@ -136,36 +125,25 @@ class ActualityCrudController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Validation : au moins un titre et une description dans une langue
-            if (empty($actuality->getTitleFr()) && empty($actuality->getTitleEn()) && empty($actuality->getTitleAr())) {
-                $this->addFlash('error', 'Vous devez remplir au moins un titre dans une langue.');
-                return $this->render('admin/actuality/edit.html.twig', [
-                    'actuality' => $actuality,
-                    'form' => $form,
-                ]);
-            }
-            
-            if (empty($actuality->getDescriptionFr()) && empty($actuality->getDescriptionEn()) && empty($actuality->getDescriptionAr())) {
-                $this->addFlash('error', 'Vous devez remplir au moins une description dans une langue.');
-                return $this->render('admin/actuality/edit.html.twig', [
-                    'actuality' => $actuality,
-                    'form' => $form,
-                ]);
-            }
-            
-            // Validation : au moins une image ou une vidéo (ou fichiers existants)
+            // Récupérer les fichiers uploadés
             $imagesFiles = $form->get('images')->getData();
             $videoFile = $form->get('video')->getData();
             
-            if (empty($imagesFiles) && empty($videoFile) && empty($actuality->getImages()) && empty($actuality->getVideo())) {
-                $this->addFlash('error', 'Vous devez fournir au moins une image ou une vidéo.');
+            // Validation : au moins un champ doit être rempli (titre, description, image ou vidéo)
+            $hasTitle = !empty($actuality->getTitleFr()) || !empty($actuality->getTitleEn()) || !empty($actuality->getTitleAr());
+            $hasDescription = !empty($actuality->getDescriptionFr()) || !empty($actuality->getDescriptionEn()) || !empty($actuality->getDescriptionAr());
+            $hasImage = !empty($imagesFiles) || !empty($actuality->getImages());
+            $hasVideo = !empty($videoFile) || !empty($actuality->getVideo());
+            
+            if (!$hasTitle && !$hasDescription && !$hasImage && !$hasVideo) {
+                $this->addFlash('error', 'Vous devez remplir au moins un champ : titre, description, image ou vidéo.');
                 return $this->render('admin/actuality/edit.html.twig', [
                     'actuality' => $actuality,
                     'form' => $form,
                 ]);
             }
 
-            // Gestion des nouvelles images
+            // Gestion des nouvelles images (optionnel)
             if ($imagesFiles) {
                 $existingImages = $actuality->getImages() ? explode(',', $actuality->getImages()) : [];
                 $newImagePaths = [];

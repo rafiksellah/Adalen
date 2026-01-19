@@ -152,29 +152,40 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="actualityModalLabel">
-                        <i class="fas fa-newspaper me-2"></i>
-                        {% if app.request.locale == 'fr' %}
-                            {{ latestActuality.titleFr|default(latestActuality.titleEn|default(latestActuality.titleAr)) }}
-                        {% elseif app.request.locale == 'en' %}
-                            {{ latestActuality.titleEn|default(latestActuality.titleFr|default(latestActuality.titleAr)) }}
-                        {% elseif app.request.locale == 'ar' %}
-                            {{ latestActuality.titleAr|default(latestActuality.titleFr|default(latestActuality.titleEn)) }}
-                        {% endif %}
-                    </h5>
+                    {% set title = '' %}
+                    {% if app.request.locale == 'fr' %}
+                        {% set title = latestActuality.titleFr|default(latestActuality.titleEn|default(latestActuality.titleAr)) %}
+                    {% elseif app.request.locale == 'en' %}
+                        {% set title = latestActuality.titleEn|default(latestActuality.titleFr|default(latestActuality.titleAr)) %}
+                    {% elseif app.request.locale == 'ar' %}
+                        {% set title = latestActuality.titleAr|default(latestActuality.titleFr|default(latestActuality.titleEn)) %}
+                    {% endif %}
+                    {% if title and title|trim %}
+                        <h5 class="modal-title" id="actualityModalLabel">
+                            <i class="fas fa-newspaper me-2"></i>
+                            {{ title }}
+                        </h5>
+                    {% else %}
+                        <h5 class="modal-title" id="actualityModalLabel">
+                            <i class="fas fa-newspaper me-2"></i>
+                            {% if app.request.locale == 'fr' %}Actualité{% elseif app.request.locale == 'en' %}News{% else %}أخبار{% endif %}
+                        </h5>
+                    {% endif %}
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="actuality-content">
-                        <p class="mb-3">
-                            {% if app.request.locale == 'fr' %}
-                                {{ (latestActuality.descriptionFr|default(latestActuality.descriptionEn|default(latestActuality.descriptionAr)))|nl2br }}
-                            {% elseif app.request.locale == 'en' %}
-                                {{ (latestActuality.descriptionEn|default(latestActuality.descriptionFr|default(latestActuality.descriptionAr)))|nl2br }}
-                            {% elseif app.request.locale == 'ar' %}
-                                {{ (latestActuality.descriptionAr|default(latestActuality.descriptionFr|default(latestActuality.descriptionEn)))|nl2br }}
-                            {% endif %}
-                        </p>
+                        {% set description = '' %}
+                        {% if app.request.locale == 'fr' %}
+                            {% set description = latestActuality.descriptionFr|default(latestActuality.descriptionEn|default(latestActuality.descriptionAr)) %}
+                        {% elseif app.request.locale == 'en' %}
+                            {% set description = latestActuality.descriptionEn|default(latestActuality.descriptionFr|default(latestActuality.descriptionAr)) %}
+                        {% elseif app.request.locale == 'ar' %}
+                            {% set description = latestActuality.descriptionAr|default(latestActuality.descriptionFr|default(latestActuality.descriptionEn)) %}
+                        {% endif %}
+                        {% if description and description|trim %}
+                            <p class="mb-3">{{ description|nl2br }}</p>
+                        {% endif %}
                         
                         {% set hasImages = latestActuality.images and latestActuality.images|trim %}
                         {% set hasVideo = latestActuality.video and latestActuality.video|trim %}
