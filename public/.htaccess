@@ -52,13 +52,13 @@ DirectoryIndex index.php
     # We only want to let Apache serve files and not directories.
     # Rewrite all other queries to the front controller.
     
+    # Allow direct access to assets directory (MUST be before other rules)
+    RewriteCond %{REQUEST_URI} ^/assets/ [NC]
+    RewriteRule ^ - [L]
+    
     # Allow direct access to static files (CSS, JS, images, etc.)
     RewriteCond %{REQUEST_FILENAME} -f
     RewriteCond %{REQUEST_URI} \.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|pdf)$ [NC]
-    RewriteRule ^ - [L]
-    
-    # Allow direct access to assets directory
-    RewriteCond %{REQUEST_URI} ^/assets/ [NC]
     RewriteRule ^ - [L]
     
     # Allow direct access to uploads directory (CV, motivation letters, etc.)
