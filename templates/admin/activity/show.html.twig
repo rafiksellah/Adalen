@@ -1,0 +1,122 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Détails Activité - Admin Adalen{% endblock %}
+
+{% block page_title %}Détails de l'Activité{% endblock %}
+
+{% block body %}
+<div class="activity-detail-container">
+    <div class="mb-3">
+        <a href="{{ path('app_admin_activity_index') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-2"></i>
+            Retour à la liste
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Informations générales
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Nom :</dt>
+                        <dd class="col-sm-8"><strong>{{ activity.name }}</strong></dd>
+
+                        <dt class="col-sm-4">Description :</dt>
+                        <dd class="col-sm-8">{{ activity.description ?? '-' }}</dd>
+
+                        <dt class="col-sm-4">Icône :</dt>
+                        <dd class="col-sm-8">
+                            {% if activity.icon %}
+                                <i class="{{ activity.icon }}"></i> {{ activity.icon }}
+                            {% else %}
+                                <span class="text-muted">-</span>
+                            {% endif %}
+                        </dd>
+
+                        <dt class="col-sm-4">Tranche d'âge :</dt>
+                        <dd class="col-sm-8">{{ activity.ageRange ?? '-' }}</dd>
+
+                        <dt class="col-sm-4">Prix :</dt>
+                        <dd class="col-sm-8">
+                            {% if activity.price %}
+                                {{ activity.price }} DZD
+                            {% else %}
+                                <span class="text-muted">-</span>
+                            {% endif %}
+                        </dd>
+
+                        <dt class="col-sm-4">Nombre de classes :</dt>
+                        <dd class="col-sm-8">{{ activity.numberOfClasses ?? '-' }}</dd>
+
+                        <dt class="col-sm-4">Durée :</dt>
+                        <dd class="col-sm-8">{{ activity.duration ?? '-' }}</dd>
+
+                        <dt class="col-sm-4">Image :</dt>
+                        <dd class="col-sm-8">{{ activity.image ?? '-' }}</dd>
+
+                        <dt class="col-sm-4">Statut :</dt>
+                        <dd class="col-sm-8">
+                            {% if activity.isActive %}
+                                <span class="badge bg-success">Active</span>
+                            {% else %}
+                                <span class="badge bg-secondary">Inactive</span>
+                            {% endif %}
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-calendar me-2"></i>
+                        Dates
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-2">
+                        <strong>Créée le :</strong><br>
+                        {{ activity.createdAt|date('d/m/Y à H:i') }}
+                    </p>
+                    {% if activity.updatedAt %}
+                    <p class="mb-0">
+                        <strong>Modifiée le :</strong><br>
+                        {{ activity.updatedAt|date('d/m/Y à H:i') }}
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-cog me-2"></i>
+                        Actions
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <a href="{{ path('app_admin_activity_edit', {id: activity.id}) }}" class="btn btn-primary w-100 mb-2">
+                        <i class="fas fa-edit me-2"></i>
+                        Modifier
+                    </a>
+                    <form method="post" action="{{ path('app_admin_activity_delete', {id: activity.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette activité ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ activity.id) }}">
+                        <button type="submit" class="btn btn-danger w-100">
+                            <i class="fas fa-trash me-2"></i>
+                            Supprimer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

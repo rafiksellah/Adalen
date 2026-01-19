@@ -1,0 +1,106 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Activités - Admin Adalen{% endblock %}
+
+{% block page_title %}Gestion des Activités{% endblock %}
+
+{% block body %}
+<div class="activity-container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Liste des activités ({{ activities|length }})</h2>
+        <a href="{{ path('app_admin_activity_new') }}" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i>
+            Nouvelle activité
+        </a>
+    </div>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endfor %}
+
+    {% if activities|length > 0 %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Icône</th>
+                            <th>Tranche d'âge</th>
+                            <th>Prix</th>
+                            <th>Statut</th>
+                            <th>Date création</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for activity in activities %}
+                        <tr>
+                            <td>#{{ activity.id }}</td>
+                            <td><strong>{{ activity.name }}</strong></td>
+                            <td>
+                                {% if activity.icon %}
+                                    <i class="{{ activity.icon }}"></i>
+                                {% else %}
+                                    <span class="text-muted">-</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ activity.ageRange ?? '-' }}</td>
+                            <td>
+                                {% if activity.price %}
+                                    {{ activity.price }} DZD
+                                {% else %}
+                                    <span class="text-muted">-</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if activity.isActive %}
+                                    <span class="badge bg-success">Active</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">Inactive</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ activity.createdAt|date('d/m/Y') }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="{{ path('app_admin_activity_show', {id: activity.id}) }}" class="btn btn-sm btn-outline-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="{{ path('app_admin_activity_edit', {id: activity.id}) }}" class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form method="post" action="{{ path('app_admin_activity_delete', {id: activity.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette activité ?');" class="d-inline">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ activity.id) }}">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="card shadow-sm">
+        <div class="card-body text-center py-5">
+            <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+            <p class="text-muted">Aucune activité enregistrée</p>
+            <a href="{{ path('app_admin_activity_new') }}" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>
+                Créer la première activité
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

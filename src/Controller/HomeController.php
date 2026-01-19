@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ActualityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,9 +12,17 @@ use Symfony\Component\Routing\Attribute\Route;
 class HomeController extends AbstractController
 {
     #[Route('/{_locale}', name: 'app_home', requirements: ['_locale' => 'en|fr|ar'], defaults: ['_locale' => 'en'])]
-    public function index(): Response
+    public function index(Request $request, ActualityRepository $actualityRepository): Response
     {
-        return $this->render('home/index.html.twig');
+        // Récupérer la dernière actualité publiée (peu importe la langue, elle sera traduite)
+        $latestActuality = $actualityRepository->findOneBy(
+            ['isPublished' => true],
+            ['createdAt' => 'DESC']
+        );
+
+        return $this->render('home/index.html.twig', [
+            'latestActuality' => $latestActuality,
+        ]);
     }
 
     #[Route('/{_locale}/la-petite-coop', name: 'app_coop', requirements: ['_locale' => 'en|fr|ar'], defaults: ['_locale' => 'en'])]

@@ -1,0 +1,132 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier Actualité - Admin Adalen{% endblock %}
+
+{% block page_title %}Modifier l'Actualité{% endblock %}
+
+{% block body %}
+<div class="actuality-form-container">
+    <div class="mb-3">
+        <a href="{{ path('app_admin_actuality_index') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-2"></i>
+            Retour à la liste
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-white">
+            <h5 class="mb-0">
+                <i class="fas fa-edit me-2"></i>
+                Modifier l'actualité : {{ actuality.title }}
+            </h5>
+        </div>
+        <div class="card-body">
+            {% for message in app.flashes('error') %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+            {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': true, 'enctype': 'multipart/form-data'}}) }}
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <h6 class="text-primary"><i class="fas fa-language me-2"></i>Traductions</h6>
+                        <p class="text-muted small">Remplissez au moins une langue. Les autres sont optionnelles.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card border-primary">
+                            <div class="card-header bg-primary text-white">
+                                <strong>Français</strong>
+                            </div>
+                            <div class="card-body">
+                                {{ form_row(form.titleFr) }}
+                                {{ form_row(form.descriptionFr) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card border-success">
+                            <div class="card-header bg-success text-white">
+                                <strong>English</strong>
+                            </div>
+                            <div class="card-body">
+                                {{ form_row(form.titleEn) }}
+                                {{ form_row(form.descriptionEn) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card border-info">
+                            <div class="card-header bg-info text-white">
+                                <strong>العربية</strong>
+                            </div>
+                            <div class="card-body">
+                                {{ form_row(form.titleAr) }}
+                                {{ form_row(form.descriptionAr) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="form-check">
+                            {{ form_widget(form.isPublished) }}
+                            {{ form_label(form.isPublished) }}
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Images actuelles :</label>
+                        {% if actuality.images %}
+                            {% set imageList = actuality.images|split(',') %}
+                            <div class="row g-2 mb-2">
+                                {% for image in imageList %}
+                                    {% if image|trim %}
+                                        <div class="col-md-3">
+                                            <img src="{{ asset(image|trim) }}" alt="Image" class="img-fluid rounded" style="max-height: 100px; object-fit: cover; width: 100%;">
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p class="text-muted">Aucune image actuelle</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        {{ form_row(form.images) }}
+                        <small class="form-text text-muted">{{ form.images.vars.help }}</small>
+                        <small class="form-text text-muted d-block">Les nouvelles images seront ajoutées aux existantes.</small>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Vidéo actuelle :</label>
+                        {% if actuality.video %}
+                            <video controls class="w-100 mb-2" style="max-height: 200px;">
+                                <source src="{{ asset(actuality.video) }}" type="video/mp4">
+                            </video>
+                            <small class="text-muted d-block mb-2">{{ actuality.video }}</small>
+                        {% else %}
+                            <p class="text-muted">Aucune vidéo actuelle</p>
+                        {% endif %}
+                        {{ form_row(form.video) }}
+                        <small class="form-text text-muted">{{ form.video.vars.help }}</small>
+                        <small class="form-text text-muted d-block">La nouvelle vidéo remplacera l'ancienne si elle existe.</small>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>Note :</strong> Vous devez fournir au moins une image ou une vidéo. Les images peuvent être multiples, la vidéo est unique.
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end gap-2">
+                    <a href="{{ path('app_admin_actuality_index') }}" class="btn btn-secondary">
+                        Annuler
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-2"></i>
+                        Enregistrer les modifications
+                    </button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

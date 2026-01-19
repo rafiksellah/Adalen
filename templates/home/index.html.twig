@@ -145,4 +145,144 @@
             </div>
         </div>
     </section>
+
+    <!-- Popup Actualité -->
+    {% if latestActuality %}
+    <div class="modal fade" id="actualityModal" tabindex="-1" aria-labelledby="actualityModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="actualityModalLabel">
+                        <i class="fas fa-newspaper me-2"></i>
+                        {% if app.request.locale == 'fr' %}
+                            {{ latestActuality.titleFr|default(latestActuality.titleEn|default(latestActuality.titleAr)) }}
+                        {% elseif app.request.locale == 'en' %}
+                            {{ latestActuality.titleEn|default(latestActuality.titleFr|default(latestActuality.titleAr)) }}
+                        {% elseif app.request.locale == 'ar' %}
+                            {{ latestActuality.titleAr|default(latestActuality.titleFr|default(latestActuality.titleEn)) }}
+                        {% endif %}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="actuality-content">
+                        <p class="mb-3">
+                            {% if app.request.locale == 'fr' %}
+                                {{ (latestActuality.descriptionFr|default(latestActuality.descriptionEn|default(latestActuality.descriptionAr)))|nl2br }}
+                            {% elseif app.request.locale == 'en' %}
+                                {{ (latestActuality.descriptionEn|default(latestActuality.descriptionFr|default(latestActuality.descriptionAr)))|nl2br }}
+                            {% elseif app.request.locale == 'ar' %}
+                                {{ (latestActuality.descriptionAr|default(latestActuality.descriptionFr|default(latestActuality.descriptionEn)))|nl2br }}
+                            {% endif %}
+                        </p>
+                        
+                        {% set hasImages = latestActuality.images and latestActuality.images|trim %}
+                        {% set hasVideo = latestActuality.video and latestActuality.video|trim %}
+                        {% set imageList = hasImages ? latestActuality.images|split(',') : [] %}
+                        {% set totalItems = imageList|length + (hasVideo ? 1 : 0) %}
+                        
+                        {% if totalItems > 0 %}
+                            <div class="actuality-media mb-3">
+                                {% if totalItems > 1 %}
+                                    <!-- Carousel pour plusieurs médias -->
+                                    <div id="actualityCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+                                        <div class="carousel-inner rounded">
+                                            {% if hasVideo %}
+                                                <div class="carousel-item active">
+                                                    <div class="d-flex justify-content-center align-items-center" style="min-height: 400px; background: #000;">
+                                                        <video controls class="w-100" style="max-height: 500px;">
+                                                            <source src="{{ asset(latestActuality.video|trim) }}" type="video/mp4">
+                                                            Votre navigateur ne supporte pas la lecture de vidéos.
+                                                        </video>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            {% for image in imageList %}
+                                                {% if image|trim %}
+                                                    <div class="carousel-item {% if not hasVideo and loop.first %}active{% endif %}">
+                                                        <div class="d-flex justify-content-center align-items-center" style="min-height: 400px; background: #f8f9fa;">
+                                                            <img src="{{ asset(image|trim) }}" alt="{% if app.request.locale == 'fr' %}{{ latestActuality.titleFr|default('') }}{% elseif app.request.locale == 'en' %}{{ latestActuality.titleEn|default('') }}{% elseif app.request.locale == 'ar' %}{{ latestActuality.titleAr|default('') }}{% endif %}" class="img-fluid" style="max-height: 500px; width: auto; object-fit: contain;">
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#actualityCarousel" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Précédent</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#actualityCarousel" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Suivant</span>
+                                        </button>
+                                        <div class="carousel-indicators">
+                                            {% if hasVideo %}
+                                                <button type="button" data-bs-target="#actualityCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Vidéo"></button>
+                                            {% endif %}
+                                            {% for image in imageList %}
+                                                {% if image|trim %}
+                                                    <button type="button" data-bs-target="#actualityCarousel" data-bs-slide-to="{{ loop.index0 + (hasVideo ? 1 : 0) }}" {% if not hasVideo and loop.first %}class="active" aria-current="true"{% endif %} aria-label="Image {{ loop.index }}"></button>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <!-- Affichage simple pour un seul média -->
+                                    {% if hasVideo %}
+                                        <div class="d-flex justify-content-center align-items-center" style="min-height: 400px; background: #000;">
+                                            <video controls class="w-100" style="max-height: 500px;">
+                                                <source src="{{ asset(latestActuality.video|trim) }}" type="video/mp4">
+                                                Votre navigateur ne supporte pas la lecture de vidéos.
+                                            </video>
+                                        </div>
+                                    {% elseif imageList|length == 1 %}
+                                        <div class="d-flex justify-content-center align-items-center" style="min-height: 400px; background: #f8f9fa;">
+                                            <img src="{{ asset(imageList[0]|trim) }}" alt="{% if app.request.locale == 'fr' %}{{ latestActuality.titleFr|default('') }}{% elseif app.request.locale == 'en' %}{{ latestActuality.titleEn|default('') }}{% elseif app.request.locale == 'ar' %}{{ latestActuality.titleAr|default('') }}{% endif %}" class="img-fluid" style="max-height: 500px; width: auto; object-fit: contain;">
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                        <i class="fas fa-check me-2"></i>
+                        J'ai compris
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% if latestActuality %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modalElement = document.getElementById('actualityModal');
+            if (!modalElement) return;
+            
+            const modal = new bootstrap.Modal(modalElement);
+            const actualityId = {{ latestActuality.id }};
+            const storageKey = 'adalen_last_actuality_id';
+            
+            // Récupérer l'ID de la dernière actualité vue
+            const lastSeenActualityId = localStorage.getItem(storageKey);
+            
+            // Afficher la popup à chaque rafraîchissement
+            // Si c'est une nouvelle actualité, elle remplacera l'ancienne automatiquement
+            setTimeout(function() {
+                modal.show();
+            }, 1000);
+            
+            // Mettre à jour l'ID de la dernière actualité vue quand la popup est fermée
+            modalElement.addEventListener('hidden.bs.modal', function() {
+                localStorage.setItem(storageKey, actualityId.toString());
+            });
+        });
+    </script>
+    {% endif %}
 {% endblock %}

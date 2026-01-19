@@ -1,0 +1,136 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Détails Actualité - Admin Adalen{% endblock %}
+
+{% block page_title %}Détails de l'Actualité{% endblock %}
+
+{% block body %}
+<div class="actuality-detail-container">
+    <div class="mb-3">
+        <a href="{{ path('app_admin_actuality_index') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-2"></i>
+            Retour à la liste
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Informations générales
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">Titre (FR) :</dt>
+                        <dd class="col-sm-9"><strong>{{ actuality.titleFr|default('Non renseigné') }}</strong></dd>
+
+                        <dt class="col-sm-3">Titre (EN) :</dt>
+                        <dd class="col-sm-9"><strong>{{ actuality.titleEn|default('Non renseigné') }}</strong></dd>
+
+                        <dt class="col-sm-3">Titre (AR) :</dt>
+                        <dd class="col-sm-9"><strong>{{ actuality.titleAr|default('Non renseigné') }}</strong></dd>
+
+                        <dt class="col-sm-3">Description (FR) :</dt>
+                        <dd class="col-sm-9">{{ actuality.descriptionFr|default('Non renseigné')|nl2br }}</dd>
+
+                        <dt class="col-sm-3">Description (EN) :</dt>
+                        <dd class="col-sm-9">{{ actuality.descriptionEn|default('Non renseigné')|nl2br }}</dd>
+
+                        <dt class="col-sm-3">Description (AR) :</dt>
+                        <dd class="col-sm-9">{{ actuality.descriptionAr|default('Non renseigné')|nl2br }}</dd>
+
+                        <dt class="col-sm-3">Images :</dt>
+                        <dd class="col-sm-9">
+                            {% if actuality.images %}
+                                {% set imageList = actuality.images|split(',') %}
+                                <div class="row g-2">
+                                    {% for image in imageList %}
+                                        {% if image|trim %}
+                                            <div class="col-md-4">
+                                                <img src="{{ asset(image|trim) }}" alt="{{ actuality.title }}" class="img-fluid rounded mb-2" style="max-height: 200px; object-fit: cover; width: 100%;">
+                                                <br><small class="text-muted">{{ image|trim }}</small>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <span class="text-muted">Aucune image</span>
+                            {% endif %}
+                        </dd>
+
+                        <dt class="col-sm-3">Vidéo :</dt>
+                        <dd class="col-sm-9">
+                            {% if actuality.video %}
+                                <video controls class="w-100 mb-2" style="max-height: 400px;">
+                                    <source src="{{ asset(actuality.video) }}" type="video/mp4">
+                                    Votre navigateur ne supporte pas la lecture de vidéos.
+                                </video>
+                                <br><small class="text-muted">{{ actuality.video }}</small>
+                            {% else %}
+                                <span class="text-muted">Aucune vidéo</span>
+                            {% endif %}
+                        </dd>
+
+                        <dt class="col-sm-3">Statut :</dt>
+                        <dd class="col-sm-9">
+                            {% if actuality.isPublished %}
+                                <span class="badge bg-success">Publiée</span>
+                            {% else %}
+                                <span class="badge bg-warning">Brouillon</span>
+                            {% endif %}
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-calendar me-2"></i>
+                        Dates
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-2">
+                        <strong>Créée le :</strong><br>
+                        {{ actuality.createdAt|date('d/m/Y à H:i') }}
+                    </p>
+                    {% if actuality.updatedAt %}
+                    <p class="mb-0">
+                        <strong>Modifiée le :</strong><br>
+                        {{ actuality.updatedAt|date('d/m/Y à H:i') }}
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-cog me-2"></i>
+                        Actions
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <a href="{{ path('app_admin_actuality_edit', {id: actuality.id}) }}" class="btn btn-primary w-100 mb-2">
+                        <i class="fas fa-edit me-2"></i>
+                        Modifier
+                    </a>
+                    <form method="post" action="{{ path('app_admin_actuality_delete', {id: actuality.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette actualité ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actuality.id) }}">
+                        <button type="submit" class="btn btn-danger w-100">
+                            <i class="fas fa-trash me-2"></i>
+                            Supprimer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

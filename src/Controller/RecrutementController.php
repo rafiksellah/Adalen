@@ -44,8 +44,14 @@ class RecrutementController extends AbstractController
                 $motivationFile = $form->get('motivationFilename')->getData();
 
                 $uploadsDir = $this->getParameter('kernel.project_dir') . '/public/uploads';
-                if (!is_dir($uploadsDir)) {
-                    mkdir($uploadsDir, 0755, true);
+                $cvDir = $uploadsDir . '/cv';
+                $motivationDir = $uploadsDir . '/motivation';
+                
+                if (!is_dir($cvDir)) {
+                    mkdir($cvDir, 0755, true);
+                }
+                if (!is_dir($motivationDir)) {
+                    mkdir($motivationDir, 0755, true);
                 }
 
                 if ($cvFile) {
@@ -54,8 +60,8 @@ class RecrutementController extends AbstractController
                     $newFilename = $safeFilename . '-' . uniqid() . '.' . $cvFile->guessExtension();
 
                     try {
-                        $cvFile->move($uploadsDir, $newFilename);
-                        $jobApplication->setCvFilename($newFilename);
+                        $cvFile->move($cvDir, $newFilename);
+                        $jobApplication->setCvFilename('uploads/cv/' . $newFilename);
                     } catch (FileException $e) {
                         $this->logger->error('Erreur lors de l\'upload du CV: ' . $e->getMessage());
                         throw new \Exception($this->translator->trans('job_application.messages.cv_upload_error'));
@@ -68,8 +74,8 @@ class RecrutementController extends AbstractController
                     $newFilename = $safeFilename . '-' . uniqid() . '.' . $motivationFile->guessExtension();
 
                     try {
-                        $motivationFile->move($uploadsDir, $newFilename);
-                        $jobApplication->setMotivationFilename($newFilename);
+                        $motivationFile->move($motivationDir, $newFilename);
+                        $jobApplication->setMotivationFilename('uploads/motivation/' . $newFilename);
                     } catch (FileException $e) {
                         $this->logger->error('Erreur lors de l\'upload de la lettre de motivation: ' . $e->getMessage());
                         throw new \Exception($this->translator->trans('job_application.messages.motivation_file_upload_error'));

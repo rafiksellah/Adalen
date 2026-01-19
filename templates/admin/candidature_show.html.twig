@@ -1,0 +1,158 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Candidature #{{ candidature.id }} - Admin Adalen{% endblock %}
+
+{% block page_title %}Candidature #{{ candidature.id }}{% endblock %}
+
+{% block body %}
+<div class="candidature-detail-container">
+    <div class="mb-3">
+        <a href="{{ path('app_admin_candidatures') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-2"></i>
+            Retour à la liste
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-user me-2"></i>
+                        Informations personnelles
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Nom complet :</dt>
+                        <dd class="col-sm-8"><strong>{{ candidature.prenom }} {{ candidature.nom }}</strong></dd>
+
+                        <dt class="col-sm-4">Date de naissance :</dt>
+                        <dd class="col-sm-8">{{ candidature.dateNaissance|date('d/m/Y') }}</dd>
+
+                        <dt class="col-sm-4">Lieu de résidence :</dt>
+                        <dd class="col-sm-8">{{ candidature.lieuResidence }}</dd>
+
+                        <dt class="col-sm-4">Nationalité :</dt>
+                        <dd class="col-sm-8">{{ candidature.nationalite }}</dd>
+
+                        <dt class="col-sm-4">Permis de travail :</dt>
+                        <dd class="col-sm-8">
+                            {% if candidature.permisTravail %}
+                                <span class="badge bg-success">Oui</span>
+                            {% else %}
+                                <span class="badge bg-danger">Non</span>
+                            {% endif %}
+                        </dd>
+
+                        <dt class="col-sm-4">Email :</dt>
+                        <dd class="col-sm-8">{{ candidature.email }}</dd>
+
+                        <dt class="col-sm-4">Téléphone :</dt>
+                        <dd class="col-sm-8">{{ candidature.telephone }}</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-briefcase me-2"></i>
+                        Candidature
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Poste souhaité :</dt>
+                        <dd class="col-sm-8">
+                            <span class="badge bg-primary">{{ candidature.posteSouhaite }}</span>
+                        </dd>
+
+                        <dt class="col-sm-4">Raison d'intérêt :</dt>
+                        <dd class="col-sm-8">{{ candidature.raisonInteretPoste }}</dd>
+
+                        <dt class="col-sm-4">Motivation Adalen :</dt>
+                        <dd class="col-sm-8">{{ candidature.motivationAdalen }}</dd>
+
+                        <dt class="col-sm-4">Contribution à Adalen :</dt>
+                        <dd class="col-sm-8">{{ candidature.contributionAdalen }}</dd>
+
+                        <dt class="col-sm-4">Disponibilité :</dt>
+                        <dd class="col-sm-8">{{ candidature.disponibilite }}</dd>
+
+                        <dt class="col-sm-4">Engagement :</dt>
+                        <dd class="col-sm-8">{{ candidature.engagement }}</dd>
+                    </dl>
+                </div>
+            </div>
+
+            {% if candidature.langues|length > 0 %}
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-language me-2"></i>
+                        Langues
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        {% for langue in candidature.langues %}
+                        <li>
+                            <strong>{{ langue.nom|default('') }}</strong>{% if langue.niveau %} - {{ langue.niveau }}{% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-file me-2"></i>
+                        Documents
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if candidature.cvFilename %}
+                        {% set cvFilename = candidature.cvFilename|split('/')|last %}
+                        <a href="{{ path('app_file_download', {type: 'cv', filename: cvFilename}) }}" target="_blank" class="btn btn-outline-primary w-100 mb-2">
+                            <i class="fas fa-file-pdf me-2"></i>
+                            Télécharger CV
+                        </a>
+                    {% else %}
+                        <p class="text-muted mb-2">CV non disponible</p>
+                    {% endif %}
+
+                    {% if candidature.motivationFilename %}
+                        {% set motivationFilename = candidature.motivationFilename|split('/')|last %}
+                        <a href="{{ path('app_file_download', {type: 'motivation', filename: motivationFilename}) }}" target="_blank" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-file-pdf me-2"></i>
+                            Télécharger Lettre de motivation
+                        </a>
+                    {% else %}
+                        <p class="text-muted">Lettre de motivation non disponible</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Informations
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-2">
+                        <strong>Date de candidature :</strong><br>
+                        {{ candidature.createdAt|date('d/m/Y à H:i') }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

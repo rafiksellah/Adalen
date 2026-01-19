@@ -35,6 +35,86 @@
     --shadow-lg: none;
 }
 
+/* Modal Actualité */
+#actualityModal .modal-content {
+    border-radius: 12px;
+    border: none;
+}
+
+#actualityModal .modal-header {
+    background: linear-gradient(135deg, var(--adalen-primary) 0%, var(--adalen-primary-dark) 100%);
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+#actualityModal .modal-header .btn-close {
+    filter: invert(1);
+}
+
+#actualityModal .modal-title {
+    color: white !important;
+    font-weight: 600;
+}
+
+#actualityModal .modal-body {
+    padding: 2rem;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+#actualityModal .actuality-media {
+    margin: 1.5rem 0;
+}
+
+#actualityModal .carousel {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#actualityModal .carousel-inner {
+    border-radius: 8px;
+}
+
+#actualityModal .carousel-item img {
+    border-radius: 8px;
+}
+
+#actualityModal .carousel-item video {
+    border-radius: 8px;
+}
+
+#actualityModal .carousel-control-prev,
+#actualityModal .carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+}
+
+#actualityModal .carousel-control-prev:hover,
+#actualityModal .carousel-control-next:hover {
+    opacity: 1;
+}
+
+#actualityModal .carousel-indicators {
+    margin-bottom: 1rem;
+}
+
+#actualityModal .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--adalen-primary);
+    border: 2px solid white;
+}
+
+#actualityModal .carousel-indicators button.active {
+    background-color: var(--adalen-primary-dark);
+}
+
+#actualityModal .modal-footer {
+    border-top: 1px solid #e5e7eb;
+    padding: 1rem 2rem;
+}
+
 * {
     margin: 0;
     padding: 0;

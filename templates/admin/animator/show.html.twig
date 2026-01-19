@@ -1,0 +1,107 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Détails Animateur - Admin Adalen{% endblock %}
+
+{% block page_title %}Détails de l'Animateur{% endblock %}
+
+{% block body %}
+<div class="animator-detail-container">
+    <div class="mb-3">
+        <a href="{{ path('app_admin_animator_index') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-2"></i>
+            Retour à la liste
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Informations générales
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Nom complet :</dt>
+                        <dd class="col-sm-8"><strong>{{ animator.name }}</strong></dd>
+
+                        <dt class="col-sm-4">Titre / Poste :</dt>
+                        <dd class="col-sm-8">{{ animator.title ?? '-' }}</dd>
+
+                        <dt class="col-sm-4">Catégorie :</dt>
+                        <dd class="col-sm-8">
+                            {% if animator.category %}
+                                <span class="badge bg-info">{{ animator.category }}</span>
+                            {% else %}
+                                <span class="text-muted">-</span>
+                            {% endif %}
+                        </dd>
+
+                        <dt class="col-sm-4">Description :</dt>
+                        <dd class="col-sm-8">{{ animator.description ?? '-' }}</dd>
+
+                        <dt class="col-sm-4">Image :</dt>
+                        <dd class="col-sm-8">{{ animator.image ?? '-' }}</dd>
+
+                        <dt class="col-sm-4">Statut :</dt>
+                        <dd class="col-sm-8">
+                            {% if animator.isActive %}
+                                <span class="badge bg-success">Actif</span>
+                            {% else %}
+                                <span class="badge bg-secondary">Inactif</span>
+                            {% endif %}
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-calendar me-2"></i>
+                        Dates
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-2">
+                        <strong>Créé le :</strong><br>
+                        {{ animator.createdAt|date('d/m/Y à H:i') }}
+                    </p>
+                    {% if animator.updatedAt %}
+                    <p class="mb-0">
+                        <strong>Modifié le :</strong><br>
+                        {{ animator.updatedAt|date('d/m/Y à H:i') }}
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-cog me-2"></i>
+                        Actions
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <a href="{{ path('app_admin_animator_edit', {id: animator.id}) }}" class="btn btn-primary w-100 mb-2">
+                        <i class="fas fa-edit me-2"></i>
+                        Modifier
+                    </a>
+                    <form method="post" action="{{ path('app_admin_animator_delete', {id: animator.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet animateur ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ animator.id) }}">
+                        <button type="submit" class="btn btn-danger w-100">
+                            <i class="fas fa-trash me-2"></i>
+                            Supprimer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

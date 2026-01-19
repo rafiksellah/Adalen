@@ -1,0 +1,102 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Dashboard - Admin Adalen{% endblock %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block body %}
+<div class="dashboard-container">
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4 mb-3">
+            <div class="stat-card">
+                <div class="stat-icon bg-primary">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number">{{ totalCandidates }}</h3>
+                    <p class="stat-label">Candidatures</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="stat-card">
+                <div class="stat-icon bg-success">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number">0</h3>
+                    <p class="stat-label">Messages</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="stat-card">
+                <div class="stat-icon bg-warning">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number">{{ recentCandidates|length }}</h3>
+                    <p class="stat-label">Récentes (7j)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Candidatures -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-white">
+            <h5 class="mb-0">
+                <i class="fas fa-list me-2"></i>
+                Candidatures récentes
+            </h5>
+        </div>
+        <div class="card-body">
+            {% if recentCandidates|length > 0 %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nom complet</th>
+                            <th>Email</th>
+                            <th>Poste souhaité</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for candidature in recentCandidates %}
+                        <tr>
+                            <td>{{ candidature.prenom }} {{ candidature.nom }}</td>
+                            <td>{{ candidature.email }}</td>
+                            <td>
+                                <span class="badge bg-primary">{{ candidature.posteSouhaite }}</span>
+                            </td>
+                            <td>{{ candidature.createdAt|date('d/m/Y H:i') }}</td>
+                            <td>
+                                <a href="{{ path('app_admin_candidature_show', {id: candidature.id}) }}" class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-eye"></i>
+                                    Voir
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-3">
+                <a href="{{ path('app_admin_candidatures') }}" class="btn btn-primary">
+                    Voir toutes les candidatures
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+            {% else %}
+            <div class="text-center py-5">
+                <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                <p class="text-muted">Aucune candidature pour le moment</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

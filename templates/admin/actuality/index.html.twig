@@ -1,0 +1,110 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Actualités - Admin Adalen{% endblock %}
+
+{% block page_title %}Gestion des Actualités{% endblock %}
+
+{% block body %}
+<div class="actuality-container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Liste des actualités ({{ actualities|length }})</h2>
+        <a href="{{ path('app_admin_actuality_new') }}" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i>
+            Nouvelle actualité
+        </a>
+    </div>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endfor %}
+
+    {% if actualities|length > 0 %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titre</th>
+                            <th>Média</th>
+                            <th>Statut</th>
+                            <th>Date création</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for actuality in actualities %}
+                        <tr>
+                            <td>#{{ actuality.id }}</td>
+                            <td>
+                                <strong>{{ actuality.titleFr|default(actuality.titleEn|default(actuality.titleAr|default('Sans titre'))) }}</strong>
+                                <div class="small text-muted mt-1">
+                                    {% if actuality.titleFr %}<span class="badge bg-primary me-1">FR</span>{% endif %}
+                                    {% if actuality.titleEn %}<span class="badge bg-success me-1">EN</span>{% endif %}
+                                    {% if actuality.titleAr %}<span class="badge bg-info me-1">AR</span>{% endif %}
+                                </div>
+                            </td>
+                            <td>
+                            <td>
+                                {% if actuality.video %}
+                                    <span class="badge bg-danger">
+                                        <i class="fas fa-video me-1"></i> Vidéo
+                                    </span>
+                                {% elseif actuality.images %}
+                                    <span class="badge bg-info">
+                                        <i class="fas fa-image me-1"></i> Image(s)
+                                    </span>
+                                {% else %}
+                                    <span class="text-muted">-</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if actuality.isPublished %}
+                                    <span class="badge bg-success">Publiée</span>
+                                {% else %}
+                                    <span class="badge bg-warning">Brouillon</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ actuality.createdAt|date('d/m/Y') }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="{{ path('app_admin_actuality_show', {id: actuality.id}) }}" class="btn btn-sm btn-outline-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="{{ path('app_admin_actuality_edit', {id: actuality.id}) }}" class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form method="post" action="{{ path('app_admin_actuality_delete', {id: actuality.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette actualité ?');" class="d-inline">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actuality.id) }}">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="card shadow-sm">
+        <div class="card-body text-center py-5">
+            <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+            <p class="text-muted">Aucune actualité enregistrée</p>
+            <a href="{{ path('app_admin_actuality_new') }}" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>
+                Créer la première actualité
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
