@@ -15,10 +15,21 @@ use Symfony\Component\Routing\Attribute\Route;
 class ActivityCrudController extends AbstractController
 {
     #[Route('/', name: 'app_admin_activity_index', methods: ['GET'])]
-    public function index(ActivityRepository $activityRepository): Response
+    public function index(ActivityRepository $activityRepository, Request $request): Response
     {
+        $page = max(1, (int) $request->query->get('page', 1));
+        $limit = 10;
+        $offset = ($page - 1) * $limit;
+        
+        $activities = $activityRepository->findBy([], ['createdAt' => 'DESC'], $limit, $offset);
+        $total = count($activityRepository->findAll());
+        $totalPages = ceil($total / $limit);
+        
         return $this->render('admin/activity/index.html.twig', [
-            'activities' => $activityRepository->findAll(),
+            'activities' => $activities,
+            'currentPage' => $page,
+            'totalPages' => $totalPages,
+            'total' => $total,
         ]);
     }
 

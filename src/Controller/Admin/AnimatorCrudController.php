@@ -15,10 +15,21 @@ use Symfony\Component\Routing\Attribute\Route;
 class AnimatorCrudController extends AbstractController
 {
     #[Route('/', name: 'app_admin_animator_index', methods: ['GET'])]
-    public function index(AnimatorRepository $animatorRepository): Response
+    public function index(AnimatorRepository $animatorRepository, Request $request): Response
     {
+        $page = max(1, (int) $request->query->get('page', 1));
+        $limit = 10;
+        $offset = ($page - 1) * $limit;
+        
+        $animators = $animatorRepository->findBy([], ['createdAt' => 'DESC'], $limit, $offset);
+        $total = count($animatorRepository->findAll());
+        $totalPages = ceil($total / $limit);
+        
         return $this->render('admin/animator/index.html.twig', [
-            'animators' => $animatorRepository->findAll(),
+            'animators' => $animators,
+            'currentPage' => $page,
+            'totalPages' => $totalPages,
+            'total' => $total,
         ]);
     }
 

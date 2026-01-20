@@ -10,7 +10,7 @@
         <div class="card-header bg-white">
             <h5 class="mb-0">
                 <i class="fas fa-envelope me-2"></i>
-                Liste des messages ({{ contacts|length }})
+                Liste des messages ({{ total|default(contacts|length) }})
             </h5>
         </div>
         <div class="card-body">

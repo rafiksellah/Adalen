@@ -22,10 +22,21 @@ class ActualityCrudController extends AbstractController
     }
 
     #[Route('/', name: 'app_admin_actuality_index', methods: ['GET'])]
-    public function index(ActualityRepository $actualityRepository): Response
+    public function index(ActualityRepository $actualityRepository, Request $request): Response
     {
+        $page = max(1, (int) $request->query->get('page', 1));
+        $limit = 10;
+        $offset = ($page - 1) * $limit;
+        
+        $actualities = $actualityRepository->findBy([], ['createdAt' => 'DESC'], $limit, $offset);
+        $total = count($actualityRepository->findAll());
+        $totalPages = ceil($total / $limit);
+        
         return $this->render('admin/actuality/index.html.twig', [
-            'actualities' => $actualityRepository->findBy([], ['createdAt' => 'DESC']),
+            'actualities' => $actualities,
+            'currentPage' => $page,
+            'totalPages' => $totalPages,
+            'total' => $total,
         ]);
     }
 

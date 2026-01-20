@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\JobApplication;
 use App\Repository\JobApplicationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -23,12 +24,21 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/candidatures', name: 'app_admin_candidatures')]
-    public function candidatures(JobApplicationRepository $jobApplicationRepo): Response
+    public function candidatures(JobApplicationRepository $jobApplicationRepo, Request $request): Response
     {
-        $candidatures = $jobApplicationRepo->findBy([], ['createdAt' => 'DESC']);
+        $page = max(1, (int) $request->query->get('page', 1));
+        $limit = 10;
+        $offset = ($page - 1) * $limit;
+        
+        $candidatures = $jobApplicationRepo->findBy([], ['createdAt' => 'DESC'], $limit, $offset);
+        $total = count($jobApplicationRepo->findAll());
+        $totalPages = ceil($total / $limit);
 
         return $this->render('admin/candidatures.html.twig', [
             'candidatures' => $candidatures,
+            'currentPage' => $page,
+            'totalPages' => $totalPages,
+            'total' => $total,
         ]);
     }
 
