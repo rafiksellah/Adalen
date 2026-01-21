@@ -18,7 +18,7 @@ home:
     subtitle: Grandir, créer et s'épanouir autrement
     description: Un espace dédié à l'épanouissement des enfants à travers des activités extra-scolaires variées, ludiques et éducatives.
   activities:
-    title: Activités Extra-Scolaires
+    title: Activités proposées
     subtitle: Des activités variées pour l'épanouissement de votre enfant
     see_all: Voir toutes les activités
   quality:
@@ -33,17 +33,17 @@ home:
 
 activity:
   title: Activités - Adalen
-  page_title: Activités Extra-Scolaires
+  page_title: Activités proposées
   subtitle: Des activités variées pour l'épanouissement de votre enfant
   gardening:
     title: Jardinage
-    description: Nourrir la créativité, l'autonomie et le lien à la nature à travers des expériences concrètes et joyeuses.
+    description: Mettre les mains dans la terre, semer de petites graines, observer la nature grandir, bêcher, planter, cueillir et récolter… Le jardin devient un terrain d'exploration vivant où l'on apprend le vocabulaire du jardinage, le respect du vivant et la patience du jardinier.
   arts:
-    title: Arts Plastiques
-    description: Stimuler l'imagination et l'expression artistique des enfants.
+    title: Arts plastiques
+    description: Ici, pas de modèle à copier ! Les enfants (et les jeunes adultes) expérimentent librement différentes techniques artistiques, jouent avec les matières, les couleurs et les formes, et laissent parler leur imagination.
   english:
-    title: English Bites
-    description: Apprendre l'anglais de façon ludique et interactive.
+    title: Petites Bouchées Linguistiques
+    description: "Une façon gourmande d'entrer dans une langue ! On découvre et on explore une langue à travers le vocabulaire de la cuisine, des saveurs et des gestes du quotidien. Langues proposées : français, anglais ou arabe, selon l'envie."
   archaeology:
     title: Archéologie
     description: Éveiller la curiosité et la découverte du passé.

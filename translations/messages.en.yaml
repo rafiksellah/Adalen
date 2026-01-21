@@ -18,7 +18,7 @@ home:
     subtitle: Grow, create and flourish differently
     description: A space dedicated to children's development through varied, fun and educational extra-curricular activities.
   activities:
-    title: Extra-Curricular Activities
+    title: Proposed Activities
     subtitle: Varied activities for your child's development
     see_all: See all activities
   quality:
@@ -33,17 +33,17 @@ home:
 
 activity:
   title: Activities - Adalen
-  page_title: Extra-Curricular Activities
+  page_title: Proposed Activities
   subtitle: Varied activities for your child's development
   gardening:
     title: Gardening
-    description: Nurturing creativity, autonomy and connection to nature through concrete and joyful experiences.
+    description: Put your hands in the earth, sow small seeds, watch nature grow, dig, plant, pick and harvest... The garden becomes a living exploration ground where we learn gardening vocabulary, respect for living things and the gardener's patience.
   arts:
     title: Plastic Arts
-    description: Stimulating children's imagination and artistic expression.
+    description: Here, no model to copy! Children (and young adults) freely experiment with different artistic techniques, play with materials, colors and shapes, and let their imagination speak.
   english:
-    title: English Bites
-    description: Learn English in a fun and interactive way.
+    title: Small Language Bites
+    description: "A tasty way to enter a language! We discover and explore a language through the vocabulary of cooking, flavors and everyday gestures. Languages offered: French, English or Arabic, according to preference."
   archaeology:
     title: Archaeology
     description: Awakening curiosity and discovery of the past.
