@@ -486,18 +486,13 @@ html[dir="rtl"] .navbar-brand {
     padding: 1.5rem;
 }
 
-.activity-icon {
-    font-size: 3rem;
+.activity-emoji {
+    font-size: 4rem;
     margin-bottom: 1rem;
-    color: var(--adalen-primary);
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.activity-icon i {
-    font-size: 3rem;
-    color: var(--adalen-primary);
+    line-height: 1;
 }
 
 .activity-title {
