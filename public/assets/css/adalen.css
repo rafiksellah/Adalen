@@ -140,7 +140,7 @@ body {
     font-family: var(--adalen-font-secondary);
     color: var(--adalen-dark);
     line-height: 1.6;
-    padding-top: 80px;
+    padding-top: 115px;
 }
 
 /* ============================================
@@ -149,19 +149,26 @@ body {
 
 .navbar {
     box-shadow: none;
-    padding: 1rem 0;
+    padding: 0.25rem 0;
+    min-height: auto;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-brand {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
     text-decoration: none;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar-brand img {
     max-height: 110px;
     height: 110px;
+    width: auto;
+    object-fit: contain;
 }
 
 .brand-text {
@@ -177,10 +184,27 @@ body {
     color: var(--adalen-dark) !important;
     margin: 0 0.5rem;
     transition: color 0.3s ease;
+    position: relative;
 }
 
 .nav-link:hover {
     color: var(--adalen-primary) !important;
+}
+
+.nav-link.active {
+    color: var(--adalen-primary) !important;
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--adalen-primary);
+    border-radius: 2px;
 }
 
 .nav-link-external {
@@ -416,7 +440,7 @@ html[dir="rtl"] .navbar-brand {
    ============================================ */
 
 .section {
-    padding: 4rem 0;
+    padding:1rem 0;
 }
 
 .section-title {
@@ -836,6 +860,15 @@ html[dir="rtl"] .navbar-brand {
     }
     
     /* Navbar responsive */
+    body {
+        padding-top: 90px;
+    }
+    
+    .navbar {
+        min-height: auto;
+        padding: 0.25rem 0;
+    }
+    
     .navbar-brand {
         gap: 0.5rem;
     }
@@ -848,20 +881,21 @@ html[dir="rtl"] .navbar-brand {
     .brand-text {
         font-size: 1.3rem;
     }
-    
-    .navbar {
-        padding: 0.5rem 0;
-    }
 }
 
 @media (max-width: 576px) {
-    .navbar-brand img {
-        max-height: 70px;
-        height: 70px;
+    body {
+        padding-top: 80px;
     }
     
     .navbar {
-        padding: 0.5rem 0;
+        min-height: auto;
+        padding: 0.25rem 0;
+    }
+    
+    .navbar-brand img {
+        max-height: 70px;
+        height: 70px;
     }
     
     .brand-text {

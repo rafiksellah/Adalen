@@ -41,22 +41,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_home', {_locale: app.request.locale}) }}">{{ 'app.actualite'|trans }}</a>
+                        <a class="nav-link {% if app.request.get('_route') == 'app_home' %}active{% endif %}" href="{{ path('app_home', {_locale: app.request.locale}) }}">{{ 'app.actualite'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_activities', {_locale: app.request.locale}) }}">{{ 'app.activities'|trans }}</a>
+                        <a class="nav-link {% if app.request.get('_route') == 'app_activities' %}active{% endif %}" href="{{ path('app_activities', {_locale: app.request.locale}) }}">{{ 'app.activities'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_animators', {_locale: app.request.locale}) }}">{{ 'app.animators'|trans }}</a>
+                        <a class="nav-link {% if app.request.get('_route') == 'app_animators' %}active{% endif %}" href="{{ path('app_animators', {_locale: app.request.locale}) }}">{{ 'app.animators'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_coop', {_locale: app.request.locale}) }}">{{ 'app.coop'|trans }}</a>
+                        <a class="nav-link {% if app.request.get('_route') == 'app_coop' %}active{% endif %}" href="{{ path('app_coop', {_locale: app.request.locale}) }}">{{ 'app.coop'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_contact', {_locale: app.request.locale}) }}">{{ 'app.contact'|trans }}</a>
+                        <a class="nav-link {% if app.request.get('_route') == 'app_contact' %}active{% endif %}" href="{{ path('app_contact', {_locale: app.request.locale}) }}">{{ 'app.contact'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_recrutement', {_locale: app.request.locale}) }}">{{ 'app.recruitment'|trans }}</a>
+                        <a class="nav-link {% if app.request.get('_route') == 'app_recrutement' %}active{% endif %}" href="{{ path('app_recrutement', {_locale: app.request.locale}) }}">{{ 'app.recruitment'|trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="pointer-events: none; opacity: 0.6; cursor: not-allowed;">{{ 'app.edition'|trans }}</a>
                     </li>
                     <li class="nav-item">
                         <a href="https://montessori-algeria.com/" target="_blank" class="nav-link nav-link-external d-flex align-items-center" title="{{ 'app.montessori'|trans }}">
