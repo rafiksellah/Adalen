@@ -18,19 +18,19 @@ home:
     title: Adalen Center
     subtitle: Grow, create and flourish differently
     description: A space dedicated to children's development through varied, fun and educational extra-curricular activities.
+    carousel:
+      description: Adalen is a Tamashek word that means LEISURE or GAMES
+      keywords:
+        creativity: Creativity
+        nature: Nature
+        culture: Culture
+        language: Language and dialogue
+        leadership: Leadership
+        civism: Civicism
   activities:
     title: Proposed Activities
     subtitle: Varied activities for your child's development
     see_all: See all activities
-  quality:
-    title: Quality & Environment
-    subtitle: An exceptional learning environment for your children
-    description: We offer a safe, stimulating and caring environment where each child can flourish and develop their unique potential.
-    items:
-      happy: Happy Environment
-      play: Play to Learn
-      safety: Safety & Security
-      creativity: Enhanced Creativity
 
 activity:
   title: Activities - Adalen

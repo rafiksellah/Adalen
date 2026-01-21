@@ -18,19 +18,19 @@ home:
     title: Le Centre Adalen
     subtitle: Grandir, créer et s'épanouir autrement
     description: Un espace dédié à l'épanouissement des enfants à travers des activités extra-scolaires variées, ludiques et éducatives.
+    carousel:
+      description: Adalen est un mot en tamashek qui signifie LOISIRS ou JEUX
+      keywords:
+        creativity: Créativité
+        nature: Nature
+        culture: Culture
+        language: Langage et dialogue
+        leadership: Leadership
+        civism: Civisme
   activities:
     title: Activités proposées
     subtitle: Des activités variées pour l'épanouissement de votre enfant
     see_all: Voir toutes les activités
-  quality:
-    title: Qualité & Environnement
-    subtitle: Un environnement d'apprentissage exceptionnel pour vos enfants
-    description: Nous offrons un environnement sécurisé, stimulant et bienveillant où chaque enfant peut s'épanouir et développer son potentiel unique.
-    items:
-      happy: Environnement Heureux
-      play: Apprendre en Jouant
-      safety: Sécurité & Protection
-      creativity: Créativité Renforcée
 
 activity:
   title: Activités - Adalen

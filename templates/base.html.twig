@@ -98,8 +98,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5>{{ 'footer.title'|trans }}</h5>
-                    <p>{{ 'footer.description'|trans }}</p>
+                    <a href="{{ path('app_home', {_locale: app.request.locale}) }}" class="logo d-flex align-items-center mb-4" style="text-decoration: none;">
+                        <img src="{{ asset('assets/img/logo.png') }}" alt="Adalen" class="logo-img" style="height: 120px; width: auto; max-width: 100%;">
+                        <div class="logo-text ms-3">
+                            <h2 style="font-size: 2rem; font-weight: 800; color: #ffffff; margin: 0; line-height: 1.2;">ADALEN</h2>
+                        </div>
+                    </a>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">{{ 'footer.description'|trans }}</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5>{{ 'footer.quick_links'|trans }}</h5>

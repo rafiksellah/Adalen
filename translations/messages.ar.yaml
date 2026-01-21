@@ -18,19 +18,19 @@ home:
     title: مركز أدالين
     subtitle: النمو والإبداع والازدهار بشكل مختلف
     description: مساحة مخصصة لنمو الأطفال من خلال أنشطة لامنهجية متنوعة ومرحة وتعليمية.
+    carousel:
+      description: أدالين هي كلمة بالطوارقية تعني الترفيه أو الألعاب
+      keywords:
+        creativity: الإبداع
+        nature: الطبيعة
+        culture: الثقافة
+        language: اللغة والحوار
+        leadership: القيادة
+        civism: المواطنة
   activities:
     title: الأنشطة المقترحة
     subtitle: أنشطة متنوعة لنمو طفلك
     see_all: عرض جميع الأنشطة
-  quality:
-    title: الجودة والبيئة
-    subtitle: بيئة تعليمية استثنائية لأطفالك
-    description: نقدم بيئة آمنة ومحفزة ومهتمة حيث يمكن لكل طفل أن يزدهر ويطور إمكاناته الفريدة.
-    items:
-      happy: بيئة سعيدة
-      play: التعلم من خلال اللعب
-      safety: السلامة والأمان
-      creativity: الإبداع المعزز
 
 activity:
   title: الأنشطة - أدالين
