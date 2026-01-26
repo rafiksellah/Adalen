@@ -59,6 +59,8 @@ animator:
   title: Animators - Adalen
   page_title: Our Animators
   subtitle: A passionate and qualified team to accompany your children
+  photo_placeholder: A photo will be placed here
+  description: The workshop animators are professionals or passionate students, happy to share their profession with children. They enthusiastically transmit their knowledge, their know-how and especially their know-how-to-be, creating a benevolent climate where everyone feels listened to and encouraged to discover.
   pedagogical:
     title: Pedagogical Team
     description: Our animators are trained and experienced to provide the best support to your children.
@@ -92,10 +94,10 @@ coop:
     slogan: DECIDE, ACT AND COOPERATE FROM CHILDHOOD
   section1:
     title: A cooperative managed by children
-    text1: The cooperative is based on sharing responsibilities and everyone's participation.
-    text2: Children take part in decisions, express themselves, listen to others, negotiate and vote together.
-    text3: Each has a role adapted to their age (organization, sales, communication, management...), which highlights teamwork and commitment.
-    text4: Children also participate in sales and money management. As a group, they decide how to use and invest it responsibly, respecting different opinions and making collective decisions.
+    text1: "La Petite Coop is a joyful collective project where children share responsibilities with enthusiasm. They actively participate in decisions: they express themselves freely, listen to their peers, negotiate with kindness and vote together to decide and move forward."
+    text2: "Each finds a tailor-made role, adapted to their age – organization, sales, communication or management –, thus fostering a true team spirit and joyful commitment."
+    text3: "They even manage sales and money as a group, collectively deciding on its responsible use, respecting all opinions for harmonious choices."
+    text4: ""
   section2:
     title: Livestock
     description: The responsibility of an animal is based on long-term commitment and regular care. This experience allows children to develop their sense of responsibility and respect for living things, while discovering the daily life of animals through practice and observation.
@@ -105,17 +107,23 @@ coop:
   section3:
     title: Vegetable garden
     subtitle: and nursery
-    box1_title: Immersion in food self-sufficiency
-    box1_subtitle: Respect for the environment
-    box2_title: Value of plants, trees and flowers
-    box2_subtitle: Importance of biodiversity
+    subtitle_full: "The vegetable garden and nursery: sowing curiosity"
+    intro: "In our vegetable garden and nursery, children joyfully cultivate the wonders of nature, from seed to harvest."
+    description: "They explore the cycle of life, discover the secrets of soil and plants through touch, observation and daily experimentation."
+    point1: "Sow and observe growth"
+    point2: "Harvest the fruits of patience"
+    point3: "Discover natural cycles"
+    box1_title: "Immersion in food self-sufficiency"
+    box1_subtitle: "Respect for the environment"
+    box2_title: "Value of plants, trees and flowers"
+    box2_subtitle: "Importance of biodiversity"
   section4:
-    title: Seed bank & natural fertilizer
-    step1: Collect and preserve seeds
-    step2: Observe plant growth
-    step3: Produce natural fertilizer (compost)
-    text1: The seed bank invites children to explore the cycle of nature. They harvest, preserve and then sow the seeds, which leads them to protect plant resources and preserve an authentic natural heritage.
-    text2: The production of natural fertilizer allows children to discover how to feed the earth in a healthy way. Children put into practice ecological solutions to improve the soil and stimulate plant growth.
+    title: "Seed bank & natural fertilizer"
+    step1: "Collect and preserve seeds"
+    step2: "Observe plant growth"
+    step3: "Produce natural fertilizer (compost)"
+    text1: "The seed bank invites children to discover and understand the cycle of nature. They harvest, sort, preserve and then sow the seeds, thus committing to protect plant resources and preserve a living natural heritage."
+    text2: "The production of natural fertilizer, through compost, allows them to observe how to feed the earth in a healthy and sustainable way. Through experimentation, children put into practice ecological solutions to enrich the soil and support plant growth."
   section5:
     title: The cooperative souk
     description: "Children organize a monthly souk to sell their products. They manage the entire process from start to finish: production, sales and investment. This allows them to learn about organizing complex events as well as time and money management."
@@ -141,7 +149,7 @@ coop:
 
 footer:
   title: Adalen
-  description: Children's extra-curricular activity center
+  description: Adalen is a Tamashek word that means Leisure or Games
   quick_links: Quick links
   contact_title: Contact
   rights: All rights reserved.

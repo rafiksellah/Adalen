@@ -6,22 +6,11 @@
     <!-- Hero Section - La petite COOP -->
     <section class="coop-section position-relative" style="min-height: 600px;">
         <div class="coop-hero-bg" style="background-image: url('{{ asset('assets/img/image5.jpg') }}'); background-size: cover; background-position: center; min-height: 600px; position: relative;">
-            <div style="background: rgba(0, 0, 0, 0.4); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
-            <div class="container position-relative" style="z-index: 10; min-height: 600px; display: flex; align-items: center;">
-                <div class="row align-items-center w-100">
-                    <div class="col-lg-6">
-                        <div class="coop-lamb-image-wrapper mb-4 text-center">
-                            <img src="{{ asset('assets/img/IMG_20251216_125254.jpg') }}" alt="Agneau" class="coop-lamb-image" style="max-width: 200px; border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%; border: 4px solid var(--adalen-white);">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-white fade-in-right">
-                        <h1 class="coop-main-title mb-3 fade-in">
-                            <span style="font-size: 2rem; display: block;">{{ 'coop.hero.title_small'|trans }}</span>
-                            <span style="font-size: 4rem; font-weight: 900; display: block; color: #8B6F5B;">{{ 'coop.hero.title_big'|trans }}</span>
-                        </h1>
-                        <p class="coop-slogan fade-in" style="font-size: 1rem; letter-spacing: 0.1em; color: #D4B899; margin-top: 1rem; font-weight: 500;">
-                            {{ 'coop.hero.slogan'|trans }}
-                        </p>
+            <div style="background: rgba(0, 0, 0, 0.6); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
+            <div class="container position-relative" style="z-index: 10; min-height: 600px; display: flex; align-items: center; justify-content: center;">
+                <div class="row align-items-center w-100 justify-content-center">
+                    <div class="col-lg-8 col-xl-6 text-center fade-in">
+                        <img src="{{ asset('assets/img/petite_coop/LogoLaPetiteCOOPFINAL.png') }}" alt="La Petite COOP" class="img-fluid" style="max-width: 100%; height: auto; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));">
                     </div>
                 </div>
             </div>
@@ -43,17 +32,14 @@
                         <p class="mb-3">
                             {{ 'coop.section1.text2'|trans|raw }}
                         </p>
-                        <p class="mb-3">
-                            {{ 'coop.section1.text3'|trans|raw }}
-                        </p>
                         <p>
-                            {{ 'coop.section1.text4'|trans|raw }}
+                            {{ 'coop.section1.text3'|trans|raw }}
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center fade-in-right">
                     <div class="coop-vote-image-wrapper scale-in">
-                        <img src="{{ asset('assets/img/IMG_20251118_135319.jpg') }}" alt="Vote des enfants" class="coop-vote-image" style="max-width: 200px; border-radius: 50%; border: 4px solid #D4B899;">
+                        <img src="{{ asset('assets/img/IMG_20251118_135319.jpg') }}" alt="Vote des enfants" class="coop-vote-image" style="max-width: 350px; width: 100%; height: 350px; object-fit: cover; border-radius: 50%; border: 4px solid #D4B899;">
                     </div>
                 </div>
             </div>
@@ -86,10 +72,10 @@
                 <div class="col-lg-6 fade-in-right">
                     <div class="coop-animal-images d-flex flex-column gap-4 align-items-center">
                         <div class="coop-animal-image-wrapper scale-in">
-                            <img src="{{ asset('assets/img/IMG_20251118_134552.jpg') }}" alt="Canard" class="img-fluid" style="max-width: 180px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; border: 4px solid #F5F0E6;">
+                            <img src="{{ asset('assets/img/IMG_20251118_134552.jpg') }}" alt="Canard" class="img-fluid" style="max-width: 250px; width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 4px solid #F5F0E6;">
                         </div>
                         <div class="coop-animal-image-wrapper scale-in">
-                            <img src="{{ asset('assets/img/IMG_20251118_135305.jpg') }}" alt="Paon" class="img-fluid" style="max-width: 180px; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; border: 4px solid #F5F0E6;">
+                            <img src="{{ asset('assets/img/IMG_20251118_135305.jpg') }}" alt="Paon" class="img-fluid" style="max-width: 250px; width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 4px solid #F5F0E6;">
                         </div>
                     </div>
                 </div>
@@ -102,12 +88,23 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 mb-4 mb-lg-0 fade-in-left">
-                    <h2 class="coop-section-title mb-2 fade-in" style="color: #D4B899; font-size: 3rem; font-weight: 700;">
-                        {{ 'coop.section3.title'|trans }}
+                    <h2 class="coop-section-title mb-3 fade-in" style="color: #D4B899; font-size: 3rem; font-weight: 700;">
+                        {{ 'coop.section3.title'|trans }} {{ 'coop.section3.subtitle'|trans }}
                     </h2>
-                    <p class="coop-section-subtitle mb-4 fade-in" style="color: #D4B899; font-size: 2rem; font-weight: 700;">
-                        {{ 'coop.section3.subtitle'|trans }}
+                    <p class="coop-section-subtitle mb-3 fade-in" style="color: #D4B899; font-size: 1.5rem; font-weight: 600;">
+                        {{ 'coop.section3.subtitle_full'|trans }}
                     </p>
+                    <p class="coop-text-content mb-3 fade-in" style="color: #D4B899; font-size: 1.1rem; line-height: 1.8;">
+                        {{ 'coop.section3.intro'|trans }}
+                    </p>
+                    <p class="coop-text-content mb-4 fade-in" style="color: #D4B899; font-size: 1.1rem; line-height: 1.8;">
+                        {{ 'coop.section3.description'|trans }}
+                    </p>
+                    <ul class="coop-text-content mb-4 fade-in" style="color: #D4B899; font-size: 1.1rem; line-height: 1.8; list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 0.5rem;">• {{ 'coop.section3.point1'|trans }}</li>
+                        <li style="margin-bottom: 0.5rem;">• {{ 'coop.section3.point2'|trans }}</li>
+                        <li style="margin-bottom: 0.5rem;">• {{ 'coop.section3.point3'|trans }}</li>
+                    </ul>
                     <div class="coop-info-box mb-4 slide-up" style="background-color: #D4B899; padding: 2rem; border-radius: 20px;">
                         <div class="d-flex align-items-start gap-3">
                             <div style="font-size: 2.5rem; color: #3D2B1F;"><i class="fas fa-apple-alt"></i></div>
@@ -128,8 +125,8 @@
                     </div>
                 </div>
                 <div class="col-lg-7 text-center fade-in-right">
-                    <div class="coop-garden-image-wrapper scale-in">
-                        <img src="{{ asset('assets/img/image5.jpg') }}" alt="Potager" class="img-fluid" style="max-width: 350px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; border: 4px solid #D4B899;">
+                    <div class="coop-garden-image-wrapper scale-in d-flex justify-content-center">
+                        <img src="{{ asset('assets/img/image5.jpg') }}" alt="Potager" class="img-fluid" style="max-width: 350px; width: 350px; height: 450px; object-fit: cover; border-radius: 20px; border: 4px solid #D4B899;">
                     </div>
                 </div>
             </div>
@@ -160,21 +157,21 @@
                     </div>
                 </div>
                 <div class="col-lg-4 text-center mb-4 mb-lg-0 fade-in">
-                    <div class="coop-seeds-image-wrapper scale-in">
-                        <img src="{{ asset('assets/img/image2.jpg') }}" alt="Semences" class="img-fluid" style="max-width: 250px; border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%; border: 4px solid #D4B899;">
+                    <div class="coop-seeds-image-wrapper scale-in d-flex justify-content-center">
+                        <img src="{{ asset('assets/img/IMG_20251216_151936.jpg') }}" alt="Semences" class="img-fluid" style="max-width: 350px; width: 350px; height: 450px; object-fit: cover; border-radius: 20px; border: 4px solid #D4B899;">
                     </div>
                 </div>
                 <div class="col-lg-4 fade-in-right">
                     <div class="coop-text-content" style="color: #3D2B1F; font-size: 1.1rem; line-height: 1.8;">
-                        <div class="mb-4">
-                            <div style="width: 15px; height: 15px; background-color: #F58220; border-radius: 50%; display: inline-block; margin-right: 1rem; vertical-align: middle;"></div>
-                            <p style="display: inline-block; width: calc(100% - 40px); vertical-align: middle;">
+                        <div class="mb-4 d-flex align-items-start">
+                            <div style="width: 15px; height: 15px; background-color: #F58220; border-radius: 50%; flex-shrink: 0; margin-right: 1rem; margin-top: 0.3rem;"></div>
+                            <p style="margin: 0; flex: 1;">
                                 {{ 'coop.section4.text1'|trans|raw }}
                             </p>
                         </div>
-                        <div>
-                            <div style="width: 15px; height: 15px; background-color: #F58220; border-radius: 50%; display: inline-block; margin-right: 1rem; vertical-align: middle;"></div>
-                            <p style="display: inline-block; width: calc(100% - 40px); vertical-align: middle;">
+                        <div class="d-flex align-items-start">
+                            <div style="width: 15px; height: 15px; background-color: #F58220; border-radius: 50%; flex-shrink: 0; margin-right: 1rem; margin-top: 0.3rem;"></div>
+                            <p style="margin: 0; flex: 1;">
                                 {{ 'coop.section4.text2'|trans|raw }}
                             </p>
                         </div>
@@ -199,22 +196,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 fade-in-right">
-                    <div class="row">
-                        <div class="col-12 mb-4 text-center">
-                            <div class="coop-price-board scale-in" style="background-color: #3D2B1F; color: #D4B899; padding: 2rem; border-radius: 15px; display: inline-block; max-width: 250px;">
-                                <h5 style="margin-bottom: 1rem; font-weight: 700;">{{ 'coop.section5.prices'|trans }}</h5>
-                                <div style="font-size: 1.1rem; line-height: 2;">
-                                    <div>Tomate 50 dzd</div>
-                                    <div>Poivron 40 dzd</div>
-                                    <div>Carotte 20 dzd</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 text-center">
-                            <div class="coop-child-image-wrapper scale-in">
-                                <img src="{{ asset('assets/img/IMG_20251202_144310.jpg') }}" alt="Enfant avec pièces" class="img-fluid" style="max-width: 200px; border-radius: 50%; border: 4px solid #D4B899;">
-                            </div>
-                        </div>
+                    <div class="coop-souk-image-wrapper scale-in" style="background-image: url('{{ asset('assets/img/petite_coop/Tableau de prix au marché animé.png') }}'); background-size: cover; background-position: center; min-height: 400px; border-radius: 20px; border: 4px solid #D4B899;">
                     </div>
                 </div>
             </div>

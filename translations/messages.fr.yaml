@@ -59,6 +59,8 @@ animator:
   title: Animateurs - Adalen
   page_title: Nos Animateurs
   subtitle: Une équipe passionnée et qualifiée pour accompagner vos enfants
+  photo_placeholder: Ici on mettra une photo
+  description: Les animateurs des ateliers sont des professionnels ou des étudiants passionnés, heureux de partager leur métier avec les enfants. Ils transmettent avec enthousiasme leur savoir, leur savoir-faire et surtout leur savoir-être, en créant un climat bienveillant où chacun se sent écouté et encouragé à découvrir.
   pedagogical:
     title: Équipe Pédagogique
     description: Nos animateurs sont formés et expérimentés pour offrir le meilleur accompagnement à vos enfants.
@@ -92,10 +94,10 @@ coop:
     slogan: DÉCIDER, AGIR ET COOPÉRER DÈS L'ENFANCE
   section1:
     title: Une coopérative gérée par les enfants
-    text1: La coopérative repose sur le partage des responsabilités et la participation de tous.
-    text2: Les enfants prennent part aux décisions, s'expriment, écoutent les autres, négocient et votent ensemble.
-    text3: Chacun a un rôle adapté à son âge (organisation, ventes, communication, gestion...), ce qui met en valeur le travail d'équipe et l'engagement.
-    text4: Les enfants participent également à la vente et à la gestion de l'argent. En groupe, ils décident comment l'utiliser et l'investir de façon responsable, en respectant les avis différents et en prenant des décisions collectives.
+    text1: "La Petite Coop est un joyeux projet collectif où les enfants partagent les responsabilités avec enthousiasme. Ils participent activement aux décisions : ils s'expriment librement, écoutent leurs camarades, négocient avec bienveillance et votent ensemble pour décider et avancer."
+    text2: "Chacun trouve un rôle sur mesure, adapté à son âge – organisation, ventes, communication ou gestion –, favorisant ainsi un véritable esprit d'équipe et un engagement joyeux."
+    text3: "Ils gèrent même les ventes et l'argent en groupe, décidant collectivement de son utilisation responsable, en respectant tous les avis pour des choix harmonieux."
+    text4: ""
   section2:
     title: Élevage
     description: La responsabilité d'un animal repose sur un engagement sur le long terme et des soins réguliers. Cette expérience permet aux enfants de développer leur sens des responsabilités et le respect du vivant, tout en découvrant la vie quotidienne des animaux par la pratique et l'observation.
@@ -105,17 +107,23 @@ coop:
   section3:
     title: Potager
     subtitle: et pépinière
-    box1_title: Imprégnation à l'auto-suffisance alimentaire
-    box1_subtitle: Respect de l'environnement
-    box2_title: Valeur des plantes, des arbres et des fleurs
-    box2_subtitle: Importance de la biodiversité
+    subtitle_full: "Le potager et la pépinière : semer la curiosité"
+    intro: "Dans notre potager et notre pépinière, les enfants cultivent avec joie les merveilles de la nature, de la graine à la récolte."
+    description: "Ils explorent le cycle de la vie, découvrent les secrets du sol et des plantes par le toucher, l'observation et l'expérimentation quotidienne."
+    point1: "Semer et observer la croissance"
+    point2: "Récolter les fruits de la patience"
+    point3: "Découvrir les cycles naturels"
+    box1_title: "Imprégnation à l'auto-suffisance alimentaire"
+    box1_subtitle: "Respect de l'environnement"
+    box2_title: "Valeur des plantes, des arbres et des fleurs"
+    box2_subtitle: "Importance de la biodiversité"
   section4:
     title: Banque de semences & engrais naturel
-    step1: Collecter et conserver les semences
-    step2: Observer la croissance des plantes
-    step3: Produire de l'engrais naturel (compost)
-    text1: La banque de semences invite les enfants à explorer le cycle de la nature. Ils récoltent, conservent puis sèment les graines, ce qui les conduit à protéger les ressources végétales et de préserver un patrimoine naturel authentique.
-    text2: La production d'engrais naturel permet aux enfants de découvrir comment nourrir la terre de manière saine. Les enfants mettent en pratique des solutions écologiques pour améliorer le sol et stimuler la croissance des plantes.
+    step1: "Collecter et conserver les semences"
+    step2: "Observer la croissance des plantes"
+    step3: "Produire de l'engrais naturel (compost)"
+    text1: "La banque de semences invite les enfants à découvrir et comprendre le cycle de la nature. Ils récoltent, trient, conservent puis sèment les graines, s'engageant ainsi à protéger les ressources végétales et à préserver un patrimoine naturel vivant."
+    text2: "La production d'engrais naturel, à travers le compost, leur permet d'observer comment nourrir la terre de façon saine et durable. Par l'expérimentation, les enfants mettent en pratique des solutions écologiques pour enrichir le sol et accompagner la croissance des plantes."
   section5:
     title: Le souk de la coopérative
     description: "Les enfants organisent un souk mensuel afin de vendre leurs produits. Ils gèrent de bout en bout tout le processus : production, vente et investissement. Ce qui leur permet de s'initier à l'organisation d'événements complexes ainsi qu'à la gestion du temps, et de l'argent."
@@ -141,7 +149,7 @@ coop:
 
 footer:
   title: Adalen
-  description: Centre d'activités extra-scolaires pour enfants
+  description: Adalen est un mot en tamashek qui signifie Loisir ou Jeux
   quick_links: Liens rapides
   contact_title: Contact
   rights: Tous droits réservés.
