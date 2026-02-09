@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class AnimatorController extends AbstractController
 {
-    #[Route('/{_locale}/animators', name: 'app_animators', requirements: ['_locale' => 'en|fr|ar'], defaults: ['_locale' => 'en'])]
+    #[Route('/{_locale}/animators', name: 'app_animators', requirements: ['_locale' => 'en|fr|ar'])]
     public function index(AnimatorRepository $animatorRepository): Response
     {
         $animators = $animatorRepository->findBy(['isActive' => true], ['name' => 'ASC']);

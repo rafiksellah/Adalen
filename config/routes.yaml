@@ -7,10 +7,12 @@
 # To list all registered routes, run the following command:
 #   bin/console debug:router
 
-# Redirect root to default locale
+# Root renders home in default locale (no redirect loop)
 root:
     path: /
-    controller: App\Controller\HomeController::redirectToLocale
+    controller: App\Controller\HomeController::index
+    defaults:
+        _locale: en
     methods: [GET]
 
 controllers:

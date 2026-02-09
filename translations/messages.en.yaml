@@ -5,8 +5,8 @@ app:
   home: Home
   actualite: News
   activities: Activities
-  animators: Animators
-  coop: La Petite COOP
+  animators: Activity Leaders
+  coop: The Little Coop
   contact: Contact
   recruitment: Recruitment
   edition: Edition
@@ -24,17 +24,17 @@ home:
         creativity: Creativity
         nature: Nature
         culture: Culture
-        language: Language and dialogue
+        language: Languages
         leadership: Leadership
         civism: Civicism
   activities:
-    title: Proposed Activities
+    title: Activities 
     subtitle: Varied activities for your child's development
     see_all: See all activities
 
 activity:
   title: Activities - Adalen
-  page_title: Proposed Activities
+  page_title: Activities 
   subtitle: Varied activities for your child's development
   gardening:
     title: Gardening
@@ -56,8 +56,8 @@ activity:
     description: Discover the world through enriching experiences.
 
 animator:
-  title: Animators - Adalen
-  page_title: Our Animators
+  title: Activity Leaders - Adalen
+  page_title: Our Activity Leaders
   subtitle: A passionate and qualified team to accompany your children
   photo_placeholder: A photo will be placed here
   description: The workshop animators are professionals or passionate students, happy to share their profession with children. They enthusiastically transmit their knowledge, their know-how and especially their know-how-to-be, creating a benevolent climate where everyone feels listened to and encouraged to discover.
@@ -87,9 +87,9 @@ contact:
   email: contact@adalen-dz.com
 
 coop:
-  title: La Petite COOP - Adalen
+  title: The Little Coop - Adalen
   hero:
-    title_small: La petite
+    title_small: The Little
     title_big: COOP
     slogan: DECIDE, ACT AND COOPERATE FROM CHILDHOOD
   section1:
