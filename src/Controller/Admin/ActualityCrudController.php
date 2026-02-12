@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -214,6 +215,54 @@ class ActualityCrudController extends AbstractController
             'actuality' => $actuality,
             'form' => $form,
         ]);
+    }
+
+    #[Route('/{id}/image/delete', name: 'app_admin_actuality_image_delete', methods: ['POST'])]
+    public function deleteImage(Request $request, Actuality $actuality, EntityManagerInterface $entityManager): JsonResponse
+    {
+        $image = (string) $request->request->get('image');
+        $token = (string) $request->request->get('_token');
+
+        if (!$image || !$this->isCsrfTokenValid('delete_image'.$actuality->getId().$image, $token)) {
+            return new JsonResponse(['success' => false, 'message' => 'Invalid request'], 400);
+        }
+
+        $images = $actuality->getImages() ? array_map('trim', explode(',', $actuality->getImages())) : [];
+        $images = array_values(array_filter($images, fn (string $img) => $img !== $image));
+
+        $filePath = $this->getParameter('kernel.project_dir').'/public/'.trim($image);
+        if (is_file($filePath)) {
+            @unlink($filePath);
+        }
+
+        $actuality->setImages(!empty($images) ? implode(',', $images) : null);
+        $actuality->setUpdatedAt(new \DateTimeImmutable());
+        $entityManager->flush();
+
+        return new JsonResponse(['success' => true]);
+    }
+
+    #[Route('/{id}/video/delete', name: 'app_admin_actuality_video_delete', methods: ['POST'])]
+    public function deleteVideo(Request $request, Actuality $actuality, EntityManagerInterface $entityManager): JsonResponse
+    {
+        $token = (string) $request->request->get('_token');
+
+        if (!$this->isCsrfTokenValid('delete_video'.$actuality->getId(), $token)) {
+            return new JsonResponse(['success' => false, 'message' => 'Invalid request'], 400);
+        }
+
+        if ($actuality->getVideo()) {
+            $filePath = $this->getParameter('kernel.project_dir').'/public/'.$actuality->getVideo();
+            if (is_file($filePath)) {
+                @unlink($filePath);
+            }
+        }
+
+        $actuality->setVideo(null);
+        $actuality->setUpdatedAt(new \DateTimeImmutable());
+        $entityManager->flush();
+
+        return new JsonResponse(['success' => true]);
     }
 
     #[Route('/{id}', name: 'app_admin_actuality_delete', methods: ['POST'])]

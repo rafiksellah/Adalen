@@ -115,7 +115,7 @@
                     <div class="activity-card scale-in">
                         <img src="{{ asset('assets/img/image5.jpg') }}" alt="Jardinage" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-emoji">🪴</div>
+                            <div class="activity-icon"><i class="fas fa-trowel"></i></div>
                             <h3 class="activity-title">{{ 'activity.gardening.title'|trans }}</h3>
                             <p class="activity-description">{{ 'activity.gardening.description'|trans }}</p>
                         </div>
@@ -125,7 +125,7 @@
                     <div class="activity-card scale-in">
                         <img src="{{ asset('assets/img/image3.jpg') }}" alt="Arts Plastiques" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-emoji">🌀</div>
+                            <div class="activity-icon"><i class="fas fa-paint-brush"></i></div>
                             <h3 class="activity-title">{{ 'activity.arts.title'|trans }}</h3>
                             <p class="activity-description">{{ 'activity.arts.description'|trans }}</p>
                         </div>
@@ -135,7 +135,7 @@
                     <div class="activity-card scale-in">
                         <img src="{{ asset('assets/img/IMG_20251216_142928.jpg') }}" alt="Petites Bouchées Linguistiques" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-emoji">🍴</div>
+                            <div class="activity-icon"><i class="fas fa-language"></i></div>
                             <h3 class="activity-title">{{ 'activity.english.title'|trans }}</h3>
                             <p class="activity-description">{{ 'activity.english.description'|trans }}</p>
                         </div>
@@ -145,7 +145,7 @@
                     <div class="activity-card scale-in">
                         <img src="{{ asset('assets/img/image2.jpg') }}" alt="{{ 'activity.archaeology.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-emoji">🏺</div>
+                            <div class="activity-icon"><i class="fas fa-monument"></i></div>
                             <h3 class="activity-title">{{ 'activity.archaeology.title'|trans }}</h3>
                             <p class="activity-description">{{ 'activity.archaeology.description'|trans }}</p>
                         </div>
@@ -155,7 +155,7 @@
                     <div class="activity-card scale-in">
                         <img src="{{ asset('assets/img/IMG_20251216_130007.jpg') }}" alt="{{ 'activity.geology.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-emoji">⛰️</div>
+                            <div class="activity-icon"><i class="fas fa-mountain"></i></div>
                             <h3 class="activity-title">{{ 'activity.geology.title'|trans }}</h3>
                             <p class="activity-description">{{ 'activity.geology.description'|trans }}</p>
                         </div>
@@ -165,7 +165,7 @@
                     <div class="activity-card scale-in">
                         <img src="{{ asset('assets/img/IMG_20251118_135319.jpg') }}" alt="{{ 'activity.cultural.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-emoji">👣</div>
+                            <div class="activity-icon"><i class="fas fa-landmark"></i></div>
                             <h3 class="activity-title">{{ 'activity.cultural.title'|trans }}</h3>
                             <p class="activity-description">{{ 'activity.cultural.description'|trans }}</p>
                         </div>
@@ -219,7 +219,9 @@
                             {% set description = latestActuality.descriptionAr|default(latestActuality.descriptionFr|default(latestActuality.descriptionEn)) %}
                         {% endif %}
                         {% if description and description|trim %}
-                            <p class="mb-3">{{ description|nl2br }}</p>
+                            <div class="mb-3 {% if app.request.locale == 'ar' %}text-end{% endif %}">
+                                {{ description|raw }}
+                            </div>
                         {% endif %}
                         
                         {% set hasImages = latestActuality.images and latestActuality.images|trim %}

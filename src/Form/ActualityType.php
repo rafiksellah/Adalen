@@ -37,17 +37,17 @@ class ActualityType extends AbstractType
             ->add('descriptionFr', TextareaType::class, [
                 'label' => 'Description (Français)',
                 'required' => false,
-                'attr' => ['class' => 'form-control ckeditor', 'rows' => 6]
+                'attr' => ['class' => 'form-control', 'rows' => 6]
             ])
             ->add('descriptionEn', TextareaType::class, [
                 'label' => 'Description (English)',
                 'required' => false,
-                'attr' => ['class' => 'form-control ckeditor', 'rows' => 6]
+                'attr' => ['class' => 'form-control', 'rows' => 6]
             ])
             ->add('descriptionAr', TextareaType::class, [
                 'label' => 'الوصف (العربية)',
                 'required' => false,
-                'attr' => ['class' => 'form-control ckeditor', 'rows' => 6, 'dir' => 'rtl']
+                'attr' => ['class' => 'form-control', 'rows' => 6, 'dir' => 'rtl']
             ])
             ->add('images', FileType::class, [
                 'label' => 'Images (plusieurs fichiers possibles)',

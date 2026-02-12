@@ -102,20 +102,3 @@
     </div>
 </div>
 {% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (window.CKEDITOR) {
-                CKEDITOR.replaceAll(function (textarea) {
-                    if (textarea.classList && textarea.classList.contains('ckeditor')) {
-                        return !CKEDITOR.instances[textarea.id];
-                    }
-                    return false;
-                });
-            }
-        });
-    </script>
-{% endblock %}

@@ -33,7 +33,7 @@ class LoginSuccessListener implements EventSubscriberInterface
             $event->setResponse($response);
         } else {
             // Rediriger vers la page d'accueil pour les autres utilisateurs
-            $locale = $request->getLocale() ?: 'en';
+            $locale = $request->getLocale() ?: 'fr';
             $response = new RedirectResponse($this->urlGenerator->generate('app_home', ['_locale' => $locale]));
             $event->setResponse($response);
         }

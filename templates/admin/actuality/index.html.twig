@@ -50,6 +50,14 @@
                                 </div>
                             </td>
                             <td>
+                                {% if actuality.media %}
+                                    <span class="badge bg-info">
+                                        <i class="fas fa-image me-1"></i> {{ actuality.media.name }}
+                                    </span>
+                                {% else %}
+                                    <span class="text-muted">-</span>
+                                {% endif %}
+                            </td>
                             <td>
                                 {% if actuality.video %}
                                     <span class="badge bg-danger">

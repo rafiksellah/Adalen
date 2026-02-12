@@ -5,8 +5,8 @@ app:
   home: Home
   actualite: News
   activities: Activities
-  animators: Activity Leaders
-  coop: The Little Coop
+  animators: Animators
+  coop: La Petite COOP
   contact: Contact
   recruitment: Recruitment
   edition: Edition
@@ -24,7 +24,7 @@ home:
         creativity: Creativity
         nature: Nature
         culture: Culture
-        language: Languages
+        language: Language and dialogue
         leadership: Leadership
         civism: Civicism
   activities:
@@ -56,8 +56,8 @@ activity:
     description: Discover the world through enriching experiences.
 
 animator:
-  title: Activity Leaders - Adalen
-  page_title: Our Activity Leaders
+  title: Animators - Adalen
+  page_title: Our Animators
   subtitle: A passionate and qualified team to accompany your children
   photo_placeholder: A photo will be placed here
   description: The workshop animators are professionals or passionate students, happy to share their profession with children. They enthusiastically transmit their knowledge, their know-how and especially their know-how-to-be, creating a benevolent climate where everyone feels listened to and encouraged to discover.
@@ -82,14 +82,14 @@ contact:
   subject: Subject
   your_message: Your message
   send: Send
-  address: Hydra, Algeria
+  address: Algiers, Algeria
   phone: +213 563 000 507
   email: contact@adalen-dz.com
 
 coop:
-  title: The Little Coop - Adalen
+  title: La Petite COOP - Adalen
   hero:
-    title_small: The Little
+    title_small: La petite
     title_big: COOP
     slogan: DECIDE, ACT AND COOPERATE FROM CHILDHOOD
   section1:

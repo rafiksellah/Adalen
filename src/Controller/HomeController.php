@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/{_locale}', name: 'app_home', requirements: ['_locale' => 'en|fr|ar'])]
+    #[Route('/{_locale}', name: 'app_home', requirements: ['_locale' => 'en|fr|ar'], defaults: ['_locale' => 'en'])]
     public function index(Request $request, ActualityRepository $actualityRepository): Response
     {
         // Récupérer la dernière actualité publiée (peu importe la langue, elle sera traduite)
@@ -25,7 +25,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/{_locale}/la-petite-coop', name: 'app_coop', requirements: ['_locale' => 'en|fr|ar'])]
+    #[Route('/{_locale}/la-petite-coop', name: 'app_coop', requirements: ['_locale' => 'en|fr|ar'], defaults: ['_locale' => 'en'])]
     public function coop(): Response
     {
         return $this->render('coop/index.html.twig');
@@ -34,7 +34,8 @@ class HomeController extends AbstractController
     #[Route('/', name: 'redirect_to_locale')]
     public function redirectToLocale(Request $request): RedirectResponse
     {
-        return $this->redirect('/en');
+        $locale = $request->getPreferredLanguage(['en', 'fr', 'ar']) ?? 'en';
+        return $this->redirectToRoute('app_home', ['_locale' => $locale]);
     }
 }
 

@@ -81,11 +81,21 @@
                                 {% for image in imageList %}
                                     {% if image|trim %}
                                         <div class="col-md-3">
-                                            <img src="{{ asset(image|trim) }}" alt="Image" class="img-fluid rounded" style="max-height: 100px; object-fit: cover; width: 100%;">
+                                            <div class="border rounded p-2 h-100 js-image-card">
+                                                <img src="{{ asset(image|trim) }}" alt="Image" class="img-fluid rounded" style="max-height: 100px; object-fit: cover; width: 100%;">
+                                                <button type="button"
+                                                    class="btn btn-sm btn-outline-danger w-100 mt-2 js-delete-image"
+                                                    data-url="{{ path('app_admin_actuality_image_delete', {id: actuality.id}) }}"
+                                                    data-image="{{ image|trim }}"
+                                                    data-token="{{ csrf_token('delete_image' ~ actuality.id ~ (image|trim)) }}">
+                                                    Supprimer
+                                                </button>
+                                            </div>
                                         </div>
                                     {% endif %}
                                 {% endfor %}
                             </div>
+                            <small class="form-text text-muted d-block">Cliquez sur Supprimer pour retirer une image.</small>
                         {% else %}
                             <p class="text-muted">Aucune image actuelle</p>
                         {% endif %}
@@ -102,6 +112,12 @@
                                 <source src="{{ asset(actuality.video) }}" type="video/mp4">
                             </video>
                             <small class="text-muted d-block mb-2">{{ actuality.video }}</small>
+                            <button type="button"
+                                class="btn btn-sm btn-outline-danger w-100 js-delete-video"
+                                data-url="{{ path('app_admin_actuality_video_delete', {id: actuality.id}) }}"
+                                data-token="{{ csrf_token('delete_video' ~ actuality.id) }}">
+                                Supprimer la vidéo actuelle
+                            </button>
                         {% else %}
                             <p class="text-muted">Aucune vidéo actuelle</p>
                         {% endif %}
@@ -133,17 +149,41 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (window.CKEDITOR) {
-                CKEDITOR.replaceAll(function (textarea) {
-                    if (textarea.classList && textarea.classList.contains('ckeditor')) {
-                        return !CKEDITOR.instances[textarea.id];
-                    }
-                    return false;
-                });
-            }
+        document.querySelectorAll('.js-delete-image').forEach((btn) => {
+            btn.addEventListener('click', async () => {
+                if (!confirm('Supprimer cette image ?')) return;
+                const url = btn.dataset.url;
+                const image = btn.dataset.image;
+                const token = btn.dataset.token;
+                const body = new URLSearchParams({ image, _token: token });
+                const res = await fetch(url, { method: 'POST', headers: { 'X-Requested-With': 'XMLHttpRequest' }, body });
+                const data = await res.json();
+                if (data.success) {
+                    const card = btn.closest('.js-image-card');
+                    if (card) card.remove();
+                } else {
+                    alert('Erreur lors de la suppression.');
+                }
+            });
         });
+
+        const deleteVideoBtn = document.querySelector('.js-delete-video');
+        if (deleteVideoBtn) {
+            deleteVideoBtn.addEventListener('click', async () => {
+                if (!confirm('Supprimer la vidéo actuelle ?')) return;
+                const url = deleteVideoBtn.dataset.url;
+                const token = deleteVideoBtn.dataset.token;
+                const body = new URLSearchParams({ _token: token });
+                const res = await fetch(url, { method: 'POST', headers: { 'X-Requested-With': 'XMLHttpRequest' }, body });
+                const data = await res.json();
+                if (data.success) {
+                    deleteVideoBtn.closest('.col-md-6').querySelector('video')?.remove();
+                    deleteVideoBtn.remove();
+                } else {
+                    alert('Erreur lors de la suppression.');
+                }
+            });
+        }
     </script>
 {% endblock %}

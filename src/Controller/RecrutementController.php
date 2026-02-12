@@ -26,7 +26,7 @@ class RecrutementController extends AbstractController
     ) {
     }
 
-    #[Route('/{_locale}/recrutement', name: 'app_recrutement', requirements: ['_locale' => 'en|fr|ar'])]
+    #[Route('/{_locale}/recrutement', name: 'app_recrutement', requirements: ['_locale' => 'en|fr|ar'], defaults: ['_locale' => 'en'])]
     public function index(
         Request $request,
         EntityManagerInterface $em,
