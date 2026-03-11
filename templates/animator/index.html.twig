@@ -3,24 +3,34 @@
 {% block title %}{{ 'animator.title'|trans }}{% endblock %}
 
 {% block body %}
-    <section class="py-5" style="padding: 6rem 0;">
-        <div class="container-fluid px-0 mb-4">
-            <div class="activity-card scale-in">
-                <img src="{{ asset('assets/img/parents.jpg') }}" alt="{{ 'animator.page_title'|trans }}" class="activity-image w-100">
-            </div>
-        </div>
+    <section class="py-5 animator-section" style="padding: 6rem 0;">
         <div class="container">
-            <h2 class="section-title fade-in mb-4">{{ 'animator.page_title'|trans }}</h2>
-            <div class="row">
-                <div class="col-12">
-                    <div class="activity-card scale-in">
-                        <div class="activity-card-content">
-                            <p class="activity-description" style="font-size: 1.3rem; line-height: 1.9;">
-                                {{ 'animator.description'|trans }}
-                            </p>
-                        </div>
+            <h2 class="section-title fade-in">{{ 'animator.page_title'|trans }}</h2>
+            <p class="section-subtitle fade-in">{{ 'animator.subtitle'|trans }}</p>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="animator-block scale-in">
+                        <h3 class="animator-block-title">{{ 'animator.pedagogical.title'|trans }}</h3>
+                        <img src="{{ asset('assets/img/equipe.jpg') }}" alt="{{ 'animator.pedagogical.title'|trans }}" class="animator-img">
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="animator-block scale-in">
+                        <h3 class="animator-block-title">{{ 'animator.specialized.title'|trans }}</h3>
+                        <img src="{{ asset('assets/img/animateurs.jpg') }}" alt="{{ 'animator.specialized.title'|trans }}" class="animator-img">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="animator-block scale-in">
+                        <h3 class="animator-block-title">{{ 'animator.caring.title'|trans }}</h3>
+                        <img src="{{ asset('assets/img/bienveillance.jpg') }}" alt="{{ 'animator.caring.title'|trans }}" class="animator-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="animator-text-block fade-in">
+                <p class="animator-description">{{ 'animator.description'|trans }}</p>
             </div>
         </div>
     </section>

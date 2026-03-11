@@ -17,7 +17,7 @@
             <div class="carousel-inner">
                 <!-- Slide 1: Créativité -->
                 <div class="carousel-item active">
-                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/hero.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
+                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/creativity.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
                         <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4);"></div>
                         <div class="container" style="position: relative; z-index: 10; height: 65vh; display: flex; align-items: center; justify-content: center;">
                             <div class="text-center text-white">
@@ -30,7 +30,7 @@
                 </div>
                 <!-- Slide 2: Nature -->
                 <div class="carousel-item">
-                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/slide4.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
+                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/nature.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
                         <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4);"></div>
                         <div class="container" style="position: relative; z-index: 10; height: 65vh; display: flex; align-items: center; justify-content: center;">
                             <div class="text-center text-white">
@@ -43,7 +43,7 @@
                 </div>
                 <!-- Slide 3: Culture -->
                 <div class="carousel-item">
-                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/slide3.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
+                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/culture.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
                         <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4);"></div>
                         <div class="container" style="position: relative; z-index: 10; height: 65vh; display: flex; align-items: center; justify-content: center;">
                             <div class="text-center text-white">
@@ -54,9 +54,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- Slide 4: Langage et dialogue -->
+                <!-- Slide 4: Management -->
                 <div class="carousel-item">
-                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/slide2.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
+                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/management.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
                         <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4);"></div>
                         <div class="container" style="position: relative; z-index: 10; height: 65vh; display: flex; align-items: center; justify-content: center;">
                             <div class="text-center text-white">
@@ -69,7 +69,7 @@
                 </div>
                 <!-- Slide 5: Leadership -->
                 <div class="carousel-item">
-                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/slide1.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
+                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/leadership.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
                         <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4);"></div>
                         <div class="container" style="position: relative; z-index: 10; height: 65vh; display: flex; align-items: center; justify-content: center;">
                             <div class="text-center text-white">
@@ -82,7 +82,7 @@
                 </div>
                 <!-- Slide 6: Civisme -->
                 <div class="carousel-item">
-                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/hero.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
+                    <div class="hero-slide" style="background-image: url('{{ asset('assets/img/hero/civisme.jpg') }}'); background-size: cover; background-position: center; min-height: 65vh; position: relative;">
                         <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4);"></div>
                         <div class="container" style="position: relative; z-index: 10; height: 65vh; display: flex; align-items: center; justify-content: center;">
                             <div class="text-center text-white">
@@ -113,61 +113,73 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
-                        <img src="{{ asset('assets/img/image5.jpg') }}" alt="Jardinage" class="activity-image">
+                        <img src="{{ asset('assets/img/jardinage.jpg') }}" alt="{{ 'activity.gardening.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon"><i class="fas fa-trowel"></i></div>
-                            <h3 class="activity-title">{{ 'activity.gardening.title'|trans }}</h3>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="activity-emoji">🪴</div>
+                                <h3 class="activity-title mb-0">{{ 'activity.gardening.title'|trans }}</h3>
+                            </div>
                             <p class="activity-description">{{ 'activity.gardening.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
-                        <img src="{{ asset('assets/img/image3.jpg') }}" alt="Arts Plastiques" class="activity-image">
+                        <img src="{{ asset('assets/img/arts.jpg') }}" alt="{{ 'activity.arts.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon"><i class="fas fa-paint-brush"></i></div>
-                            <h3 class="activity-title">{{ 'activity.arts.title'|trans }}</h3>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="activity-emoji">🌀</div>
+                                <h3 class="activity-title mb-0">{{ 'activity.arts.title'|trans }}</h3>
+                            </div>
                             <p class="activity-description">{{ 'activity.arts.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
-                        <img src="{{ asset('assets/img/IMG_20251216_142928.jpg') }}" alt="Petites Bouchées Linguistiques" class="activity-image">
+                        <img src="{{ asset('assets/img/ling.jpg') }}" alt="{{ 'activity.english.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon"><i class="fas fa-language"></i></div>
-                            <h3 class="activity-title">{{ 'activity.english.title'|trans }}</h3>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="activity-emoji">🍴</div>
+                                <h3 class="activity-title mb-0">{{ 'activity.english.title'|trans }}</h3>
+                            </div>
                             <p class="activity-description">{{ 'activity.english.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
-                        <img src="{{ asset('assets/img/image2.jpg') }}" alt="{{ 'activity.archaeology.title'|trans }}" class="activity-image">
+                        <img src="{{ asset('assets/img/arch.jpg') }}" alt="{{ 'activity.archaeology.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon"><i class="fas fa-monument"></i></div>
-                            <h3 class="activity-title">{{ 'activity.archaeology.title'|trans }}</h3>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="activity-emoji">🏺</div>
+                                <h3 class="activity-title mb-0">{{ 'activity.archaeology.title'|trans }}</h3>
+                            </div>
                             <p class="activity-description">{{ 'activity.archaeology.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
-                        <img src="{{ asset('assets/img/IMG_20251216_130007.jpg') }}" alt="{{ 'activity.geology.title'|trans }}" class="activity-image">
+                        <img src="{{ asset('assets/img/geo.jpg') }}" alt="{{ 'activity.geology.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon"><i class="fas fa-mountain"></i></div>
-                            <h3 class="activity-title">{{ 'activity.geology.title'|trans }}</h3>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="activity-emoji">⛰️</div>
+                                <h3 class="activity-title mb-0">{{ 'activity.geology.title'|trans }}</h3>
+                            </div>
                             <p class="activity-description">{{ 'activity.geology.description'|trans }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="activity-card scale-in">
-                        <img src="{{ asset('assets/img/IMG_20251118_135319.jpg') }}" alt="{{ 'activity.cultural.title'|trans }}" class="activity-image">
+                        <img src="{{ asset('assets/img/sortie.jpg') }}" alt="{{ 'activity.sortie.title'|trans }}" class="activity-image">
                         <div class="activity-card-content">
-                            <div class="activity-icon"><i class="fas fa-landmark"></i></div>
-                            <h3 class="activity-title">{{ 'activity.cultural.title'|trans }}</h3>
-                            <p class="activity-description">{{ 'activity.cultural.description'|trans }}</p>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="activity-emoji">👣</div>
+                                <h3 class="activity-title mb-0">{{ 'activity.sortie.title'|trans }}</h3>
+                            </div>
+                            <p class="activity-description">{{ 'activity.sortie.description'|trans }}</p>
                         </div>
                     </div>
                 </div>

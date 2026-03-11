@@ -1,21 +1,21 @@
 # Traductions françaises
 app:
   name: Adalen
-  tagline: Centre d'Activités Extra-Scolaires pour Enfants
+  tagline:  est un mot en tamashek qui signifie LOISIRS ou JEUX
   home: Accueil
   actualite: Actualités
   activities: Activités
   animators: Animateurs
   coop: La Petite COOP
   contact: Contact
-  recruitment: Recrutement
+  recruitment: Jobs
   edition: Édition
   montessori: Montessori Algerie
 
 home:
-  title: Adalen - Centre d'Activités Extra-Scolaires pour Enfants
+  title: Adalen -  est un mot en tamashek qui signifie LOISIRS ou JEUX
   hero:
-    title: Le Centre Adalen
+    title:  Adalen
     subtitle: Grandir, créer et s'épanouir autrement
     description: Un espace dédié à l'épanouissement des enfants à travers des activités extra-scolaires variées, ludiques et éducatives.
     carousel:
@@ -24,7 +24,7 @@ home:
         creativity: Créativité
         nature: Nature
         culture: Culture
-        language: Langage et dialogue
+        language: Management
         leadership: Leadership
         civism: Civisme
   activities:
@@ -47,18 +47,19 @@ activity:
     description: "Une façon gourmande d'entrer dans une langue ! On découvre et on explore une langue à travers le vocabulaire de la cuisine, des saveurs et des gestes du quotidien. Langues proposées : français, anglais ou arabe, selon l'envie."
   archaeology:
     title: Archéologie
-    description: Éveiller la curiosité et la découverte du passé.
+    description: "Découvrir ce qu'est l'archéologie, explorer comme de vrais chercheurs, manipuler le matériel, observer, fouiller et faire des hypothèses. Une plongée passionnante dans le passé qui permet aussi d'enrichir son vocabulaire dans un tout nouveau champ lexical."
   geology:
     title: Géologie
-    description: Explorer la terre et ses merveilles naturelles.
-  cultural:
-    title: Sorties Culturelles
-    description: Découvrir le monde à travers des expériences enrichissantes.
+    description: "Toucher, observer et comparer les roches, découvrir les outils et le matériel du géologue, comprendre la Terre et ses secrets. Un atelier d'exploration sensorielle et scientifique, accompagné de l'acquisition d'un nouveau champ lexical."
+  sortie:
+    title: Sorties
+    description: "Chaque activité peut naturellement donner lieu à une sortie en lien avec le thème abordé : visiter une ferme, un jardin, un atelier, ou encore un centre de recherche sismique. Les sorties s'adaptent aux besoins, à la curiosité des enfants et aux projets en cours."
 
 animator:
   title: Animateurs - Adalen
   page_title: Nos Animateurs
   subtitle: Une équipe passionnée et qualifiée pour accompagner vos enfants
+  description: "Les animateurs des ateliers sont des professionnels ou des étudiants passionnés, heureux de partager leur métier avec les enfants. Ils transmettent avec enthousiasme leur savoir, leur savoir-faire et surtout leur savoir-être, en créant un climat bienveillant où chacun se sent écouté et encouragé à découvrir."
   pedagogical:
     title: Équipe Pédagogique
     description: Nos animateurs sont formés et expérimentés pour offrir le meilleur accompagnement à vos enfants.
@@ -141,7 +142,7 @@ coop:
 
 footer:
   title: Adalen
-  description: Centre d'activités extra-scolaires pour enfants
+  description: Adalen est un mot en tamashek qui signifie LOISIRS ou JEUX
   quick_links: Liens rapides
   contact_title: Contact
   rights: Tous droits réservés.

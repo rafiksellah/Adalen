@@ -1,19 +1,19 @@
 # English translations (default)
 app:
   name: Adalen
-  tagline: Children's Extra-Curricular Activity Center
+  tagline: is a Tamashek word that means Leisure or Games
   home: Home
   actualite: News
   activities: Activities
   animators: Animators
   coop: La Petite COOP
   contact: Contact
-  recruitment: Recruitment
+  recruitment: Jobs
   edition: Edition
   montessori: Montessori Algerie
 
 home:
-  title: Adalen - Children's Extra-Curricular Activity Center
+  title: Adalen - is a Tamashek word that means Leisure or Games
   hero:
     title: Adalen Center
     subtitle: Grow, create and flourish differently
@@ -24,7 +24,7 @@ home:
         creativity: Creativity
         nature: Nature
         culture: Culture
-        language: Language and dialogue
+        language: Management
         leadership: Leadership
         civism: Civicism
   activities:
@@ -47,13 +47,13 @@ activity:
     description: "A tasty way to enter a language! We discover and explore a language through the vocabulary of cooking, flavors and everyday gestures. Languages offered: French, English or Arabic, according to preference."
   archaeology:
     title: Archaeology
-    description: Awakening curiosity and discovery of the past.
+    description: "Discover what archaeology is, explore like real researchers, handle equipment, observe, excavate and make hypotheses. A fascinating dive into the past that also enriches vocabulary in a whole new lexical field."
   geology:
     title: Geology
-    description: Exploring the earth and its natural wonders.
-  cultural:
-    title: Cultural Outings
-    description: Discover the world through enriching experiences.
+    description: "Touch, observe and compare rocks, discover the geologist's tools and equipment, understand the Earth and its secrets. A sensory and scientific exploration workshop, along with acquiring a new lexical field."
+  sortie:
+    title: Outings
+    description: "Each activity can naturally lead to an outing linked to the theme: visit a farm, a garden, a workshop, or even a seismic research center. Outings adapt to needs, children's curiosity and ongoing projects."
 
 animator:
   title: Animators - Adalen
@@ -149,7 +149,7 @@ coop:
 
 footer:
   title: Adalen
-  description: Adalen is a Tamashek word that means Leisure or Games
+  description: Adalen is a Tamashek word that means LEISURE or GAMES
   quick_links: Quick links
   contact_title: Contact
   rights: All rights reserved.

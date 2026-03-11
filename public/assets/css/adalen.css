@@ -165,8 +165,8 @@ body {
 }
 
 .navbar-brand img {
-    max-height: 110px;
-    height: 110px;
+    max-height: 140px;
+    height: 140px;
     width: auto;
     object-fit: contain;
 }
@@ -174,7 +174,7 @@ body {
 .brand-text {
     font-family: var(--adalen-font-primary);
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 0.95rem;
     color: var(--adalen-primary);
     letter-spacing: 0.05em;
 }
@@ -478,7 +478,7 @@ html[dir="rtl"] .navbar-brand {
 
 .activity-image {
     width: 100%;
-    height: 900px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -495,6 +495,11 @@ html[dir="rtl"] .navbar-brand {
     line-height: 1;
 }
 
+.d-flex .activity-emoji {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
 .activity-title {
     font-family: var(--adalen-font-primary);
     font-weight: 600;
@@ -507,6 +512,63 @@ html[dir="rtl"] .navbar-brand {
     font-family: var(--adalen-font-secondary);
     color: var(--adalen-secondary);
     line-height: 1.6;
+}
+
+/* ============================================
+   ANIMATOR SECTION (Nos Animateurs)
+   ============================================ */
+
+.animator-section {
+    background: var(--adalen-light);
+}
+
+.animator-block {
+    background: var(--adalen-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.animator-block:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.animator-block-title {
+    font-family: var(--adalen-font-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--adalen-dark);
+    text-align: center;
+    padding: 1.25rem 1rem 0;
+    margin: 0;
+}
+
+.animator-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.animator-text-block {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--adalen-white);
+    border-radius: 15px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.animator-description {
+    font-family: var(--adalen-font-secondary);
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--adalen-secondary);
+    margin: 0;
+    text-align: center;
 }
 
 /* ============================================
@@ -869,12 +931,12 @@ html[dir="rtl"] .navbar-brand {
     }
     
     .navbar-brand img {
-        max-height: 80px;
-        height: 80px;
+        max-height: 95px;
+        height: 95px;
     }
     
     .brand-text {
-        font-size: 1.3rem;
+        font-size: 0.9rem;
     }
 }
 
