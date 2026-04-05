@@ -86,8 +86,10 @@ contact:
   phone: +213 563 000 507
   site_email: contact@adalen-dz.com
   messages:
-    success: Your message was sent successfully. A confirmation email has been sent to your address.
+    success: Your message was saved successfully. A confirmation email has been sent to your address.
     error: Your message could not be sent. Please try again later or email us directly at contact@adalen-dz.com
+    save_error: We could not save your message. Please try again or email us directly at contact@adalen-dz.com
+    mail_warning: Your message was saved, but one or more automatic emails could not be sent. Our team can still read it in the site administration.
   mail:
     admin_subject: "[Adalen — Contact] %subject%"
     user_subject: Confirmation — your message to Adalen

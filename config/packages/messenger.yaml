@@ -22,7 +22,7 @@ framework:
 
         routing:
             # E-mails en synchrone : envoi immédiat sans worker (adapté hébergement mutualisé).
-            Symfony\Component\Mailer\Messenger\SendEmailMessage: sync
+            # Symfony\Component\Mailer\Messenger\SendEmailMessage: sync
             Symfony\Component\Notifier\Message\ChatMessage: async
             Symfony\Component\Notifier\Message\SmsMessage: async
 

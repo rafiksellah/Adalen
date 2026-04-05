@@ -1,0 +1,48 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Message #{{ contact.id }} - Admin Adalen{% endblock %}
+
+{% block page_title %}Message de contact #{{ contact.id }}{% endblock %}
+
+{% block body %}
+<div class="mb-3">
+    <a href="{{ path('app_admin_contacts') }}" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left me-2"></i>
+        Retour à la liste
+    </a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-white">
+        <h5 class="mb-0">
+            <i class="fas fa-envelope me-2"></i>
+            Détails
+        </h5>
+    </div>
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Date</dt>
+            <dd class="col-sm-9">{{ contact.createdAt|date('d/m/Y H:i') }}</dd>
+
+            <dt class="col-sm-3">Nom</dt>
+            <dd class="col-sm-9"><strong>{{ contact.nom }}</strong></dd>
+
+            <dt class="col-sm-3">E-mail</dt>
+            <dd class="col-sm-9"><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></dd>
+
+            <dt class="col-sm-3">Sujet</dt>
+            <dd class="col-sm-9">{{ contact.sujet }}</dd>
+
+            {% if contact.locale %}
+            <dt class="col-sm-3">Langue</dt>
+            <dd class="col-sm-9">{{ contact.locale }}</dd>
+            {% endif %}
+
+            <dt class="col-sm-3">Message</dt>
+            <dd class="col-sm-9">
+                <div class="border rounded p-3 bg-light" style="white-space: pre-wrap;">{{ contact.message }}</div>
+            </dd>
+        </dl>
+    </div>
+</div>
+{% endblock %}

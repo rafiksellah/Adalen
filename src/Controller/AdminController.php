@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\ContactRequest;
 use App\Entity\JobApplication;
+use App\Repository\ContactRequestRepository;
 use App\Repository\JobApplicationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,11 +53,21 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/contacts', name: 'app_admin_contacts')]
-    public function contacts(): Response
+    public function contacts(ContactRequestRepository $contactRequestRepo): Response
     {
-        // TODO: Implémenter quand l'entité ContactMessage sera créée
+        $contacts = $contactRequestRepo->findAllRecentFirst();
+
         return $this->render('admin/contacts.html.twig', [
-            'contacts' => [],
+            'contacts' => $contacts,
+            'total' => \count($contacts),
+        ]);
+    }
+
+    #[Route('/admin/contacts/{id}', name: 'app_admin_contact_show', requirements: ['id' => '\d+'])]
+    public function showContact(ContactRequest $contact): Response
+    {
+        return $this->render('admin/contact_show.html.twig', [
+            'contact' => $contact,
         ]);
     }
 }
