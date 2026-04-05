@@ -2,7 +2,7 @@
 <html lang="{{ locale }}">
 <head>
     <meta charset="UTF-8">
-    <title>{{ 'contact.email.user_subject'|trans }}</title>
+    <title>{{ 'contact.mail.user_subject'|trans }}</title>
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
     <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -10,15 +10,15 @@
             <h1 style="margin: 0;">ADALEN</h1>
         </div>
         <div style="padding: 20px; background-color: #f9f9f9;">
-            <p>{{ 'contact.email.user_greeting'|trans({'%name%': contact.name}) }}</p>
-            <p>{{ 'contact.email.user_body'|trans }}</p>
+            <p>{{ 'contact.mail.user_greeting'|trans({'%name%': contact.name}) }}</p>
+            <p>{{ 'contact.mail.user_body'|trans }}</p>
             <hr style="border: none; border-top: 1px solid #ddd;">
-            <p><strong>{{ 'contact.email.user_copy_label'|trans }}</strong></p>
+            <p><strong>{{ 'contact.mail.user_copy_label'|trans }}</strong></p>
             <p><strong>{{ 'contact.subject'|trans }} :</strong> {{ contact.subject }}</p>
             <p style="white-space: pre-wrap;">{{ contact.message }}</p>
         </div>
         <p style="font-size: 12px; color: #666; text-align: center;">
-            {{ 'contact.email.user_footer'|trans({'%email%': 'contact@adalen-dz.com'}) }}
+            {{ 'contact.mail.user_footer'|trans({'%email%': 'contact@adalen-dz.com'}) }}
         </p>
     </div>
 </body>

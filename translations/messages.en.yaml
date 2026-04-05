@@ -84,11 +84,11 @@ contact:
   send: Send
   address: Hydra, Algiers
   phone: +213 563 000 507
-  email: contact@adalen-dz.com
+  site_email: contact@adalen-dz.com
   messages:
     success: Your message was sent successfully. A confirmation email has been sent to your address.
     error: Your message could not be sent. Please try again later or email us directly at contact@adalen-dz.com
-  email:
+  mail:
     admin_subject: "[Adalen — Contact] %subject%"
     user_subject: Confirmation — your message to Adalen
     user_greeting: Hello %name%,

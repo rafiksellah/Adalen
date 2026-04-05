@@ -57,7 +57,7 @@ class ContactController extends AbstractController
             ->from(self::FROM_EMAIL)
             ->replyTo($message->getEmail())
             ->to(self::NOTIFY_EMAIL)
-            ->subject($this->translator->trans('contact.email.admin_subject', [
+            ->subject($this->translator->trans('contact.mail.admin_subject', [
                 '%subject%' => $message->getSubject(),
             ]))
             ->html($this->renderView('emails/contact_notification.html.twig', [
@@ -71,7 +71,7 @@ class ContactController extends AbstractController
             ->from(self::FROM_EMAIL)
             ->to($message->getEmail())
             ->replyTo(self::NOTIFY_EMAIL)
-            ->subject($this->translator->trans('contact.email.user_subject'))
+            ->subject($this->translator->trans('contact.mail.user_subject'))
             ->html($this->renderView('emails/contact_confirmation.html.twig', [
                 'contact' => $message,
                 'locale' => $locale,
