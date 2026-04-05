@@ -84,6 +84,16 @@ contact:
   address: حيدرة، الجزائر
   phone: +213 563 000 507
   email: contact@adalen-dz.com
+  messages:
+    success: تم إرسال رسالتك بنجاح. أرسلنا لك رسالة تأكيد إلى بريدك الإلكتروني.
+    error: تعذر إرسال الرسالة. يرجى المحاولة لاحقاً أو مراسلتنا مباشرة على contact@adalen-dz.com
+  email:
+    admin_subject: "[أدالين — اتصل بنا] %subject%"
+    user_subject: تأكيد — رسالتك إلى أدالين
+    user_greeting: مرحباً %name%،
+    user_body: لقد استلمنا رسالتك من موقع أدالين. سيتواصل فريقنا معك في أقرب وقت.
+    user_copy_label: "نسخة من رسالتك :"
+    user_footer: "للاستفسارات : %email%"
 
 coop:
   title: التعاونية الصغيرة - أدالين

@@ -196,6 +196,7 @@ class RecrutementController extends AbstractController
             // Email au candidat
             $candidateEmail = (new Email())
                 ->from('contact@adalen-dz.com')
+                ->replyTo('contact@adalen-dz.com')
                 ->to($jobApplication->getEmail())
                 ->subject($this->translator->trans('job_application.email_templates.candidate.subject'))
                 ->html($this->renderView('emails/job_application_confirmation.html.twig', [
@@ -204,9 +205,10 @@ class RecrutementController extends AbstractController
 
             $mailer->send($candidateEmail);
 
-            // Email à l'équipe RH
+            // Email à l'équipe RH (reply-to = candidat pour répondre en un clic)
             $hrEmail = (new Email())
                 ->from('contact@adalen-dz.com')
+                ->replyTo($jobApplication->getEmail())
                 ->to('contact@adalen-dz.com')
                 ->subject($this->translator->trans('job_application.email_templates.hr.subject', ['position' => $jobApplication->getPosteSouhaite()]))
                 ->html($this->renderView('emails/job_application_notification.html.twig', [
