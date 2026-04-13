@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -28,17 +29,96 @@ class ActualityCrudController extends AbstractController
         $page = max(1, (int) $request->query->get('page', 1));
         $limit = 10;
         $offset = ($page - 1) * $limit;
-        
-        $actualities = $actualityRepository->findBy([], ['createdAt' => 'DESC'], $limit, $offset);
-        $total = count($actualityRepository->findAll());
-        $totalPages = ceil($total / $limit);
-        
+
+        ['search' => $search, 'published' => $published, 'q' => $q] = $this->resolveActualityAdminListFilters($request);
+
+        $total = $actualityRepository->countForAdminList($search, $published);
+        $totalPages = max(1, (int) ceil($total / $limit));
+        if ($page > $totalPages) {
+            $page = $totalPages;
+            $offset = ($page - 1) * $limit;
+        }
+
+        $actualities = $actualityRepository->findPageForAdminList($offset, $limit, $search, $published);
+
         return $this->render('admin/actuality/index.html.twig', [
             'actualities' => $actualities,
             'currentPage' => $page,
             'totalPages' => $totalPages,
             'total' => $total,
+            'searchQuery' => $q,
+            'publishedFilter' => $published === null ? 'all' : $published,
         ]);
+    }
+
+    #[Route('/export', name: 'app_admin_actuality_export', methods: ['GET'])]
+    public function export(ActualityRepository $actualityRepository, Request $request): Response
+    {
+        ['search' => $search, 'published' => $published] = $this->resolveActualityAdminListFilters($request);
+        $rows = $actualityRepository->findAllForAdminExport($search, $published);
+        $pubSlug = \in_array($published, ['1', '0'], true) ? '_pub' . $published : '';
+        $filename = 'actualites' . $pubSlug . '_' . (new \DateTimeImmutable())->format('Y-m-d_His') . '.csv';
+
+        $response = new StreamedResponse(function () use ($rows): void {
+            $out = fopen('php://output', 'w');
+            if ($out === false) {
+                return;
+            }
+            fwrite($out, "\xEF\xBB\xBF");
+            fputcsv($out, [
+                'id',
+                'title_fr',
+                'title_en',
+                'title_ar',
+                'description_fr',
+                'description_en',
+                'description_ar',
+                'images',
+                'video',
+                'is_published',
+                'created_at',
+                'updated_at',
+            ], ';');
+
+            foreach ($rows as $a) {
+                fputcsv($out, [
+                    (string) ($a->getId() ?? ''),
+                    (string) ($a->getTitleFr() ?? ''),
+                    (string) ($a->getTitleEn() ?? ''),
+                    (string) ($a->getTitleAr() ?? ''),
+                    (string) ($a->getDescriptionFr() ?? ''),
+                    (string) ($a->getDescriptionEn() ?? ''),
+                    (string) ($a->getDescriptionAr() ?? ''),
+                    (string) ($a->getImages() ?? ''),
+                    (string) ($a->getVideo() ?? ''),
+                    $a->isPublished() ? '1' : '0',
+                    $a->getCreatedAt() ? $a->getCreatedAt()->format('Y-m-d H:i:s') : '',
+                    $a->getUpdatedAt() ? $a->getUpdatedAt()->format('Y-m-d H:i:s') : '',
+                ], ';');
+            }
+            fclose($out);
+        });
+
+        $response->headers->set('Content-Type', 'text/csv; charset=UTF-8');
+        $response->headers->set('Content-Disposition', 'attachment; filename="' . $filename . '"');
+
+        return $response;
+    }
+
+    /**
+     * @return array{search: ?string, published: ?string, q: string}
+     */
+    private function resolveActualityAdminListFilters(Request $request): array
+    {
+        $q = trim((string) $request->query->get('q', ''));
+        $search = $q === '' ? null : $q;
+        $publishedRaw = (string) $request->query->get('published', 'all');
+        if (!\in_array($publishedRaw, ['all', '1', '0'], true)) {
+            $publishedRaw = 'all';
+        }
+        $published = $publishedRaw === 'all' ? null : $publishedRaw;
+
+        return ['search' => $search, 'published' => $published, 'q' => $q];
     }
 
     #[Route('/new', name: 'app_admin_actuality_new', methods: ['GET', 'POST'])]

@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Animator;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -16,28 +17,56 @@ class AnimatorRepository extends ServiceEntityRepository
         parent::__construct($registry, Animator::class);
     }
 
-//    /**
-//     * @return Animator[] Returns an array of Animator objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('a.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function countForAdminList(?string $search, ?string $active): int
+    {
+        $qb = $this->createQueryBuilder('a')->select('COUNT(a.id)');
+        $this->applyAdminListFilters($qb, $search, $active);
 
-//    public function findOneBySomeField($value): ?Animator
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
+
+    /**
+     * @return list<Animator>
+     */
+    public function findPageForAdminList(int $offset, int $limit, ?string $search, ?string $active): array
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->orderBy('a.createdAt', 'DESC')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit);
+        $this->applyAdminListFilters($qb, $search, $active);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @return list<Animator>
+     */
+    public function findAllForAdminExport(?string $search, ?string $active): array
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->orderBy('a.createdAt', 'DESC');
+        $this->applyAdminListFilters($qb, $search, $active);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    private function applyAdminListFilters(QueryBuilder $qb, ?string $search, ?string $active): void
+    {
+        if ($search !== null && $search !== '') {
+            $term = '%' . mb_strtolower($search, 'UTF-8') . '%';
+            $qb->andWhere($qb->expr()->orX(
+                'LOWER(COALESCE(a.name, \'\')) LIKE :animSearch',
+                'LOWER(COALESCE(a.title, \'\')) LIKE :animSearch',
+                'LOWER(COALESCE(a.description, \'\')) LIKE :animSearch',
+                'LOWER(COALESCE(a.category, \'\')) LIKE :animSearch',
+            ))->setParameter('animSearch', $term);
+        }
+
+        if ($active === '1') {
+            $qb->andWhere('a.isActive = :animAct')->setParameter('animAct', true);
+        } elseif ($active === '0') {
+            $qb->andWhere('a.isActive = :animAct')->setParameter('animAct', false);
+        }
+    }
 }

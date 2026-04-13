@@ -6,12 +6,17 @@
 
 {% block body %}
 <div class="activity-container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
         <h2 class="mb-0">Liste des activités ({{ total }})</h2>
-        <a href="{{ path('app_admin_activity_new') }}" class="btn btn-primary">
-            <i class="fas fa-plus me-2"></i>
-            Nouvelle activité
-        </a>
+        <div class="d-flex gap-2 flex-wrap">
+            <a href="{{ path('app_admin_activity_export', { q: searchQuery|default(''), active: activeFilter|default('all') }) }}" class="btn btn-success" title="Export selon recherche et filtre statut.">
+                <i class="fas fa-file-excel me-1"></i> Exporter Excel
+            </a>
+            <a href="{{ path('app_admin_activity_new') }}" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>
+                Nouvelle activité
+            </a>
+        </div>
     </div>
 
     {% for message in app.flashes('success') %}
@@ -21,6 +26,29 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     {% endfor %}
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <form method="get" action="{{ path('app_admin_activity_index') }}" class="row g-2 align-items-end">
+                <div class="col-md-6 col-lg-5">
+                    <label for="act-q" class="form-label mb-1">Recherche</label>
+                    <input type="search" id="act-q" name="q" class="form-control" value="{{ searchQuery|default('') }}" placeholder="Nom, description, tranche d'âge…" autocomplete="off">
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <label for="act-active" class="form-label mb-1">Statut</label>
+                    <select id="act-active" name="active" class="form-select">
+                        <option value="all" {{ activeFilter|default('all') == 'all' ? 'selected' : '' }}>Toutes</option>
+                        <option value="1" {{ activeFilter|default('all') == '1' ? 'selected' : '' }}>Actives</option>
+                        <option value="0" {{ activeFilter|default('all') == '0' ? 'selected' : '' }}>Inactives</option>
+                    </select>
+                </div>
+                <div class="col-md-12 col-lg-4 d-flex flex-wrap gap-2">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search me-1"></i> Filtrer</button>
+                    <a href="{{ path('app_admin_activity_index') }}" class="btn btn-outline-secondary">Réinitialiser</a>
+                </div>
+            </form>
+        </div>
+    </div>
 
     {% if activities|length > 0 %}
     <div class="card shadow-sm">
@@ -95,7 +123,7 @@
     <div class="card shadow-sm">
         <div class="card-body text-center py-5">
             <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
-            <p class="text-muted">Aucune activité enregistrée</p>
+            <p class="text-muted">{% if searchQuery|default('')|trim != '' or activeFilter|default('all') != 'all' %}Aucun résultat pour ces critères.{% else %}Aucune activité enregistrée{% endif %}</p>
             <a href="{{ path('app_admin_activity_new') }}" class="btn btn-primary">
                 <i class="fas fa-plus me-2"></i>
                 Créer la première activité
