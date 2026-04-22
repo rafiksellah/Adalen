@@ -3,11 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Actuality;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -34,17 +34,17 @@ class ActualityType extends AbstractType
                 'required' => false,
                 'attr' => ['class' => 'form-control', 'dir' => 'rtl']
             ])
-            ->add('descriptionFr', TextareaType::class, [
+            ->add('descriptionFr', CKEditorType::class, [
                 'label' => 'Description (Français)',
                 'required' => false,
                 'attr' => ['class' => 'form-control', 'rows' => 6]
             ])
-            ->add('descriptionEn', TextareaType::class, [
+            ->add('descriptionEn', CKEditorType::class, [
                 'label' => 'Description (English)',
                 'required' => false,
                 'attr' => ['class' => 'form-control', 'rows' => 6]
             ])
-            ->add('descriptionAr', TextareaType::class, [
+            ->add('descriptionAr', CKEditorType::class, [
                 'label' => 'الوصف (العربية)',
                 'required' => false,
                 'attr' => ['class' => 'form-control', 'rows' => 6, 'dir' => 'rtl']
