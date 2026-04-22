@@ -149,7 +149,20 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
     <script>
+        if (window.CKEDITOR) {
+            document.querySelectorAll('textarea.ckeditor').forEach((textarea) => {
+                if (!CKEDITOR.instances[textarea.id]) {
+                    CKEDITOR.replace(textarea, {
+                        removeButtons: 'Source',
+                        allowedContent: true,
+                        entities: false
+                    });
+                }
+            });
+        }
+
         document.querySelectorAll('.js-delete-image').forEach((btn) => {
             btn.addEventListener('click', async () => {
                 if (!confirm('Supprimer cette image ?')) return;

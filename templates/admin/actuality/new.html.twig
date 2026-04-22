@@ -102,3 +102,22 @@
     </div>
 </div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!window.CKEDITOR) return;
+            document.querySelectorAll('textarea.ckeditor').forEach((textarea) => {
+                if (!CKEDITOR.instances[textarea.id]) {
+                    CKEDITOR.replace(textarea, {
+                        removeButtons: 'Source',
+                        allowedContent: true,
+                        entities: false
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}
