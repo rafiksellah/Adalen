@@ -231,7 +231,7 @@
                             {% set description = latestActuality.descriptionAr|default(latestActuality.descriptionFr|default(latestActuality.descriptionEn)) %}
                         {% endif %}
                         {% if description and description|trim %}
-                            <div class="mb-3 {% if app.request.locale == 'ar' %}text-end{% endif %}">
+                            <div class="mb-3 js-linkify-news {% if app.request.locale == 'ar' %}text-end{% endif %}">
                                 {{ description|raw }}
                             </div>
                         {% endif %}
@@ -326,6 +326,36 @@
             // Mettre à jour l'ID de la dernière actualité vue quand la popup est fermée
             modalElement.addEventListener('hidden.bs.modal', function() {
                 localStorage.setItem(storageKey, actualityId.toString());
+            });
+
+            const urlRegex = /(https?:\/\/[^\s<]+)/g;
+            document.querySelectorAll('.js-linkify-news').forEach((container) => {
+                const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+                const textNodes = [];
+                let node;
+                while ((node = walker.nextNode())) {
+                    if (node.parentElement && node.parentElement.closest('a')) continue;
+                    if (urlRegex.test(node.nodeValue)) textNodes.push(node);
+                    urlRegex.lastIndex = 0;
+                }
+                textNodes.forEach((textNode) => {
+                    const text = textNode.nodeValue;
+                    const fragment = document.createDocumentFragment();
+                    let lastIndex = 0;
+                    text.replace(urlRegex, (match, _g1, offset) => {
+                        if (offset > lastIndex) fragment.appendChild(document.createTextNode(text.slice(lastIndex, offset)));
+                        const link = document.createElement('a');
+                        link.href = match;
+                        link.textContent = match;
+                        link.target = '_blank';
+                        link.rel = 'noopener noreferrer';
+                        fragment.appendChild(link);
+                        lastIndex = offset + match.length;
+                        return match;
+                    });
+                    if (lastIndex < text.length) fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+                    textNode.parentNode.replaceChild(fragment, textNode);
+                });
             });
         });
     </script>
