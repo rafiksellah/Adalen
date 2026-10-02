@@ -1,8 +1,7 @@
 ---
 deployment:
   tasks:
-    # EDIT ME: replace with the real document root of adalen-dz.com in cPanel > Domains
-    - export DEPLOYPATH=/home/CPANEL_USER/adalen-dz.com/
+    - export DEPLOYPATH=/home/Montessoridz/adalen-dz.com/
     - /usr/bin/rsync -rlptDv --exclude='.git/' --exclude='.cpanel.yml' --exclude='.env.local' --exclude='var/' --exclude='public/uploads/' ./ $DEPLOYPATH
     - cd $DEPLOYPATH && composer install --no-dev --optimize-autoloader --no-interaction
     - cd $DEPLOYPATH && php bin/console cache:clear --env=prod --no-warmup
