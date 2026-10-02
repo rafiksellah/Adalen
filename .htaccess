@@ -1,18 +1,39 @@
-# This file redirects all requests to the public directory
-# It's useful when the project is in a subdirectory
-
 <IfModule mod_rewrite.c>
+    Options -MultiViews
     RewriteEngine On
-    
-    # Redirect to public directory if not already there
-    RewriteCond %{REQUEST_URI} !^/public/
+
+    # Block access to the git repository and env files, in case this folder
+    # is ever served directly instead of through public/
+    RewriteRule ^\.git - [F,L]
+    RewriteRule ^\.env - [F,L]
+
+    # Redirect non-www to www
+    RewriteCond %{HTTP_HOST} ^adalen-dz\.com [NC]
+    RewriteRule ^(.*)$ https://www.adalen-dz.com/$1 [L,R=301]
+
+    # Redirect to HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Remove /public/ from the URL if it's present
+    RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+    RewriteRule ^ /%1 [L,NE,R=301]
+
+    # Serve files from the public directory
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # Don't rewrite files or directories
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ public/$1 [L]
-    
-    # Or redirect everything to public/index.php
-    RewriteCond %{REQUEST_URI} !^/public/
-    RewriteRule ^$ public/index.php [L]
-    RewriteRule ^(.*)$ public/index.php [L]
+    # Rewrite everything else to index.php
+    RewriteRule ^(.*)$ public/index.php [QSA,L]
 </IfModule>
 
+# Disable directory browsing
+Options -Indexes
+
+# Protect the .htaccess file
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>

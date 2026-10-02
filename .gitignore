@@ -20,3 +20,5 @@
 ###< public/assets   ###
 /public/uploads/
 ###< public/assets ###
+
+/error_log
