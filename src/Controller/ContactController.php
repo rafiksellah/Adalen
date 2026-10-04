@@ -67,8 +67,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * Envoie d’abord l’e-mail visiteur avec Bcc vers la boîte site (contourne souvent le filtrage From=To),
-     * puis la notification détaillée à l’équipe.
+     * Envoie l’e-mail de confirmation au visiteur, puis la notification détaillée à l’équipe.
      *
      * @return bool true si tous les envois ont réussi
      */
@@ -86,12 +85,6 @@ class ContactController extends AbstractController
                 'contact' => $message,
                 'locale' => $locale,
             ]));
-
-        $visitor = strtolower((string) $message->getEmail());
-        $notify = strtolower(self::NOTIFY_EMAIL);
-        if ($visitor !== $notify) {
-            $userEmail->addBcc(self::NOTIFY_EMAIL);
-        }
 
         try {
             $mailer->send($userEmail);
