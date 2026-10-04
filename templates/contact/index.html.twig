@@ -32,6 +32,10 @@
                             {{ form_row(form.email) }}
                             {{ form_row(form.subject) }}
                             {{ form_row(form.message) }}
+                            <div style="position:absolute; left:-9999px;" aria-hidden="true" tabindex="-1">
+                                {{ form_widget(form.website, {'attr': {'autocomplete': 'off', 'tabindex': '-1'}}) }}
+                            </div>
+                            {{ form_widget(form.formRenderedAt) }}
                             {{ form_row(form.submit) }}
                         {{ form_end(form) }}
                     </div>

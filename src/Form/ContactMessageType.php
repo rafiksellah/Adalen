@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Model\ContactMessage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -38,6 +39,17 @@ class ContactMessageType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'contact.send',
                 'attr' => ['class' => 'btn btn-primary'],
+            ])
+            // Honeypot: real visitors never see or fill this field, bots usually do.
+            ->add('website', TextType::class, [
+                'mapped' => false,
+                'required' => false,
+                'label' => false,
+            ])
+            // Lets the controller reject submissions sent faster than a human could type.
+            ->add('formRenderedAt', HiddenType::class, [
+                'mapped' => false,
+                'data' => (string) time(),
             ])
         ;
     }

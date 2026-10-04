@@ -35,6 +35,22 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $honeypot = (string) $form->get('website')->getData();
+            $renderedAt = (int) $form->get('formRenderedAt')->getData();
+            $elapsedSeconds = time() - $renderedAt;
+
+            if ('' !== $honeypot || $elapsedSeconds < 3) {
+                $this->logger->warning('Contact form submission blocked as spam', [
+                    'honeypot_filled' => '' !== $honeypot,
+                    'elapsed_seconds' => $elapsedSeconds,
+                ]);
+
+                // Pretend success so bots don't learn to adapt.
+                $this->addFlash('success', $this->translator->trans('contact.messages.success'));
+
+                return $this->redirectToRoute('app_contact', ['_locale' => $request->getLocale()]);
+            }
+
             $stored = (new ContactRequest())
                 ->setNom((string) $message->getName())
                 ->setEmail((string) $message->getEmail())
